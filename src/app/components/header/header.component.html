@@ -1,17 +1,55 @@
-<div class="main">
-  <div class="brand-icon">TRAVALISTA</div>
-  <div class="nav">
-    <div class="navbar-heads">
-      <div>Home</div>
-      <div>About Us</div>
-      <div>Popular Destination</div>
-      <div>Contact Us</div>
-      <div></div>
-
-      <div class="buttons">
-        <div class="btn1">Sign In</div>
-        <div class="btn2">Sign Up</div>
+<body class="vh-100">
+  <nav class="navbar navbar-expand-lg bg-transparent">
+    <div class="container-fluid mx-lg-5">
+      <a class="navbar-brand" href="#">TRAVALISTA</a>
+      <button
+        class="navbar-toggler shadow-none border-0"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="sidebar offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">TRAVALISTA</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul
+            class="navbar-nav justify-content-end align-items-center flex-grow-1 pe-3"
+          >
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#">Popular Destinations</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+          <div class="buttons">
+            <button class="btn1">Sign In</button>
+            <button class="btn2">Sign Up</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </nav>
+</body>
