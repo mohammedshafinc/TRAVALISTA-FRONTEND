@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,6 +8,32 @@ import { Component } from '@angular/core';
 })
 export class SignupComponent {
   selectedImg: any = null;
+  submit = false
+
+  constructor(private fb:FormBuilder){}
+
+  registrationForm = this.fb.group({
+    fullName:['',Validators.required],
+    email:['',[Validators.required,Validators.email]],
+    passportNumber:[''],
+    mobileNumber:['',[Validators.required,Validators.pattern('[0-9]{10}')]],
+    country:[''],
+    state:[''],
+    district:[''],
+    image:[''],
+    password:[''],
+    confirmPassword:['']
+  })
+
+  get f(){
+    return this.registrationForm.controls
+  }
+
+  onsubmit(){
+    // console.log('clicked');
+    this.submit = true
+    
+  }
 
   onFileSelected(event: any) {
     this.selectedImg = event.target.files[0];

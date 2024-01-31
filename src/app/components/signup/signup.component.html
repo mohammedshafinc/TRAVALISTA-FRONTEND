@@ -33,120 +33,74 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form>
+              <form [formGroup]="registrationForm" (ngSubmit)="onsubmit()">
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example1cg"> Name</label>
-                  <input
-                    type="text"
-                    id="form3Example1cg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="fullname">Full Name</label>
+                  <input type="text" id="fullname" class="form-control form-control-lg" formControlName="fullName" [ngClass]="{'is-invalid':submit&&f.fullName.errors}" />
+                  <div *ngIf="submit&&f.fullName.errors" class="invalid-feedback">
+                  <div  *ngIf="f.fullName.errors?.['required']"> First Name is Required
+
+                  </div>
+                  </div>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3cg"> Email</label>
-                  <input
-                    type="email"
-                    id="form3Example3cg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="email"> Email</label>
+                  <input type="email"  id="email"  class="form-control form-control-lg" formControlName="email" [ngClass]="{'is-invalid':submit&&f.email.errors}"/>
+                  <div *ngIf="submit&&f.email.errors" class="invalid-feedback">
+                    <div  *ngIf="f.email.errors?.['required']"> email is Required
+                    <div  *ngIf="f.email.errors?.['email']"> mobile Number is Required</div>
+
+                    </div>
+                  </div>
+                  
                 </div>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3cg"
-                    >mobile Number</label
-                  >
-                  <input
-                    type="number"
-                    id="form3Example3cg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="passportnumber">Passport Number(optional)</label>
+                  <input  type="number"  id="passportnumber"  class="form-control form-control-lg"/>
                 </div>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3cg"
-                    >mobile Number</label
-                  >
-                  <input
-                    type="number"
-                    id="form3Example3cg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="mobilenumber">mobile Number</label>
+
+                  <input type="number"  id="mobilenumber"  class="form-control form-control-lg" formControlName="mobileNumber" [ngClass]="{'is-invalid':submit&&f.mobileNumber.errors}"/>
+                  <div *ngIf="submit&&f.mobileNumber.errors" class="invalid-feedback">
+                    <div  *ngIf="f.mobileNumber.errors?.['required']"> mobile Number is Required</div>
+                    <div  *ngIf="f.mobileNumber.errors?.['pattern']"> mobile Number is Required</div>
+                  </div>
+               
                 </div>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3cg"
-                    >Country</label
-                  >
-                  <input
-                    type="text"
-                    id="form3Example3cg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="country">Country</label>
+                  <input  type="text"  id="country"  class="form-control form-control-lg"/>
                 </div>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3cg">State</label>
-                  <input
-                    type="text"
-                    id="form3Example3cg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="state">State</label>
+                  <input type="text"  id="state"  class="form-control form-control-lg"/>
                 </div>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3cg"
-                    >District</label
-                  >
-                  <input
-                    type="text"
-                    id="form3Example3cg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="district" >District</label>
+                  <input type="text" id="district" class="form-control form-control-lg"/>
                 </div>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="customFile"
-                    >Attach image(optional)</label
-                  >
-                  <input
-                    type="file"
-                    class="form-control"
-                    id="customFile"
-                    (change)="onFileSelected($event)"
-                  />
+                  <label class="form-label" for="customFile" >Attach image(optional)</label>
+                  <input type="file" class="form-control" id="customFile" (change)="onFileSelected($event)"/>
                 </div>
                 <div *ngIf="selectedImg">
-                  <img
-                    [src]="selectedImg"
-                    alt="userImg"
-                    class="image-preview"
-                  />
+                  <img [src]="selectedImg" alt="userImg"  class="image-preview"/>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cg"
-                    >Password</label
-                  >
-                  <input
-                    type="password"
-                    id="form3Example4cg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="password">Password</label>
+                  <input type="password"  id="password"  class="form-control form-control-lg"/>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cdg"
-                    >Repeat password</label
-                  >
-                  <input
-                    type="password"
-                    id="form3Example4cdg"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label" for="confirmpassword">Confirm password</label>
+                  <input type="password"  id="confirmpassword"  class="form-control form-control-lg"/>
                 </div>
 
                 <div class="form-check d-flex justify-content-center mb-5">
-                  <input
-                    class="form-check-input me-2"
-                    type="checkbox"
-                    value=""
-                    id="form2Example3cg"
-                  />
+                  <input  class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg"/>
                   <label class="form-check-label" for="form2Example3g">
                     I agree all statements in
                     <a href="#!" class="text-body"><u>Terms of service</u></a>
@@ -154,12 +108,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button
-                    type="button"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-                  >
-                    Register
-                  </button>
+                  <button type="submit"  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">  Register  </button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">
