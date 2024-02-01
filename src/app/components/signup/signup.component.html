@@ -24,6 +24,9 @@
 <section class="vh-150 bg-image" style="background-color: black">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
+      <div class="text-white">
+        <button class="btn btn-success" routerLink="/guideregistration">guide</button>
+      </div>
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div
@@ -74,32 +77,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="passportnumber"
-                    >Passport Number(optional)</label
-                  >
-                  <input
-                    type="number"
-                    id="passportnumber"
-                    class="form-control form-control-lg"
-                    formControlName = "passportNumber"
-                    [ngClass]="{
-                      'is-invalid': submit && f.passportNumber.errors
-                    }"
-                  />
-                  <div
-                  *ngIf="submit && f.passportNumber.errors"
-                  class="invalid-feedback"
-                >
-                  <div *ngIf="f.passportNumber.errors?.['required']">
-                    passport Number  is Required
-                  </div>
-                  <div *ngIf="f.passportNumber.errors?.['pattern']">
-                    passport Number  is Required
-                  </div>
-                </div>
-                  
-                </div>
+               
                 <div class="form-outline mb-4">
                   <label class="form-label" for="mobilenumber"
                     >mobile Number</label
@@ -127,105 +105,13 @@
                   </div>
                 </div>
 
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="country">Country</label>
-                  <input
-                    type="text"
-                    id="country"
-                    class="form-control form-control-lg"
-                    formControlName = "country"
-                    [ngClass]="{
-                      'is-invalid': submit && f.country.errors
-                    }"
-                  />
-                  <div
-                  *ngIf="submit && f.country.errors"
-                  class="invalid-feedback"
-                >
-                  <div *ngIf="f.country.errors?.['required']">
-                   Country is Required
-                  </div>
-                </div>
-                </div>
+               
 
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="state">State</label>
-                  <input
-                    type="text"
-                    id="state"
-                    class="form-control form-control-lg"
-                    formControlName = "state"
-                    [ngClass]="{
-                      'is-invalid': submit && f.state.errors
-                    }"
-                  />
-                  <div
-                  *ngIf="submit && f.state.errors"
-                  class="invalid-feedback"
-                >
-                  <div *ngIf="f.state.errors?.['required']">
-                   state is Required
-                  </div>
-                </div>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="district">District</label>
-                  <input
-                    type="text"
-                    id="district"
-                    class="form-control form-control-lg"
-                    formControlName = "district"
-                    [ngClass]="{
-                      'is-invalid': submit && f.district.errors
-                    }"
-                  />
-                  <div
-                  *ngIf="submit && f.district.errors"
-                  class="invalid-feedback"
-                >
-                  <div *ngIf="f.district.errors?.['required']">
-                   District is Required
-                  </div>
-                </div>
-                </div>
+              
 
 
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="customFile"
-                    >Attach image(optional)</label
-                  >
-                  <input
-                    type="file"
-                    class="form-control"
-                    formControlName="image"
-                    id="customFile"
-                    (change)="onFileSelected($event)"
-                    [ngClass]="{ 'is-invalid': submit && f.image.errors }"
-                  />
-                  <div
-                    class="invalid-feedback"
-                    *ngIf="submit && f.image.errors"
-                  >
-                    <div *ngIf="f.image.errors?.['required']">
-                      Please select an image
-                    </div>
-                    <div *ngIf="f.image?.hasError('invalidImageType')">
-                      Invalid image type. Please select a JPEG, PNG, or JPG
-                      file.
-                    </div>
-                    <!-- <div *ngIf="f.image?.hasError('invalidImageSize')">Image size exceeds 500 KB.</div> -->
-                    <div *ngIf="fileSize > 500">Image size exceeds 500 KB.</div>
-                  </div>
-                </div>
-                <div *ngIf="selectedImg">
-                  <img
-                    [src]="selectedImg"
-                    alt="userImg"
-                    class="image-preview"
-                  />
-                </div>
 
+              
                 <div class="form-outline mb-4">
                   <label class="form-label" for="password">Password</label>
                   <input
@@ -233,11 +119,11 @@
                     id="password"
                     class="form-control form-control-lg"
                     formControlName = "password"
-                    [ngClass]="{ 'is-invalid': submit && f.image.errors }"
+                    [ngClass]="{ 'is-invalid': submit && f.password.errors }"
                   />
                   <div *ngIf="submit && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors['required']">Password is required</div>
-                    <div *ngIf="f.password.errors['pattern']">Password must be lowercase and follow a specific format</div>
+                    <div *ngIf="f.password.errors['pattern']">Password is not in a specific format</div>
                     <div *ngIf="f.password.errors['minlength']">Password minimum length must be 8</div>
                   </div>
                   
@@ -252,8 +138,15 @@
                     type="password"
                     id="confirmpassword"
                     class="form-control form-control-lg"
+                  formControlName = "confirmPassword"
+                    [ngClass]="{ 'is-invalid': submit && f.confirmPassword.errors }"
                   />
+                  <div *ngIf="submit && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors['required']">confirmPassword is required</div>
+                 
+                  </div>
                 </div>
+
 
                 <div class="form-check d-flex justify-content-center mb-5">
                   <input
