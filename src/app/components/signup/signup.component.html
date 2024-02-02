@@ -1,126 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="main">
-      <div class="form">
-        <div class="img">
-          <p class="head">EXPLORE NEAR NATURAL SPOTS</p>
-        </div>
-        <div class="sign">
-          <div class="title"><h1>CREATE ACCOUNT</h1></div>
-
-          <form [formGroup]="registrationForm" (ngSubmit)="onsubmit()">
-            <div class="fields">
-              <div class="input-container">
-                <i class="fa-regular fa-user icon"></i>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  class="input-field"
-                  formControlName="fullName"
-                  [ngClass]="{ 'is-invalid': submit && f.fullName.errors }"
-                />
-                <div
-                  *ngIf="submit && f.fullName.errors"
-                  class="invalid-feedback"
-                >
-                  <div *ngIf="f.fullName.errors?.['required']">
-                    Full Name is Required
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="input-container">
-                <i class="fa-regular fa-envelope icon"></i>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  class="input-field"
-                  formControlName="email"
-                  [ngClass]="{ 'is-invalid': submit && f.email.errors }"
-                />
-                <div *ngIf="submit && f.email.errors" class="invalid-feedback">
-                  <div *ngIf="f.email.errors?.['required']">
-                    email is Required
-                    <div *ngIf="f.email.errors?.['email']">Email is not in correct format</div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="input-container">
-                <i class="fa-solid fa-mobile icon"></i>
-                <input type="number" placeholder="Mobile" class="input-field"   formControlName="mobileNumber"
-                [ngClass]="{
-                  'is-invalid': submit && f.mobileNumber.errors
-                }"
-                 />
-                 <div *ngIf="submit && f.mobileNumber.errors" class="invalid-feedback">
-                  <div *ngIf="f.mobileNumber.errors?.['required']">
-                    mobile Number is Required
-                  </div>
-                  <div *ngIf="f.mobileNumber.errors?.['pattern']">
-                    mobile Number is Required
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="input-container">
-                <i class="fa-solid fa-lock icon" style="color: #000000"></i>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  class="input-field"
-                  formControlName="password"
-    [ngClass]="{ 'is-invalid': submit && f.password.errors }"
-                />
-                <div *ngIf="submit && f.password.errors" class="invalid-feedback">
-                  <div *ngIf="f.password.errors['required']">Password is required</div>
-                  <div *ngIf="f.password.errors['pattern']">
-                    Password is not in a specific format
-                  </div>
-                  <div *ngIf="f.password.errors['minlength']">
-                    Password minimum length must be 8
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="input-container">
-                <i class="fa-solid fa-lock icon" style="color: #000000"></i>
-                <input
-                  type="password"
-                  placeholder="Confirm Password"
-                  class="input-field"
-                  formControlName="confirmPassword"
-                  [ngClass]="{ 'is-invalid': submit && f.confirmPassword.errors }"
-                />
-                <div *ngIf="submit && f.confirmPassword.errors" class="invalid-feedback">
-                  <div *ngIf="f.confirmPassword.errors['required']">
-                    confirmPassword is required
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="register">
-              <button class="btn" type="submit">Create Account</button>
-            </div>
-            <p class="text-center text-muted mt-5 mb-0">
-              Have already an account?
-              <a href="#!" class="fw-bold text-body"><u>Login here</u></a>
-            </p>
-          </form>
-        </div>
-      </div>
+<div class="main" style="position: static;">
+  <div class="form">
+    <div class="img">
+      <p class="head">EXPLORE NEAR NATURAL SPOTS</p>
     </div>
-  </body>
-</html>
+    <div class="sign">
+      <div class="title"><h1>CREATE ACCOUNT</h1></div>
+
+      <form [formGroup]="registrationForm" (ngSubmit)="onsubmit()">
+        <div class="fields">
+          <div class="input-container">
+            <i class="fa-regular fa-user icon"></i>
+            <input
+              type="text"
+              placeholder="Name"
+              class="input-field"
+              formControlName="fullName"
+              [ngClass]="{ 'is-invalid': submit && f.fullName.errors }"
+            />
+            <div *ngIf="submit && f.fullName.errors" class="invalid-feedback">
+              <div *ngIf="f.fullName.errors?.['required']">
+                Full Name is Required
+              </div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <i class="fa-regular fa-envelope icon"></i>
+            <input
+              type="email"
+              placeholder="Email"
+              class="input-field"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': submit && f.email.errors }"
+            />
+            <div *ngIf="submit && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors?.['required']">
+                email is Required
+                <div *ngIf="f.email.errors?.['email']">
+                  Email is not in correct format
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <i class="fa-solid fa-mobile icon"></i>
+            <input
+              type="number"
+              placeholder="Mobile"
+              class="input-field"
+              formControlName="mobileNumber"
+              [ngClass]="{
+                'is-invalid': submit && f.mobileNumber.errors
+              }"
+            />
+            <div
+              *ngIf="submit && f.mobileNumber.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.mobileNumber.errors?.['required']">
+                mobile Number is Required
+              </div>
+              <div *ngIf="f.mobileNumber.errors?.['pattern']">
+                mobile Number is Required
+              </div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <i class="fa-solid fa-lock icon" style="color: #000000"></i>
+            <input
+              type="password"
+              placeholder="Password"
+              class="input-field"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': submit && f.password.errors }"
+            />
+            <div *ngIf="submit && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors['required']">
+                Password is required
+              </div>
+              <div *ngIf="f.password.errors['pattern']">
+                Password is not in a specific format
+              </div>
+              <div *ngIf="f.password.errors['minlength']">
+                Password minimum length must be 8
+              </div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <i class="fa-solid fa-lock icon" style="color: #000000"></i>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              class="input-field"
+              formControlName="confirmPassword"
+              [ngClass]="{ 'is-invalid': submit && f.confirmPassword.errors }"
+            />
+            <div
+              *ngIf="submit && f.confirmPassword.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.confirmPassword.errors['required']">
+                confirmPassword is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="register">
+          <button class="btn" type="submit" mat-button (click)="openDialog()">
+            Create Account
+          </button>
+        </div>
+        <p class="text-center text-muted mt-5 mb-0">
+          Have already an account?
+          <a href="#!" class="fw-bold text-body"><u>Login here</u></a>
+        </p>
+      </form>
+
+ 
+      
+      
+    </div>
+  </div>
+</div>
+

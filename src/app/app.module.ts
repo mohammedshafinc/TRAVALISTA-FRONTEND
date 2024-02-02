@@ -8,7 +8,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
-import { GuidesignupComponent } from './components/guidesignup/guidesignup.component'
+import { GuidesignupComponent } from './components/guidesignup/guidesignup.component';
+import { OtpVerificationDialogComponentComponent } from './components/signup/otp-verification-dialog-component/otp-verification-dialog-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -16,14 +19,17 @@ import { GuidesignupComponent } from './components/guidesignup/guidesignup.compo
     SignupComponent,
     HeaderComponent,
     FooterComponent,
-    GuidesignupComponent
+    GuidesignupComponent,
+    OtpVerificationDialogComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

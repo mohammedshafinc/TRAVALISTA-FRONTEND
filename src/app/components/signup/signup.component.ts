@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { SignupService } from 'src/app/signup.service';
+import { OtpVerificationDialogComponentComponent } from './otp-verification-dialog-component/otp-verification-dialog-component.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-signup',
@@ -12,8 +14,15 @@ export class SignupComponent {
   selectedImg: any = null;
   submit = false
   fileSize = 0;
+  // showOtpModal = false;
 
-  constructor(private fb:FormBuilder ,private http:HttpClient , private signupserv:SignupService){}
+  constructor(
+    private fb:FormBuilder ,
+    private http:HttpClient ,
+    private signupserv:SignupService , 
+    private dialog:MatDialog,
+   
+    ){}
 
   registrationForm = this.fb.group({
     fullName:['',Validators.required],
@@ -24,6 +33,29 @@ export class SignupComponent {
     password:['',[Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[$@^!%*?&])(?=.*[0-7]).{8,}$"),Validators.minLength(8)]],
     confirmPassword: ['']
   })
+
+
+  openDialog(){
+    setTimeout(() => {
+      const dialogRef = this.dialog.open(OtpVerificationDialogComponentComponent,{
+        width:'400px',
+       
+      
+        
+      })
+      
+      dialogRef.afterClosed().subscribe(result =>{
+        console.log("dialog was closed");
+        
+      })
+      
+    }, 1000);
+   
+    
+    
+  }
+  
+  
 
 //   confirmPasswordValidator(control: AbstractControl): ValidationErrors | null {
 //     const password = control.get('password');
@@ -75,6 +107,7 @@ export class SignupComponent {
     this.submit = true
    const formvalues =  this.registrationForm.value
    console.log(formvalues);
+  //  this.openOtpModal()
 
    
   this.signupserv.apiCall(formvalues).subscribe({
@@ -85,12 +118,20 @@ export class SignupComponent {
       console.log(err);
       
     }
-  })
-   
-
-    
-    
+  }) 
   }
+
+  // openOtpModal(){
+  //   this.showOtpModal = true
+  // }
+  // closeOtpModal(){
+  //   this.showOtpModal = false
+  // }
+
+  // openAndCloseModal() {
+  //   console.log('called the function');
+  //   this.showOtpModal = !this.showOtpModal;
+  // }
 
 //   onFileSelected(event: any) {
     
