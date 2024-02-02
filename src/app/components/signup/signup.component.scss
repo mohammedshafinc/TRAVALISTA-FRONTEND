@@ -1,50 +1,144 @@
-// .main {
-//   width: 100%;
-//   height: 100vh;
-//   //   background-color: red;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-// .form {
-//   width: 900px;
-//   //   background: yellow;
-//   height: 600px;
-//   display: flex;
-//   border-radius: 10px;
-// }
-// .img {
-//   width: 50%;
-//   height: 100%;
-//   background-image: url(../../../assets/mountain.png);
-//   background-size: cover;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   border-radius: 10px;
-// }
-// .sign {
-//   width: 50%;
-//   height: 100%;
-//   background-color: white;
-//   border: 2px solid;
-// }
-// .head {
-//   width: 300px;
-//   text-align: center;
-//   color: white;
-//   font-size: 35px;
-//   font-family: Noto Serif;
-//   font-weight: 500;
-//   margin-bottom: 170px;
-
-//   //   word-wrap: break-word;
-// }
-img {
+body {
+  margin: 0;
+  padding: 0;
+}
+.main {
   width: 100%;
-  background-color: red;
+  height: 100vh;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.image-preview {
-  width: 100px;
-  height: 100px;
+.form {
+  width: 900px;
+  /* background: yellow; */
+  height: 600px;
+  display: flex;
+  /* border-radius: 30px; */
 }
+.img {
+  width: 50%;
+  height: 100%;
+  background-image: url(../../../assets/mountain.png);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 0px 0px 10px;
+}
+.sign {
+  width: 50%;
+  height: 99.8%;
+  background-color: white;
+  border: 1px solid;
+  display: flex;
+  border-radius: 0px 10px 10px 0px;
+  justify-content: center;
+}
+.head {
+  width: 300px;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  font-family: Noto Serif;
+  font-weight: 500;
+  margin-bottom: 170px;
+
+  word-wrap: break-word;
+}
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+  margin-top: 150px;
+  /* border: 1px solid; */
+}
+.fields input {
+  height: 40px;
+  background-color: #f6f6f6;
+  border: none;
+  border-radius: 10px;
+  width: 250px;
+}
+.fields ::placeholder {
+  /* text-align: center; */
+  color: grey;
+}
+.fields input:focus {
+  outline: none;
+}
+
+.input-container {
+  position: relative;
+  width: 200px;
+}
+
+.input-field {
+  padding-left: 30px; /* Adjust as needed */
+}
+
+.icon {
+  position: absolute;
+  left: 10px; /* Adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  color: grey; /* Adjust icon color as needed */
+  z-index: 1; /* Ensure the icon is above the input field */
+}
+
+/* Adjust icon size if necessary */
+.icon {
+  font-size: 16px;
+}
+
+.fields input {
+  padding-left: 40px; /* Adjust as needed */
+}
+input[type="text"]:focus {
+  outline: none;
+ 
+}
+.fields input[type="text"],
+.fields input[type="email"],
+.fields input[type="password"],
+.fields input[type="number"] {
+  padding-left: 50px;
+}
+.btn{
+  margin-top: 150px;
+  width: 300px;
+  height: 40px;
+  background: #3048C1;
+  color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  position: absolute;
+  bottom:  -28px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.register{
+  position: relative;
+  /* border: 1px solid; */
+  height: 30px;
+  /* padding-bottom: 50px; */
+  margin-top: 10px;
+}
+.title{
+  /* border: 1px solid; */
+  height: 109px;
+  width: 0;
+}
+.title h1{
+  white-space: nowrap;
+}
+
+
+
