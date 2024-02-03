@@ -6,18 +6,22 @@
       Enter the code we just sent to your mobile phone {{data.mobileNumber}}
       <b class="text-danger"></b>
     </span>
+    <form action="" class="modal-content card">
     <div class="d-flex flex-row mt-5">
-      <input type="text" class="form-control" >
-      <input type="text" class="form-control">
-      <input type="text" class="form-control">
-      <input type="text" class="form-control">
+     <form action="" (ngSubmit)="onOtpSubmit()">
+      <input type="text" class="form-control" [(ngModel)]="otp.one" name="one">
+      <input type="text" class="form-control"  [(ngModel)]="otp.two" name="two">
+      <input type="text" class="form-control"  [(ngModel)]="otp.three" name="three">
+      <input type="text" class="form-control"  [(ngModel)]="otp.four" name="four">
+      <div class="text-center mt-5">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        <span class="d-block mobile-text">Didn't receive the code?</span>
+        <span class="font-weight-bold text-danger cursor ">Resend</span>
+      </div>
+    </form>
     </div>
+  </form>
 
     
-    <div class="text-center mt-5">
-        <button class="btn btn-primary">Submit</button>
-      <span class="d-block mobile-text">Didn't receive the code?</span>
-      <span class="font-weight-bold text-danger cursor ">Resend</span>
-    </div>
   </div>
   
