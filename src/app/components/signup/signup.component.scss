@@ -35,6 +35,7 @@ body {
   display: flex;
   border-radius: 0px 10px 10px 0px;
   justify-content: center;
+
 }
 .head {
   width: 300px;
@@ -135,11 +136,31 @@ input[type=number]::-webkit-outer-spin-button {
   /* border: 1px solid; */
   height: 109px;
   width: 0;
+  padding-top: 30px;
 }
 .title h1{
   white-space: nowrap;
 }
 
 
-// otp verification
+
+@media (min-width:481px)  {  }
+@media (min-width:641px)  { 
+
+.form{
+  width: 78%;
+}
+ }
+
+ @media (min-width:874){
+  .form{
+    width: 80%;
+  }
+ }
+@media (min-width:961px)  {
+
+  .form{
+    width: 70%;
+  }
+ }
 

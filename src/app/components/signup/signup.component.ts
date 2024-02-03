@@ -1,9 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { SignupService } from 'src/app/signup.service';
 import { OtpVerificationDialogComponentComponent } from './otp-verification-dialog-component/otp-verification-dialog-component.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UserDAtaService } from 'src/app/userData.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,147 +17,83 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  selectedImg: any = null;
-  submit = false
-  fileSize = 0;
-  // showOtpModal = false;
+  
+  variable = 'string'
+  submit = false;
+ 
+
 
   constructor(
-    private fb:FormBuilder ,
-    private http:HttpClient ,
-    private signupserv:SignupService , 
-    private dialog:MatDialog,
-   
-    ){}
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private signupserv: SignupService,
+    private dialog: MatDialog,
+    private userData : UserDAtaService
+  ) {}
 
   registrationForm = this.fb.group({
-    fullName:['',Validators.required],
-    email:['',[Validators.required,Validators.email]],
-  
-    mobileNumber:['',[Validators.required,Validators.pattern('[0-9]{10}')]],
-   
-    password:['',[Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[$@^!%*?&])(?=.*[0-7]).{8,}$"),Validators.minLength(8)]],
-    confirmPassword: ['']
-  })
+    fullName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
 
+    mobileNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
 
-  openDialog(){
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(
+          '^(?=.*[a-z])(?=.*[A-Z])(?=.*[$@^!%*?&])(?=.*[0-7]).{8,}$'
+        ),
+        Validators.minLength(8),
+      ],
+    ],
+    confirmPassword: [''],
+  });
+
+  openDialog() {
     setTimeout(() => {
-      const dialogRef = this.dialog.open(OtpVerificationDialogComponentComponent,{
-        width:'400px',
-       
+      const dialogRef = this.dialog.open(
+        OtpVerificationDialogComponentComponent,
+        {
+          width: '400px', 
+        }
+      );
+
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('dialog was closed');
+      });
+
       
-        
-      })
-      
-      dialogRef.afterClosed().subscribe(result =>{
-        console.log("dialog was closed");
-        
-      })
       
     }, 1000);
-   
-    
-    
+
+
   }
+
   
-  
-
-//   confirmPasswordValidator(control: AbstractControl): ValidationErrors | null {
-//     const password = control.get('password');
-//     const confirmPassword = control.get('confirmPassword');
-
-//     if (password && confirmPassword && password.value !== confirmPassword.value) {
-//         return { 'passwordMismatch': true };
-//     }
-
-//     return null;
-// }
 
   formData = new FormData();
 
-  
-  
-
-  // async validateImage(control:AbstractControl):Promise<{[key:string]:any}| null>{
-  //   const file = control.value
-  //   if(file){
-  //     const fileType = file.type;
-  //     const allowedTypes = ['image/jpg','image/jpeg','image/png']
-  //     if(!allowedTypes.includes(fileType)){
-  //       return {invalidImageType:true}
-  //     }
-  //     const fileSize = file.size;
-  //     const maxSize = 500*1024;
-  //     if(fileSize > maxSize){
-  //       return {invalidFileSize:true}
-  //     }
-  //   }
-  //   return null
-  // }
-
-  get f(){
-    return this.registrationForm.controls
+  get f() {
+    return this.registrationForm.controls;
   }
 
-  // get getFileSize() {
-  //   if(this.fileSize > 500) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  onsubmit() {
+    
+    this.submit = true;
+    const formvalues = this.registrationForm.value;
+    console.log(formvalues);
+ 
 
-  onsubmit(){
-    // console.log('clicked');
-    this.submit = true
-   const formvalues =  this.registrationForm.value
-   console.log(formvalues);
-  //  this.openOtpModal()
-
-   
-  this.signupserv.apiCall(formvalues).subscribe({
-    next:(data)=>{
-      console.log("response from server" , data)
-    },
-    error:(err)=>{
-      console.log(err);
+    this.signupserv.apiCall(formvalues).subscribe({
+      next: (data) => {
+        console.log('response from server', data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
       
-    }
-  }) 
+    });
+    this.userData.setData(this.registrationForm.value)
   }
-
-  // openOtpModal(){
-  //   this.showOtpModal = true
-  // }
-  // closeOtpModal(){
-  //   this.showOtpModal = false
-  // }
-
-  // openAndCloseModal() {
-  //   console.log('called the function');
-  //   this.showOtpModal = !this.showOtpModal;
-  // }
-
-//   onFileSelected(event: any) {
-    
-//       const file = event.target.files[0];
-//       if (file) {
-//         const fileSizeInKb = file.size / 1024;
-//         this.fileSize = fileSizeInKb;
-    
-//         const reader = new FileReader();
-//         reader.onload = (readerEvent: any) => {
-//           this.selectedImg = readerEvent.target.result;
-//         };
-//         reader.readAsDataURL(file);
-    
-//         this.formData.append('file', file);
-       
-
-      
-//     }
-
-//     this.submit = false
-//   }
 }

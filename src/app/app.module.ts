@@ -11,7 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { GuidesignupComponent } from './components/guidesignup/guidesignup.component';
 import { OtpVerificationDialogComponentComponent } from './components/signup/otp-verification-dialog-component/otp-verification-dialog-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [{provide:MatDialogRef,useValue:{}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
