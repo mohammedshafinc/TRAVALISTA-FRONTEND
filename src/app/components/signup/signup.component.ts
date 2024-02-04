@@ -17,18 +17,16 @@ import { UserDAtaService } from 'src/app/userData.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  
-  variable = 'string'
+  variable = 'string';
   submit = false;
- 
-
+  errmsg = '';
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private signupserv: SignupService,
     private dialog: MatDialog,
-    private userData : UserDAtaService
+    private userData: UserDAtaService
   ) {}
 
   registrationForm = this.fb.group({
@@ -55,22 +53,17 @@ export class SignupComponent {
       const dialogRef = this.dialog.open(
         OtpVerificationDialogComponentComponent,
         {
-          width: '400px', 
+          width: '400px',
         }
       );
 
       dialogRef.afterClosed().subscribe((result) => {
         console.log('dialog was closed');
       });
-
-      
-      
     }, 1000);
-
-
+    
+   
   }
-
-  
 
   formData = new FormData();
 
@@ -79,21 +72,21 @@ export class SignupComponent {
   }
 
   onsubmit() {
-    
     this.submit = true;
     const formvalues = this.registrationForm.value;
     console.log(formvalues);
- 
 
     this.signupserv.apiCall(formvalues).subscribe({
       next: (data) => {
         console.log('response from server', data);
+      
       },
       error: (err) => {
-        console.log(err);
+        this.errmsg = err;
+        console.log("messge error",this.errmsg);
+        console.log("main error",err);
       },
-      
     });
-    this.userData.setData(this.registrationForm.value)
+    this.userData.setData(this.registrationForm.value);
   }
 }
