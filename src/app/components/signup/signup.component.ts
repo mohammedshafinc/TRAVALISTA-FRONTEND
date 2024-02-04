@@ -82,7 +82,9 @@ export class SignupComponent {
       
       },
       error: (err) => {
-        this.errmsg = err;
+        this.errmsg = err.error.message;
+        console.log(err);
+        
         console.log("messge error",this.errmsg);
         console.log("main error",err);
       },
