@@ -9,6 +9,7 @@ import {
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SignupComponent } from '../signup.component';
 import { UserDAtaService } from 'src/app/userData.service';
+import { SignupService } from 'src/app/signup.service';
 
 @Component({
   selector: 'app-otp-verification-dialog-component',
@@ -22,7 +23,8 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<OtpVerificationDialogComponentComponent>,
-    private userData: UserDAtaService
+    private userData: UserDAtaService,
+    private signserv: SignupService
   ) {}
 
   closeDialog(): void {
@@ -36,13 +38,22 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
   }
 
   onOtpSubmit() {
-    try{
-
+    try {
       const otpvalue = `${this.otp.one}${this.otp.two}${this.otp.three}${this.otp.four}`;
       console.log(otpvalue);
-    }catch(error){
-      console.log('error in console',error);
-      
+      const splitOtpvalue = { otp: otpvalue, ...this.data };
+      console.log(splitOtpvalue);
+
+      this.signserv.veriftOtp(splitOtpvalue).subscribe({
+        next: (data) => {
+          console.log('response from verify otp', data);
+        },
+        error: (err) => {
+          console.log('error while verifying Otp', err);
+        },
+      });
+    } catch (error) {
+      console.log('error in console', error);
     }
   }
 }
