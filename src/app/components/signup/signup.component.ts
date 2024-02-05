@@ -6,10 +6,10 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { SignupService } from 'src/app/signup.service';
+import { SignupService } from 'src/app/services/signup.service';
 import { OtpVerificationDialogComponentComponent } from './otp-verification-dialog-component/otp-verification-dialog-component.component';
 import { MatDialog } from '@angular/material/dialog';
-import { UserDAtaService } from 'src/app/userData.service';
+import { UserDAtaService } from 'src/app/services/userData.service';
 
 @Component({
   selector: 'app-signup',

@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SignupComponent } from '../signup.component';
-import { UserDAtaService } from 'src/app/userData.service';
-import { SignupService } from 'src/app/signup.service';
+import { UserDAtaService } from 'src/app/services/userData.service';
+import { SignupService } from 'src/app/services/signup.service';
 
 @Component({
   selector: 'app-otp-verification-dialog-component',
