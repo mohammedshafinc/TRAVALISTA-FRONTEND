@@ -79,11 +79,15 @@ export class SignupComponent {
     this.signupserv.apiCall(formvalues).subscribe({
       next: (data) => {
         console.log('response from server', data);
+        this.openDialog()
+        console.log("open dialog called");
+        
       
       },
       error: (err) => {
         this.errmsg = err.error.message;
         console.log(err);
+        console.log('open dialog prevent');
         
         console.log("messge error",this.errmsg);
         console.log("main error",err);

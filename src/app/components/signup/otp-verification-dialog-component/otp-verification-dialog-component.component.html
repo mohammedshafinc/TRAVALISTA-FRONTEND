@@ -55,24 +55,31 @@
         class="form-control otp-input"
         [(ngModel)]="otp.one"
         name="one"
+     (input)="autoInputChange($event)"
       />
       <input
         type="text"
         class="form-control otp-input"
         [(ngModel)]="otp.two"
         name="two"
+        (input)="autoInputChange($event)"
+     
       />
       <input
         type="text"
         class="form-control otp-input"
         [(ngModel)]="otp.three"
         name="three"
+        (input)="autoInputChange($event)"
+     
       />
       <input
         type="text"
         class="form-control otp-input"
         [(ngModel)]="otp.four"
         name="four"
+        (input)="autoInputChange($event)"
+     
       />
     </div>
     <div

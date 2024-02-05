@@ -30,6 +30,21 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
   closeDialog(): void {
     this.dialogRef.close();
   }
+
+// auto-focus
+ autoInputChange(event:any){
+  const input = event.target
+  const nextInput = event.target.nextElementSibling;
+  if(input.value.length === 1 && nextInput){
+    nextInput.focus()
+    console.log('inout changed auto foucs');
+    
+  }
+
+
+}
+
+
   ngOnInit(): void {
     this.userData.sharedData.subscribe((data) => {
       this.data = data;
