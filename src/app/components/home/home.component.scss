@@ -27,16 +27,14 @@
 
 .search{
    
-    // margin-left: 188px;
-    width: 75%;
-    background: #f5f5f5;
-    // z-index: 1;
-    margin-bottom: 10px;
-    // position: absolute;
-    // top: 358px;
-    height: 121px;
-    padding-top: 15px;
+  width: 75%;
+  background: #f5f5f5;
+  margin-bottom: 10px;
+  height: 108px;
+  padding-top: 15px;
+  border-radius: 69px;
 }
+
 .section2{
     width: 100%;
     height: 200px;
@@ -286,8 +284,8 @@ color: white;
 
 
 .round1{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.20);
   border: 1px rgba(255, 255, 255, 0.20) solid;
   border-radius: 9999px;
@@ -305,8 +303,14 @@ color: white;
   width: 100%;
   height: 100px;
   background-color: #f7f7f7;
+ 
 }
  
+.brand1{
+  display: flex;
+padding-top: 30px;
+  justify-content: space-around;
+}
 
   @media(min-width:320px) and (max-width:480px){
     .hello{
