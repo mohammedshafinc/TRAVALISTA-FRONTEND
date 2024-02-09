@@ -61,8 +61,6 @@ export class SignupComponent {
         console.log('dialog was closed');
       });
     }, 1000);
-    
-   
   }
 
   formData = new FormData();
@@ -79,18 +77,16 @@ export class SignupComponent {
     this.signupserv.apiCall(formvalues).subscribe({
       next: (data) => {
         console.log('response from server', data);
-        this.openDialog()
-        console.log("open dialog called");
-        
-      
+        this.openDialog();
+        console.log('open dialog called');
       },
       error: (err) => {
         this.errmsg = err.error.message;
         console.log(err);
         console.log('open dialog prevent');
-        
-        console.log("messge error",this.errmsg);
-        console.log("main error",err);
+
+        console.log('messge error', this.errmsg);
+        console.log('main error', err);
       },
     });
     this.userData.setData(this.registrationForm.value);

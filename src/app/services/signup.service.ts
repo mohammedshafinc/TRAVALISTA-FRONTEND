@@ -16,7 +16,9 @@ export class SignupService {
 
   private otpApi = 'http://localhost:5050/verifyotp';
 
-  private usrloginApi = 'http://localhost:5050/userlogin '
+  private usrloginApi = 'http://localhost:5050/userlogin ';
+
+ 
 
   apiCall(data: any): Observable<any> {
     return this.http.post(this.Api, data, headersContent);

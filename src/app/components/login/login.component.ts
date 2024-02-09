@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   redirectToHome(){
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('')
   }
 
   onSubmit() {

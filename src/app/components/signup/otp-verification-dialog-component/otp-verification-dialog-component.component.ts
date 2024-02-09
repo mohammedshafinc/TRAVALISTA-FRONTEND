@@ -37,7 +37,7 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
   const nextInput = event.target.nextElementSibling;
   if(input.value.length === 1 && nextInput){
     nextInput.focus()
-    console.log('input changed auto foucs');
+    // console.log('input changed auto foucs');
     
   }
 

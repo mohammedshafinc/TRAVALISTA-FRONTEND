@@ -90,7 +90,7 @@
               </div>
             </div>
           </div>
-        {{errmsg}}
+        
 
           <div class="input-container">
             <i class="fa-solid fa-lock icon" style="color: #000000"></i>
@@ -110,6 +110,8 @@
               </div>
             </div>
           </div>
+          <div *ngIf="errmsg" class="alert alert-danger" role="alert"> {{errmsg}}</div>
+         
         </div>
         <div class="register">
           <button class="btn" type="submit" mat-button >
