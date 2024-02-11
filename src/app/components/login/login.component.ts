@@ -12,6 +12,7 @@ import { UserDAtaService } from 'src/app/services/userData.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   
+  
   constructor(
     private signser: SignupService,
     private fb: FormBuilder,
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   redirectToHome(){
-    this.router.navigateByUrl('')
+    this.router.navigateByUrl('/user/userhome')
   }
 
   onSubmit() {
@@ -56,7 +57,7 @@ export class LoginComponent implements OnInit {
 
         const hello =  this.userdata.setData(data)
         console.log('hello',hello);
-        
+      
           this.redirectToHome();
          
           console.log('navigated to home');

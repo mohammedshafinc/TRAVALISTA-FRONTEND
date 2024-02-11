@@ -10,6 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SignupComponent } from '../signup.component';
 import { UserDAtaService } from 'src/app/services/userData.service';
 import { SignupService } from 'src/app/services/signup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-otp-verification-dialog-component',
@@ -24,7 +25,8 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<OtpVerificationDialogComponentComponent>,
     private userData: UserDAtaService,
-    private signserv: SignupService
+    private signserv: SignupService,
+    private router:Router
   ) {}
 
   closeDialog(): void {
@@ -52,6 +54,10 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
     });
   }
 
+  navigateToUserHome(){
+    this.router.navigateByUrl('/user/userhome')
+  }
+
   onOtpSubmit() {
     try {
       const otpvalue = `${this.otp.one}${this.otp.two}${this.otp.three}${this.otp.four}`;
@@ -62,6 +68,7 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
       this.signserv.veriftOtp(splitOtpvalue).subscribe({
         next: (data) => {
           console.log('response from verify otp', data);
+          this.navigateToUserHome()
         },
         error: (err) => {
           console.log('error while verifying Otp', err);
