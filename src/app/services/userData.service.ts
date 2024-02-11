@@ -14,4 +14,7 @@ export class UserDAtaService{
     setData(data:any) :void{
         this.dataSubject.next(data)
     }
+
+
+    
 }

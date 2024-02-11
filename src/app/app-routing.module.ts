@@ -4,29 +4,30 @@ import { SignupComponent } from './components/signup/signup.component';
 import { GuidesignupComponent } from './components/guidesignup/guidesignup.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
-
   {
-    path:'userregistration',
-    component:SignupComponent
+    path: 'userregistration',
+    component: SignupComponent,
   },
   {
-    path:'guideregistration',
-    component:GuidesignupComponent
+    path: 'guideregistration',
+    component: GuidesignupComponent,
   },
   {
-    path:'userlogin',
-    component:LoginComponent
+    path: 'userlogin',
+    component: LoginComponent,
   },
   {
-    path:'  ',
-    component:HomeComponent
-  }
+    path: '',
+    component: HomeComponent,
+  },
+  { path: '**', component:NotfoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

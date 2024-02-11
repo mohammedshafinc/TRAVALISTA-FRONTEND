@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupService } from 'src/app/services/signup.service';
+import { UserDAtaService } from 'src/app/services/userData.service';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,12 @@ import { SignupService } from 'src/app/services/signup.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  
   constructor(
     private signser: SignupService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private userdata:UserDAtaService
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +33,10 @@ export class LoginComponent implements OnInit {
         ],
       ],
     });
+
+    
+
+    
   }
   get f() {
     return this.loginForm.controls;
@@ -44,7 +51,14 @@ export class LoginComponent implements OnInit {
         next: (data: string) => {
           console.log('data send succesfully', data);
           console.log('user logged succesfully');
+
+          // save the userdata for service
+
+        const hello =  this.userdata.setData(data)
+        console.log('hello',hello);
+        
           this.redirectToHome();
+         
           console.log('navigated to home');
         },
         error: (error) => {
@@ -55,4 +69,6 @@ export class LoginComponent implements OnInit {
       console.log('error', err);
     }
   }
+
+ 
 }

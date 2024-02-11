@@ -12,11 +12,20 @@ const headersContent = {
 export class SignupService {
   constructor(private http: HttpClient) {}
 
+
+  isAuthenticated:boolean=false
+
+  isLogin(){
+    this.isAuthenticated = true
+  }
+
   private Api = 'http://localhost:5050/usersignup';
 
   private otpApi = 'http://localhost:5050/verifyotp';
 
   private usrloginApi = 'http://localhost:5050/userlogin ';
+
+  
 
  
 
@@ -31,4 +40,6 @@ export class SignupService {
   userLoginApi(data:loginData):Observable<any>{
     return this.http.post(this.usrloginApi,data);
   }
+
+  
 }
