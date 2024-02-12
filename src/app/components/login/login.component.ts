@@ -11,7 +11,9 @@ import { UserDAtaService } from 'src/app/services/userData.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  
+  visible:boolean = true
+  changetype:boolean = true
+
   
   constructor(
     private signser: SignupService,
@@ -20,7 +22,14 @@ export class LoginComponent implements OnInit {
     private userdata:UserDAtaService
   ) {}
 
+
+  viewPass(){
+    this.visible = !this.visible
+    this.changetype = !this.changetype
+  }
+
   ngOnInit(): void {
+
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [

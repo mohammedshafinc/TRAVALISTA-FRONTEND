@@ -16,5 +16,9 @@ export class UserDAtaService{
     }
 
 
+    getToken(){
+        return localStorage.getItem('token')
+    }
+
     
 }

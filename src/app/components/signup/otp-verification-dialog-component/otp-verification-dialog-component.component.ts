@@ -21,31 +21,28 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
   otp = { one: '', two: '', three: '', four: '' };
 
   data: any;
+  details = ''
 
   constructor(
     public dialogRef: MatDialogRef<OtpVerificationDialogComponentComponent>,
     private userData: UserDAtaService,
     private signserv: SignupService,
-    private router:Router
+    private router: Router
   ) {}
 
   closeDialog(): void {
     this.dialogRef.close();
   }
 
-// auto-focus
- autoInputChange(event:any){
-  const input = event.target
-  const nextInput = event.target.nextElementSibling;
-  if(input.value.length === 1 && nextInput){
-    nextInput.focus()
-    // console.log('input changed auto foucs');
-    
+  // auto-focus
+  autoInputChange(event: any) {
+    const input = event.target;
+    const nextInput = event.target.nextElementSibling;
+    if (input.value.length === 1 && nextInput) {
+      nextInput.focus();
+      // console.log('input changed auto foucs');
+    }
   }
-
-
-}
-
 
   ngOnInit(): void {
     this.userData.sharedData.subscribe((data) => {
@@ -54,8 +51,8 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
     });
   }
 
-  navigateToUserHome(){
-    this.router.navigateByUrl('/user/userhome')
+  navigateToUserHome() {
+    this.router.navigateByUrl('/user/userhome');
   }
 
   onOtpSubmit() {
@@ -68,7 +65,15 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
       this.signserv.veriftOtp(splitOtpvalue).subscribe({
         next: (data) => {
           console.log('response from verify otp', data);
-          this.navigateToUserHome()
+
+
+       
+        const token =   localStorage.setItem('token', data.token);
+        console.log('token',token);
+        
+         
+          this.closeDialog();
+          this.navigateToUserHome();
         },
         error: (err) => {
           console.log('error while verifying Otp', err);
