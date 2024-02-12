@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './components/signup/signup.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  HttpInterceptor,
+} from '@angular/common/http';
 import { GuidesignupComponent } from './components/guidesignup/guidesignup.component';
 import { OtpVerificationDialogComponentComponent } from './components/signup/otp-verification-dialog-component/otp-verification-dialog-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,23 +23,19 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { UserModule } from './modules/user/user.module';
+import { CommonInterceptor } from './common.interceptor';
 import { SharedModule } from './modules/shared/shared.module';
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-  
+
     GuidesignupComponent,
     OtpVerificationDialogComponentComponent,
     LoginComponent,
     HomeComponent,
     NotfoundComponent,
-   
-   
   ],
   imports: [
     BrowserModule,
@@ -46,10 +46,12 @@ import { SharedModule } from './modules/shared/shared.module';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
-    SharedModule
-    
+    SharedModule,
   ],
-  providers: [{ provide: MatDialogRef, useValue: {} }],
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

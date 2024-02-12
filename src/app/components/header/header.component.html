@@ -44,13 +44,15 @@
             <li class="nav-item mx-2">
               <a class="nav-link" href="#">Contact Us</a>
             </li>
-            <li class="nav-item mx-2">
-           
+            <li class="nav-item mx-2" *ngIf="userDetails" >
+              
+              {{userDetails.fullname}}
+            
             </li>
           </ul>
           <div class="buttons">
-            <button class="btn1" (click)="redirectToLogin()">Login</button>
-            <button (click)="redirectToRegister()"  class="btn2">Register</button>
+            <button *ngIf="!userDetails" class="btn1" (click)="redirectToLogin()">Login</button>
+            <button *ngIf="!userDetails" (click)="redirectToRegister()"  class="btn2">Register</button>
           </div>
         </div>
       </div>
