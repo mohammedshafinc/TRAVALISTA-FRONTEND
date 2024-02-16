@@ -28,6 +28,7 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
     private userData: UserDAtaService,
     private signserv: SignupService,
     private router: Router
+   
   ) {}
 
   closeDialog(): void {
@@ -45,34 +46,35 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userData.sharedData.subscribe((data) => {
+    this.userData.sharedData$.subscribe((data) => {
       this.data = data;
-      console.log('from otp', data);
+      // console.log('from otp', data);
     });
   }
 
   navigateToUserHome() {
-    this.router.navigateByUrl('/user/userhome');
+    this.router.navigateByUrl('/user');
   }
 
   onOtpSubmit() {
     try {
       const otpvalue = `${this.otp.one}${this.otp.two}${this.otp.three}${this.otp.four}`;
-      console.log(otpvalue);
+      // console.log(otpvalue);
       const splitOtpvalue = { otp: otpvalue, ...this.data };
-      console.log(splitOtpvalue);
+      // console.log(splitOtpvalue);
 
       this.signserv.veriftOtp(splitOtpvalue).subscribe({
         next: (data) => {
           console.log('response from verify otp', data);
 
 
-       
+          this.userData.setData(data)
         const token =   localStorage.setItem('token', data.token);
         console.log('token',token);
         
          
           this.closeDialog();
+        
           this.navigateToUserHome();
         },
         error: (err) => {

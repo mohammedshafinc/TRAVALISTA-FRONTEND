@@ -14,6 +14,8 @@ export class CommonInterceptor implements HttpInterceptor{
 
             // add autherisation toke if token available
             const token = this.userData.getToken()
+            // console.log(token);
+            
 
         // clone the request to make modification without affecting the original request
         const cloneReq = req.clone({
@@ -22,6 +24,7 @@ export class CommonInterceptor implements HttpInterceptor{
                 authorization : `${token}`
             }
         }) 
+        console.log(cloneReq)
         return next.handle(cloneReq)
     }
 }

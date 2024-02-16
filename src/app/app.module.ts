@@ -21,7 +21,7 @@ import {
 } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
+
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CommonInterceptor } from './common.interceptor';
 import { SharedModule } from './modules/shared/shared.module';
@@ -34,7 +34,7 @@ import { SharedModule } from './modules/shared/shared.module';
     GuidesignupComponent,
     OtpVerificationDialogComponentComponent,
     LoginComponent,
-    HomeComponent,
+   
     NotfoundComponent,
   ],
   imports: [

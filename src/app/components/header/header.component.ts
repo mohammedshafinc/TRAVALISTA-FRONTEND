@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SignupService } from 'src/app/services/signup.service';
 import { UserDAtaService } from 'src/app/services/userData.service';
 
 @Component({
@@ -7,11 +8,15 @@ import { UserDAtaService } from 'src/app/services/userData.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit{
-  constructor(private router: Router, private userdata: UserDAtaService) {}
+export class HeaderComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private singser: SignupService,
+    private userData: UserDAtaService
+  ) {}
 
-
-  userDetails:any
+  userDetails: any;
+  
 
   redirectToRegister() {
     this.router.navigateByUrl('/userregistration');
@@ -21,14 +26,17 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.userData.userData2$.subscribe((data)=>{
+      try{
 
-    this.userdata.sharedData.subscribe((data) => {
-      if (data ) {
-        this.userDetails = data.user;
-        console.log('userDetails from header', this.userDetails);
-      } else {
-        console.log('No user data available.');
+        
+        this.userDetails = data
+        console.log('userdata',data);
+        
+      }catch(err){
+        console.log('error in get user' ,err);
+        
       }
-    });
+    })
   }
 }

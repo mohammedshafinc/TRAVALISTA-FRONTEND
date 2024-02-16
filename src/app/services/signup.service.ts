@@ -24,6 +24,8 @@ export class SignupService {
   private otpApi = 'http://localhost:5050/verifyotp';
 
   private usrloginApi = 'http://localhost:5050/userlogin ';
+  
+  private getUser = 'http://localhost:5050/getprofile'
 
   
 
@@ -39,6 +41,10 @@ export class SignupService {
   
   userLoginApi(data:loginData):Observable<any>{
     return this.http.post(this.usrloginApi,data);
+  }
+
+  getuser():Observable<any>{
+    return this.http.get<any>(this.getUser)
   }
 
   

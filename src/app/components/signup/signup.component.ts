@@ -72,13 +72,13 @@ export class SignupComponent {
   onsubmit() {
     this.submit = true;
     const formvalues = this.registrationForm.value;
-    console.log(formvalues);
+    // console.log(formvalues);
 
     this.signupserv.apiCall(formvalues).subscribe({
       next: (data) => {
         console.log('response from server', data);
         this.openDialog();
-        console.log('open dialog called');
+        // console.log('open dialog called');
       },
       error: (err) => {
         this.errmsg = err.error.message;

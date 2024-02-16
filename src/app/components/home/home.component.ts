@@ -20,7 +20,7 @@ export class HomeComponent {
   
 
   ngOnInit(): void {
-    this.userData.sharedData.subscribe((data) => {
+    this.userData.sharedData$.subscribe((data) => {
       this.userdetails = data;
       console.log('from home', data);
     });

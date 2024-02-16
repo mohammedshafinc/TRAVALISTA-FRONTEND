@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { UserComponent } from './modules/user/user.component';
-import { UserhomeComponent } from './modules/user/components/userhome/userhome.component';
+
 
 const routes: Routes = [
   {
@@ -29,7 +29,11 @@ const routes: Routes = [
     path:'user',loadChildren:()=> import('./modules/user/user.module').then(m =>m.UserModule)
 
   },
-  { path: '**', component:NotfoundComponent },
+  // {
+  //   path: 'user', 
+  //   component: HomeComponent
+  // }
+  // { path: '**', component:NotfoundComponent },
 ];
 
 @NgModule({

@@ -52,21 +52,21 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   redirectToHome(){
-    this.router.navigateByUrl('/user/userhome')
+    this.router.navigateByUrl('/user')
   }
 
   onSubmit() {
     try {
       this.signser.userLoginApi(this.loginForm.value).subscribe({
-        next: (data: string) => {
+        next: (data: any) => {
           console.log('data send succesfully', data);
           console.log('user logged succesfully');
 
           // save the userdata for service
 
-        const hello =  this.userdata.setData(data)
-        console.log('hello',hello);
-      
+        // const hello =  this.userdata.setData(data)
+        // console.log('hello',hello);
+          localStorage.setItem('token',data.token)
           this.redirectToHome();
          
           console.log('navigated to home');
