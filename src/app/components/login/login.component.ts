@@ -11,25 +11,22 @@ import { UserDAtaService } from 'src/app/services/userData.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  visible:boolean = true
-  changetype:boolean = true
+  visible: boolean = true;
+  changetype: boolean = true;
 
-  
   constructor(
     private signser: SignupService,
     private fb: FormBuilder,
     private router: Router,
-    private userdata:UserDAtaService
+    private userdata: UserDAtaService
   ) {}
 
-
-  viewPass(){
-    this.visible = !this.visible
-    this.changetype = !this.changetype
+  viewPass() {
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
   }
 
   ngOnInit(): void {
-
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -43,16 +40,12 @@ export class LoginComponent implements OnInit {
         ],
       ],
     });
-
-    
-
-    
   }
   get f() {
     return this.loginForm.controls;
   }
-  redirectToHome(){
-    this.router.navigateByUrl('/user')
+  redirectToHome() {
+    this.router.navigateByUrl('/user');
   }
 
   onSubmit() {
@@ -64,12 +57,17 @@ export class LoginComponent implements OnInit {
 
           // save the userdata for service
 
-        // const hello =  this.userdata.setData(data)
-        // console.log('hello',hello);
-          localStorage.setItem('token',data.token)
-          this.redirectToHome();
+          this.userdata.setUserDetails(data);
+          if (data.login == true) {
+            localStorage.setItem('token', data.token);
          
-          console.log('navigated to home');
+            
+            this.redirectToHome();
+
+            console.log('navigated to home');
+          } else {
+            console.log('not true');
+          }
         },
         error: (error) => {
           console.log('user logged error', error);
@@ -79,6 +77,4 @@ export class LoginComponent implements OnInit {
       console.log('error', err);
     }
   }
-
- 
 }

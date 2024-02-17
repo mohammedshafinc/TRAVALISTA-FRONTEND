@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SignupService } from './services/signup.service';
 import { UserDAtaService } from './services/userData.service';
 
@@ -7,7 +7,7 @@ import { UserDAtaService } from './services/userData.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'travalista';
 
   constructor(
@@ -15,16 +15,5 @@ export class AppComponent {
     private userDataService: UserDAtaService
   ) {}
 
-  ngOnInit(): void {
-    this.singser.getuser().subscribe({
-      next: (data) => {
-        this.userDataService.setUserDetails(data);
-        console.log('data get' ,data);
-        
-      },
-      error: (error) => {
-        console.error('Error fetching user data:', error);
-      },
-    });
-  }
+
 }

@@ -7,6 +7,7 @@ import { UserComponent } from './user.component';
 import { UserRoutingModule } from './user-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from 'src/app/components/home/home.component';
+import { UserheaderComponent } from './components/userheader/userheader.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ UserComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
+  declarations: [ UserComponent, UserheaderComponent],
+  imports: [CommonModule, RouterModule.forChild(routes), SharedModule,UserRoutingModule],
 })
 export class UserModule {}

@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { FooterComponent } from "src/app/components/footer/footer.component";
 import { HeaderComponent } from "src/app/components/header/header.component";
 import { HomeComponent } from "src/app/components/home/home.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations:[
@@ -14,7 +15,8 @@ import { HomeComponent } from "src/app/components/home/home.component";
     ],
     imports:[
         FormsModule,
-        CommonModule
+        CommonModule,
+        RouterModule
     ],
     exports:[HeaderComponent,FooterComponent,HomeComponent]
 })

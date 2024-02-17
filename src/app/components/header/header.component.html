@@ -33,26 +33,30 @@
             class="navbar-nav justify-content-end align-items-center flex-grow-1 pe-3"
           >
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <button class="nav-link" routerLink="" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">Home</button>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">About</a>
+              <button class="nav-link" routerLink="/aboutus" [routerLinkActive]="'active'"  [routerLinkActiveOptions]="{exact:true}">About Us</button>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">Popular Destinations</a>
+              <button class="nav-link" routerLink="/populardestinations" [routerLinkActive]="'active'"  [routerLinkActiveOptions]="{exact:true}">Popular Destinations</button>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">Contact Us</a>
+              <button class="nav-link" routerLink="/guide/guideregister" [routerLinkActive]="'active'"  [routerLinkActiveOptions]="{exact:true}">Guide</button>
             </li>
-            <li class="nav-item mx-2" *ngIf="userDetails" >
+         
+            <li class="nav-item mx-2">
+              <button class="nav-link" routerLink="/contactus" [routerLinkActive]="'active'">Contact Us</button>
+            </li>
+            <li class="nav-item mx-2" *ngIf="isLoggedIn()" >
               
              <a href="">{{userDetails.fullname}}</a> 
             
             </li>
           </ul>
-          <div class="buttons">
-            <button *ngIf="!userDetails" class="btn1" (click)="redirectToLogin()">Login</button>
-            <button *ngIf="!userDetails" (click)="redirectToRegister()"  class="btn2">Register</button>
+          <div class="buttons" *ngIf="!isLoggedIn()">
+            <button  class="btn1" (click)="redirectToLogin()">Login</button>
+            <button (click)="redirectToRegister()"  class="btn2">Register</button>
           </div>
         </div>
       </div>

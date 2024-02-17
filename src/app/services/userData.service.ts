@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UserDAtaService {
+ 
   // data 1
   private dataSubject = new BehaviorSubject<any>(null); //initial value an be object
   sharedData$ = this.dataSubject.asObservable(); //expose the observable
@@ -20,8 +21,10 @@ export class UserDAtaService {
   }
 
   setUserDetails(userDetails:any):void {
+    
     this.userData.next(userDetails)
   }
+ 
 
   getToken() {
     return localStorage.getItem('token');

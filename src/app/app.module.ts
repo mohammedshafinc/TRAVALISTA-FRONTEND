@@ -11,7 +11,6 @@ import {
   HttpClientModule,
   HttpInterceptor,
 } from '@angular/common/http';
-import { GuidesignupComponent } from './components/guidesignup/guidesignup.component';
 import { OtpVerificationDialogComponentComponent } from './components/signup/otp-verification-dialog-component/otp-verification-dialog-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -25,28 +24,39 @@ import { LoginComponent } from './components/login/login.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CommonInterceptor } from './common.interceptor';
 import { SharedModule } from './modules/shared/shared.module';
+import { GuideModule } from './modules/guide/guide.module';
+
+
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { PopularDestinationsComponent } from './components/popular-destinations/popular-destinations.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { UserRoutingModule } from './modules/user/user-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-
-    GuidesignupComponent,
     OtpVerificationDialogComponentComponent,
     LoginComponent,
-   
     NotfoundComponent,
+    AboutusComponent,
+    PopularDestinationsComponent,
+    ContactUsComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    
     MatDialogModule,
     FormsModule,
     SharedModule,
+    GuideModule,
+    UserRoutingModule,
+    
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },
