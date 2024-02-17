@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   userDetails: any;
+
+  
   
 
   redirectToRegister() {
@@ -44,33 +46,16 @@ export class HeaderComponent implements OnInit {
         
       }
     })
-   
-  
-   
-      if(this.userData.getToken()){
-  
-        this.singser.getuser().subscribe({
-          next: (data) => {
-            // this.userData.setUserDetails(data);
-            console.log('data get in app' ,data);
-            
-          },
-          error: (error) => {
-            console.error('Error fetching user data:', error);
-          },
-        });
-      }else{
-        console.log('no token');
-        
-      }
-    
-
   }
   isLoggedIn(){
     return this.userDetails &&this.userDetails.token
   }
   
-  
+  logout(){
+    localStorage.removeItem('token')
+    this.userDetails = null
+    this.router.navigateByUrl('/userlogin')
+  }
      
   
 }

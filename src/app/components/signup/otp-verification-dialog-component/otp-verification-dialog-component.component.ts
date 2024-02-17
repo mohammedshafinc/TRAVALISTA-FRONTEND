@@ -68,9 +68,8 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
           console.log('response from verify otp', data);
 
 
-          this.userData.setData(data)
-        const token =   localStorage.setItem('token', data.token);
-        console.log('token',token);
+          this.userData.setUserDetails(data);
+          localStorage.setItem('token', data.token); 
         
          
           this.closeDialog();

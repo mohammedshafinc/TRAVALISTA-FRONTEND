@@ -48,10 +48,13 @@
             <li class="nav-item mx-2">
               <button class="nav-link" routerLink="/contactus" [routerLinkActive]="'active'">Contact Us</button>
             </li>
-            <li class="nav-item mx-2" *ngIf="isLoggedIn()" >
+            <li class="nav-item mx-2" *ngIf="isLoggedIn() && userDetails" >
               
-             <a href="">{{userDetails.fullname}}</a> 
+             <a href="">{{userDetails.user.fullname}}</a> 
             
+            </li>
+            <li class="nav-item mx-2" *ngIf="isLoggedIn()">
+              <button class="nav-link" (click)="logout()">Logout</button>
             </li>
           </ul>
           <div class="buttons" *ngIf="!isLoggedIn()">
