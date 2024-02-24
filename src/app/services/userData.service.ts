@@ -11,8 +11,7 @@ export class UserDAtaService {
   sharedData$ = this.dataSubject.asObservable(); //expose the observable
 
   // data 2
-  private userData = new BehaviorSubject<any>(null)
-  userData2$ = this.userData.asObservable()
+   userData2$ = new BehaviorSubject<any>(null)
 
   // methods to update data
 
@@ -22,7 +21,9 @@ export class UserDAtaService {
 
   setUserDetails(userDetails:any):void {
     
-    this.userData.next(userDetails)
+    this.userData2$.next(userDetails)
+    
+    
   }
  
 

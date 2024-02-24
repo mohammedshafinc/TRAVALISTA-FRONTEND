@@ -1,32 +1,91 @@
-<div class="container-fluid px-1 py-5 mx-auto ">
-    <div class="row d-flex justify-content-center ">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center guides">
-            <h3>Register</h3>
-            <p class="blue-text">Just answer a few questions<br> so that we can personalize the right experience for you.</p>
-            <div class="card">
-            
-                <form class="form-card" onsubmit="event.preventDefault()">
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">First name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last name<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div>
-                    </div>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Business email<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone number<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" onblur="validate(4)"> </div>
-                    </div>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Total Year of Expirence<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Upload phto<span class="text-danger"> *</span></label> <input type="file" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                    </div>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Tell About yourself<span class="text-danger"> *</span></label> <textarea rows="3" cols="40"  id="ans" name="ans" placeholder="" onblur="validate(6)"></textarea> </div>
-                    </div>
-                    
-                    <div class="row justify-content-center">
-                        <div class="form-group col-sm-6"> <button type="submit" class="btn btn-success">Register</button> </div>
-                    </div>
-                </form>
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center guides">
+      <h3>Register</h3>
+      <p class="blue-text">
+        Just answer a few questions<br />
+        so that we can personalize the right experience for you.
+      </p>
+      <div class="card">
+        <form class="form-card" [formGroup]="guideRegistrationFrom"  enctype="multipart/form-data">
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >First name<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                formControlName = 'fullname'
+                placeholder="Enter your first name"
+              />
             </div>
-        </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Last name<span class="text-danger"> *</span></label
+              >
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                formControlName = 'lastname'
+                placeholder="Enter your last name"
+              />
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Business email<span class="text-danger"> *</span></label
+              >
+              <input type="text" id="email" name="email" formControlName="email" placeholder="" />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Phone number<span class="text-danger"> *</span></label
+              >
+              <input type="text" id="mob" name="mob" formControlName="mobilenumber" placeholder="" />
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Total Year of Expirence<span class="text-danger">
+                  *</span
+                ></label
+              >
+              <input type="number" id="job" formControlName="totalexp" name="job" placeholder="" />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">Upload photo<span class="text-danger"> *</span></label>
+              <input type="file" id="job"  name="job" placeholder="" (change)="onFileSelected($event)" />
+            </div>
+            
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-12 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Tell About yourself<span class="text-danger"> *</span></label
+              >
+              <textarea
+                rows="3"
+                cols="40"
+                id="ans"
+                name="ans"
+                formControlName="about"
+                placeholder=""
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="form-group col-sm-6">
+              <button type="submit" class="btn btn-success" (click)="onsubmit()">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

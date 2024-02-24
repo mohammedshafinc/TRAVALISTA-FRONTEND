@@ -60,6 +60,9 @@ export class LoginComponent implements OnInit {
           this.userdata.setUserDetails(data);
           if (data.login == true) {
             localStorage.setItem('token', data.token);
+            const one =localStorage.getItem('token')
+            console.log('one',one);
+            
          
             
             this.redirectToHome();

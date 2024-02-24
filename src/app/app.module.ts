@@ -31,6 +31,7 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { PopularDestinationsComponent } from './components/popular-destinations/popular-destinations.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { UserRoutingModule } from './modules/user/user-routing.module';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +41,8 @@ import { UserRoutingModule } from './modules/user/user-routing.module';
     LoginComponent,
     NotfoundComponent,
     AboutusComponent,
-    PopularDestinationsComponent,
     ContactUsComponent,
+    BannerComponent,
   ],
   imports: [
     AppRoutingModule,

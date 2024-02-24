@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { GuideService } from 'src/app/services/guide.service';
 
 @Component({
   selector: 'app-guidesignup',
@@ -6,87 +8,63 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./guidesignup.component.scss']
 })
 export class GuidesignupComponent  {
+
+    formdata = new FormData()
   
- validate(val: number) {
-  const v1 = document.getElementById("fname") as HTMLInputElement;
-  const v2 = document.getElementById("lname") as HTMLInputElement;
-  const v3 = document.getElementById("email") as HTMLInputElement;
-  const v4 = document.getElementById("mob") as HTMLInputElement;
-  const v5 = document.getElementById("job") as HTMLInputElement;
-  const v6 = document.getElementById("ans") as HTMLInputElement;
+  constructor(private fb:FormBuilder , private guideser:GuideService ){}
 
-    const flag1 = true;
-    const flag2 = true;
-    const flag3 = true;
-    const flag4 = true;
-    const flag5 = true;
-    const flag6 = true;
+  guideRegistrationFrom:FormGroup = this.fb.group({
+    fullname: '',
+    lastname : '',
+    email:'',
+    mobilenumber:'',
+    totalexp:'',
+    about:''
+  })
 
-    if(val>=1 || val==0) {
-        if(v1.value == "") {
-            v1.style.borderColor = "red";
-            const flag1 = false;
-        }
-        else {
-            v1.style.borderColor = "green";
-            const flag1 = true;
-        }
-    }
+  get f(){
+   return  this.guideRegistrationFrom.controls
+  }
+  onFileSelected(event: any) {
+    this.formdata = new FormData
+    const file: File = event.target.files[0];
+    this.formdata.append('files',file)
 
-    if(val>=2 || val==0) {
-        if(v2.value == "") {
-            v2.style.borderColor = "red";
-            const flag2 = false;
-        }
-        else {
-            v2.style.borderColor = "green";
-            const flag2 = true;
-        }
-    }
-    if(val>=3 || val==0) {
-        if(v3.value == "") {
-            v3.style.borderColor = "red";
-            const flag3 = false;
-        }
-        else {
-            v3.style.borderColor = "green";
-            const flag3 = true;
-        }
-    }
-    if(val>=4 || val==0) {
-        if(v4.value == "") {
-            v4.style.borderColor = "red";
-            const flag4 = false;
-        }
-        else {
-            v4.style.borderColor = "green";
-            const flag4 = true;
-        }
-    }
-    if(val>=5 || val==0) {
-        if(v5.value == "") {
-            v5.style.borderColor = "red";
-            const flag5 = false;
-        }
-        else {
-            v5.style.borderColor = "green";
-            const flag5 = true;
-        }
-    }
-    if(val>=6 || val==0) {
-        if(v6.value == "") {
-            v6.style.borderColor = "red";
-            const flag6 = false;
-        }
-        else {
-            v6.style.borderColor = "green";
-            const flag6 = true;
-        }
-    }
+  }
 
-    const  flag = flag1 && flag2 && flag3 && flag4 && flag5 && flag6;
 
-    return flag;
-}
+  onsubmit(){
+    try{
+      const cons = this.guideRegistrationFrom.value;
+    
+   
+   this. formdata.append('fullname', cons.fullname)
+   this. formdata.append('lastname', cons.lastname)
+   this. formdata.append('email', cons.email)
+   this. formdata.append('mobilenumber', cons.mobilenumber)
+   this. formdata.append('totalexp', cons.totalexp)
+   this. formdata.append('files', cons.imgupoad)
+   this. formdata.append('about', cons.about)
+    
 
+      const guideData = this.guideRegistrationFrom.value
+  
+      this.guideser.guidereg(this.formdata).subscribe({
+        next:(data)=>{
+          console.log('data recieved from guide' , data);
+          
+        },
+        error:(err)=>{
+          console.log('error in getting guide',err);
+          
+        }
+      })
+    }catch(err){
+      console.log('errin sign guide' , err);
+      
+    }
+    
+
+    
+  }
 }

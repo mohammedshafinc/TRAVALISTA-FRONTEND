@@ -14,14 +14,14 @@ export class CommonInterceptor implements HttpInterceptor{
 
             // add autherisation toke if token available
             const token = this.userData.getToken()
-            // console.log(token);
+            console.log(token);
             
 
         // clone the request to make modification without affecting the original request
         const cloneReq = req.clone({
             // modify headers
             setHeaders:{
-                authorization : `${token}`
+                authorization : `Bearer ${token}`
             }
         }) 
         console.log(cloneReq)

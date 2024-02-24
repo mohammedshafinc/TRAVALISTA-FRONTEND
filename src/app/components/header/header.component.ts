@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { SignupService } from 'src/app/services/signup.service';
 import { UserDAtaService } from 'src/app/services/userData.service';
@@ -15,10 +15,21 @@ export class HeaderComponent implements OnInit {
     private singser: SignupService,
     private userData: UserDAtaService
   ) {}
-
-  userDetails: any;
-
   
+  
+  userDetails: any;
+  value:any ;
+  name=''
+  @Input() data:any
+  
+ 
+  
+
+
+  ngOnInit(): void {
+      
+      
+  }
   
 
   redirectToRegister() {
@@ -31,24 +42,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['guide','guideregister'])
   }
 
-  ngOnInit(): void {
-    this.userData.userData2$.subscribe((data)=>{
-      try{
-
-        if(data){
-
-          this.userDetails = data
-          console.log('userdata form header',data);
-        }
-        
-      }catch(err){
-        console.log('error in get user' ,err);
-        
-      }
-    })
-  }
+ 
   isLoggedIn(){
-    return this.userDetails &&this.userDetails.token
+    return !! localStorage.getItem('token')
+   
+    
   }
   
   logout(){
@@ -56,6 +54,9 @@ export class HeaderComponent implements OnInit {
     this.userDetails = null
     this.router.navigateByUrl('/userlogin')
   }
+
+ 
      
   
 }
+

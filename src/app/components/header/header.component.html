@@ -39,22 +39,22 @@
               <button class="nav-link" routerLink="/aboutus" [routerLinkActive]="'active'"  [routerLinkActiveOptions]="{exact:true}">About Us</button>
             </li>
             <li class="nav-item mx-2">
-              <button class="nav-link" routerLink="/populardestinations" [routerLinkActive]="'active'"  [routerLinkActiveOptions]="{exact:true}">Popular Destinations</button>
+              <button class="nav-link" routerLink="" [routerLinkActive]="'active'"  [routerLinkActiveOptions]="{exact:true}" fragment="populardestinaation">Popular Destinations</button>
             </li>
             <li class="nav-item mx-2">
-              <button class="nav-link" routerLink="/guide/guideregister" [routerLinkActive]="'active'"  [routerLinkActiveOptions]="{exact:true}">Guide</button>
+              <button class="nav-link" *ngIf="!isLoggedIn()" routerLink="/guide/guideregister" [routerLinkActive]="'active'"  [routerLinkActiveOptions]="{exact:true}">Guide</button>
             </li>
          
             <li class="nav-item mx-2">
               <button class="nav-link" routerLink="/contactus" [routerLinkActive]="'active'">Contact Us</button>
             </li>
-            <li class="nav-item mx-2" *ngIf="isLoggedIn() && userDetails" >
+            <li class="nav-item mx-2" *ngIf="isLoggedIn()" >
               
-             <a href="">{{userDetails.user.fullname}}</a> 
+             <a href="">{{value}}</a> 
             
             </li>
             <li class="nav-item mx-2" *ngIf="isLoggedIn()">
-              <button class="nav-link" (click)="logout()">Logout</button>
+              <button class="nav-link btn btn-danger" (click)="logout()">Logout</button>
             </li>
           </ul>
           <div class="buttons" *ngIf="!isLoggedIn()">

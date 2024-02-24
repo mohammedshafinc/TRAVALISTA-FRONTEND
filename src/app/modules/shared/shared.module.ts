@@ -5,12 +5,14 @@ import { FooterComponent } from "src/app/components/footer/footer.component";
 import { HeaderComponent } from "src/app/components/header/header.component";
 import { HomeComponent } from "src/app/components/home/home.component";
 import { RouterModule } from "@angular/router";
+import { PopularDestinationsComponent } from "src/app/components/popular-destinations/popular-destinations.component";
 
 @NgModule({
     declarations:[
         HeaderComponent,
         FooterComponent,
-        HomeComponent
+        HomeComponent,
+        PopularDestinationsComponent
         
     ],
     imports:[
