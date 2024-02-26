@@ -7,59 +7,91 @@
         so that we can personalize the right experience for you.
       </p>
       <div class="card">
-        <form class="form-card" [formGroup]="guideRegistrationFrom"  enctype="multipart/form-data">
+        <form
+          class="form-card"
+          [formGroup]="guideRegistrationFrom"
+          enctype="multipart/form-data"
+        >
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >First name<span class="text-danger"> *</span></label
+                >full Name<span class="text-danger"> *</span></label
               >
               <input
                 type="text"
                 id="fname"
                 name="fname"
-                formControlName = 'fullname'
-                placeholder="Enter your first name"
+                formControlName="fullname"
+                placeholder="full name"
               />
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >Last name<span class="text-danger"> *</span></label
+                >Email id<span class="text-danger"> *</span></label
               >
               <input
                 type="text"
-                id="lname"
-                name="lname"
-                formControlName = 'lastname'
-                placeholder="Enter your last name"
+                id="email"
+                name="email"
+                formControlName="email"
+                placeholder="email id"
               />
             </div>
           </div>
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >Business email<span class="text-danger"> *</span></label
+                >Phone Number<span class="text-danger"> *</span></label
               >
-              <input type="text" id="email" name="email" formControlName="email" placeholder="" />
+              <input
+                type="number"
+                id="phnnumber"
+                name="phnumber"
+                formControlName="mobilenumber"
+                placeholder="phone number"
+              />
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >Phone number<span class="text-danger"> *</span></label
+                >Total year of expirence<span class="text-danger">
+                  *</span
+                ></label
               >
-              <input type="text" id="mob" name="mob" formControlName="mobilenumber" placeholder="" />
+              <input
+                type="number"
+                id="totexp"
+                name="totexp"
+                formControlName="totalexp"
+                placeholder="experience"
+              />
             </div>
           </div>
           <div class="row justify-content-between text-left">
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
-                >Total Year of Expirence<span class="text-danger">
+                >Upload photo<span class="text-danger"> *</span></label
+              >
+              <input
+                type="file"
+                id="job"
+                name="job"
+                placeholder=""
+                (change)="onFileSelected($event)"
+              />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Location<span class="text-danger">
                   *</span
                 ></label
               >
-              <input type="number" id="job" formControlName="totalexp" name="job" placeholder="" />
-            </div>
-            <div class="form-group col-sm-6 flex-column d-flex">
-              <label class="form-control-label px-3">Upload photo<span class="text-danger"> *</span></label>
-              <input type="file" id="job"  name="job" placeholder="" (change)="onFileSelected($event)" />
+              <input
+                type="text"
+                id="location"
+                formControlName="location"
+                name="location"
+                placeholder="location"
+              />
             </div>
             
           </div>
@@ -74,14 +106,20 @@
                 id="ans"
                 name="ans"
                 formControlName="about"
-                placeholder=""
+                placeholder="Tell about your self ......"
               ></textarea>
             </div>
           </div>
 
           <div class="row justify-content-center">
             <div class="form-group col-sm-6">
-              <button type="submit" class="btn btn-success" (click)="onsubmit()">Register</button>
+              <button
+                type="submit"
+                class="btn btn-success"
+                (click)="onsubmit()"
+              >
+                Register
+              </button>
             </div>
           </div>
         </form>

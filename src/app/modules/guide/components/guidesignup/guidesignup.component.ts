@@ -15,10 +15,10 @@ export class GuidesignupComponent  {
 
   guideRegistrationFrom:FormGroup = this.fb.group({
     fullname: '',
-    lastname : '',
     email:'',
     mobilenumber:'',
     totalexp:'',
+    location:'',
     about:''
   })
 
@@ -38,13 +38,13 @@ export class GuidesignupComponent  {
       const cons = this.guideRegistrationFrom.value;
     
    
-   this. formdata.append('fullname', cons.fullname)
-   this. formdata.append('lastname', cons.lastname)
-   this. formdata.append('email', cons.email)
-   this. formdata.append('mobilenumber', cons.mobilenumber)
-   this. formdata.append('totalexp', cons.totalexp)
-   this. formdata.append('files', cons.imgupoad)
-   this. formdata.append('about', cons.about)
+   this.formdata.append('fullname', cons.fullname)
+   this.formdata.append('email', cons.email)
+   this.formdata.append('mobilenumber', cons.mobilenumber)
+   this.formdata.append('totalexp', cons.totalexp)
+   this.formdata.append('files', cons.imgupoad)
+   this.formdata.append('location',cons.location)
+   this.formdata.append('about', cons.about)
     
 
       const guideData = this.guideRegistrationFrom.value

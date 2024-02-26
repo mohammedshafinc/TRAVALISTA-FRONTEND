@@ -59,3 +59,14 @@ button:focus {
 .guides{
     margin-top: 85px;
 }
+::placeholder{
+  font-size: 15px;
+  color:grey;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
