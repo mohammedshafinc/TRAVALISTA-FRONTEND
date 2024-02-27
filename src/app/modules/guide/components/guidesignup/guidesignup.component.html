@@ -19,23 +19,37 @@
               >
               <input
                 type="text"
-                id="fname"
-                name="fname"
+                id="fullname"
+                name="fullname"
                 formControlName="fullname"
-                placeholder="full name"
+                placeholder="fullname"
+                [ngClass]="{'is-invalid':submit && f['fullname'].errors}"
               />
+              <div *ngIf="submit && f['fullname'].errors" class="invalid-feedback">
+                <div *ngIf="f['fullname'].errors?.['required']">
+                  Full Name is Required
+                </div>
+              </div>
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
                 >Email id<span class="text-danger"> *</span></label
               >
               <input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 formControlName="email"
                 placeholder="email id"
-              />
+                [ngClass]="{ 'is-invalid': submit && f['email'].errors }"
+                />
+                <div *ngIf="submit && f['email'].errors" class="invalid-feedback">
+                  <div *ngIf="f['email'].errors?.['required']">
+                    email is Required
+                  </div>
+                    <div *ngIf="f['email'].errors['email']">Invalid email format
+                  </div>
+                </div>
             </div>
           </div>
           <div class="row justify-content-between text-left">
@@ -49,7 +63,21 @@
                 name="phnumber"
                 formControlName="mobilenumber"
                 placeholder="phone number"
+                [ngClass]="{
+                  'is-invalid': submit && f['mobilenumber'].errors
+                }"
               />
+              <div
+                *ngIf="submit && f['mobilenumber'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['mobilenumber'].errors?.['required']">
+                  mobile Number is Required
+                </div>
+                <div *ngIf="f['mobilenumber'].errors?.['pattern']">
+                  Mobile Number must be 10 digits
+                </div>
+              </div>
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
@@ -63,7 +91,15 @@
                 name="totexp"
                 formControlName="totalexp"
                 placeholder="experience"
+                [ngClass]="{
+                  'is-invalid': submit && f['totalexp'].errors
+                }"
               />
+              <div *ngIf="submit && f['totalexp'].errors" class="invalid-feedback">
+                <div *ngIf="f['totalexp'].errors?.['required']">
+                  Total Expierence is required
+                </div>
+              </div>
             </div>
           </div>
           <div class="row justify-content-between text-left">
@@ -77,7 +113,9 @@
                 name="job"
                 placeholder=""
                 (change)="onFileSelected($event)"
+               
               />
+              
             </div>
             <div class="form-group col-sm-6 flex-column d-flex">
               <label class="form-control-label px-3"
@@ -91,7 +129,63 @@
                 formControlName="location"
                 name="location"
                 placeholder="location"
+                [ngClass]="{
+                  'is-invalid': submit && f['location'].errors
+                }"
               />
+              <div *ngIf="submit && f['location'].errors" class="invalid-feedback">
+                <div *ngIf="f['location'].errors?.['required']">
+                  Total Expierence is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Password<span class="text-danger">
+                  *</span
+                ></label
+              >
+              <input
+                type="password"
+                id="password"
+                formControlName="password"
+                name="password"
+                placeholder="password"
+                [ngClass]="{ 'is-invalid': submit && f['password'].errors }"
+            />
+            <div *ngIf="submit && f['password'].errors" class="invalid-feedback">
+              <div *ngIf="f['password'].errors['required']">
+                Password is required
+              </div>
+              <div *ngIf="f['password'].errors['pattern']">
+                Password is not in a specific format
+              </div>
+              <div *ngIf="f['password'].errors['minlength']">
+                Password minimum length must be 8
+              </div>
+            </div>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3"
+                >Confirm Password<span class="text-danger">
+                  *</span
+                ></label
+              >
+              <input
+                type="text"
+                id="confirmpassword"
+                formControlName="confirmpassword"
+                name="confirmpassword"
+                placeholder="confirmpassword"
+                [ngClass]="{
+                  'is-invalid': submit && f['confirmpassword'].errors
+                }"
+              />
+              <div *ngIf="submit && f['confirmpassword'].errors" class="invalid-feedback">
+                <div *ngIf="f['confirmpassword'].errors?.['required']">
+                 Confirm password is required
+                </div>
+              </div>
             </div>
             
           </div>
@@ -107,9 +201,16 @@
                 name="ans"
                 formControlName="about"
                 placeholder="Tell about your self ......"
+                [ngClass]="{ 'is-invalid': submit && f['about'].errors }"
               ></textarea>
+              <div *ngIf="submit && f['about'].errors" class="invalid-feedback">
+                <div *ngIf="f['about'].errors?.['required']">
+                 Please enter details
+                </div>
+              </div>
             </div>
           </div>
+          <div *ngIf="errmsg" class="alert alert-danger" role="alert"> {{errmsg}}</div>
 
           <div class="row justify-content-center">
             <div class="form-group col-sm-6">
@@ -120,6 +221,10 @@
               >
                 Register
               </button>
+              <p class="text-center text-muted mt-5 mb-0">
+                Have already an account?
+                <a routerLink="/guide/guidelogin"  class="fw-bold text-body"><u>Login here</u></a>
+              </p>
             </div>
           </div>
         </form>

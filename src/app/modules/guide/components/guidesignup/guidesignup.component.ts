@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GuideService } from 'src/app/services/guide.service';
 
 @Component({
@@ -8,18 +8,23 @@ import { GuideService } from 'src/app/services/guide.service';
   styleUrls: ['./guidesignup.component.scss']
 })
 export class GuidesignupComponent  {
+  submit = false
+  errmsg = ''
 
     formdata = new FormData()
   
   constructor(private fb:FormBuilder , private guideser:GuideService ){}
 
   guideRegistrationFrom:FormGroup = this.fb.group({
-    fullname: '',
-    email:'',
-    mobilenumber:'',
-    totalexp:'',
-    location:'',
-    about:''
+    fullname: ['', Validators.required],
+    email:['',  [Validators.required,Validators.email]],
+    mobilenumber:['',[Validators.required,Validators.pattern('[0-9]{10}')]],
+    totalexp:['',Validators.required],
+    imgupload:['',Validators.required],
+    location:['',Validators.required],
+    about:['',Validators.required],
+    password:['',[Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[$@^!%*?&])(?=.*[0-7]).{8,}$'),Validators.minLength(8)]],
+    confirmpassword:['']
   })
 
   get f(){
@@ -35,6 +40,7 @@ export class GuidesignupComponent  {
 
   onsubmit(){
     try{
+      this.submit = true
       const cons = this.guideRegistrationFrom.value;
     
    
@@ -45,6 +51,7 @@ export class GuidesignupComponent  {
    this.formdata.append('files', cons.imgupoad)
    this.formdata.append('location',cons.location)
    this.formdata.append('about', cons.about)
+   this.formdata.append('password', cons.password)
     
 
       const guideData = this.guideRegistrationFrom.value
@@ -56,6 +63,8 @@ export class GuidesignupComponent  {
         },
         error:(err)=>{
           console.log('error in getting guide',err);
+          this.errmsg = err.error.message
+          console.log('error in getting guide',err.error.message);
           
         }
       })
@@ -65,6 +74,6 @@ export class GuidesignupComponent  {
     }
     
 
-    
+    this.formdata = new FormData
   }
 }
