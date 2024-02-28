@@ -93,7 +93,7 @@ export class GuidesignupComponent {
           console.log('error in getting guide', err.error.message);
         },
       });
-        // this.userdata.guidedata(this.formdata)
+       
 
     } catch (err) {
       console.log('errin sign guide', err);

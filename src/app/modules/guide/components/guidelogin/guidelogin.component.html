@@ -2,7 +2,7 @@
     <div class="card shadow-lg" style="width: 30rem; border-radius: 1rem">
       <div class="card-body p-4">
         <h2 class="text-center mb-3">Welcome Back!</h2>
-        <form >
+        <form [formGroup]="guidelogin" (ngSubmit)="onsubmit()" >
           <div class="form-group mb-3">
             <label for="username"> Email</label>
             <input
