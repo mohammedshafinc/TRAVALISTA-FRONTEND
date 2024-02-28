@@ -35,7 +35,7 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // auto-focus
+  // auto-focus 
   autoInputChange(event: any) {
     const input = event.target;
     const nextInput = event.target.nextElementSibling;

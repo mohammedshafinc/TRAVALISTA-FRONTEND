@@ -23,7 +23,9 @@
                 name="fullname"
                 formControlName="fullname"
                 placeholder="fullname"
+                required
                 [ngClass]="{'is-invalid':submit && f['fullname'].errors}"
+               
               />
               <div *ngIf="submit && f['fullname'].errors" class="invalid-feedback">
                 <div *ngIf="f['fullname'].errors?.['required']">
@@ -41,6 +43,7 @@
                 name="email"
                 formControlName="email"
                 placeholder="email id"
+                required
                 [ngClass]="{ 'is-invalid': submit && f['email'].errors }"
                 />
                 <div *ngIf="submit && f['email'].errors" class="invalid-feedback">
@@ -63,6 +66,7 @@
                 name="phnumber"
                 formControlName="mobilenumber"
                 placeholder="phone number"
+                required
                 [ngClass]="{
                   'is-invalid': submit && f['mobilenumber'].errors
                 }"
@@ -91,6 +95,7 @@
                 name="totexp"
                 formControlName="totalexp"
                 placeholder="experience"
+                required
                 [ngClass]="{
                   'is-invalid': submit && f['totalexp'].errors
                 }"
@@ -112,6 +117,7 @@
                 id="job"
                 name="job"
                 placeholder=""
+                required
                 (change)="onFileSelected($event)"
                
               />
@@ -129,6 +135,7 @@
                 formControlName="location"
                 name="location"
                 placeholder="location"
+                required
                 [ngClass]="{
                   'is-invalid': submit && f['location'].errors
                 }"
@@ -150,6 +157,7 @@
                 id="password"
                 formControlName="password"
                 name="password"
+                required
                 placeholder="password"
                 [ngClass]="{ 'is-invalid': submit && f['password'].errors }"
             />
@@ -177,6 +185,7 @@
                 formControlName="confirmpassword"
                 name="confirmpassword"
                 placeholder="confirmpassword"
+              required
                 [ngClass]="{
                   'is-invalid': submit && f['confirmpassword'].errors
                 }"
@@ -199,6 +208,7 @@
                 cols="40"
                 id="ans"
                 name="ans"
+                required
                 formControlName="about"
                 placeholder="Tell about your self ......"
                 [ngClass]="{ 'is-invalid': submit && f['about'].errors }"

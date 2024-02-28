@@ -7,7 +7,8 @@ import { GuidesignupComponent } from './components/guidesignup/guidesignup.compo
 import { GuideRoutingModule } from './guide-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { GuidehomeComponent } from './components/guidehome/guidehome.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GuideotpComponent } from './components/guideotp/guideotp.component';
 
 
 
@@ -18,14 +19,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     GuideComponent,
     GuideloginComponent,
     GuidesignupComponent,
-    GuidehomeComponent
+    GuidehomeComponent,
+    GuideotpComponent
   ],
   imports: [
     CommonModule,
     GuideRoutingModule,
     SharedModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
 
 })
