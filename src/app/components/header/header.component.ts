@@ -27,10 +27,29 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-      
+    if(this.isLoggedIn()){
+
+      console.log(this.value)
+      this.singser.getuser().subscribe({
+  
+        next:(data)=>{
+          console.log(data);
+          console.log(data.fullname);
+          this.value = data.fullname
+          
+          
+        }
+      })
+    }
       
   }
   
+
+  userProfile(){
+    console.log('navigated to profile');
+    this.router.navigateByUrl('/user/usrprofileupdate');
+    
+  }
 
   redirectToRegister() {
     this.router.navigateByUrl('/userregistration');
@@ -53,7 +72,7 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('token')
     this.userDetails = null
     this.router.navigateByUrl('/userlogin')
-  }
+  } 
 
  
      
