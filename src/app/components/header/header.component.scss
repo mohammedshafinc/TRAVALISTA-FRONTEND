@@ -37,3 +37,7 @@ li a{
   width: 2rem;
   margin-left: 15px;
 }
+
+.rearrow::after{
+  display: none;
+}

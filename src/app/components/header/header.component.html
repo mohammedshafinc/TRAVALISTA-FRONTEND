@@ -85,9 +85,9 @@
             </li>
             <!-- dropdown -->
             <li class="nav-item dropdown no-arrow" *ngIf="isLoggedIn()">
-              <a class="dropdown">
+              <a class="dropdown ">
                 <a
-                  class="btn dropdown-toggle small"
+                  class="btn dropdown-toggle small rearrow"
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -99,11 +99,11 @@
                     src="../../../assets/undraw_profile.svg"
                   />
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end shadow" style="margin-top: 20px;">
+                <ul class="dropdown-menu dropdown-menu-end  shadow" style="margin-top: 20px;">
                   <li>
-                    <a class="dropdown-item" >
+                    <a class="dropdown-item " (click)="userProfile()">
                       <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i
-                      ><span style="margin-left: 6px" (click)="userProfile()">Profile</span></a
+                      ><span style="margin-left: 6px" >Profile</span></a
                     >
                   </li>
 

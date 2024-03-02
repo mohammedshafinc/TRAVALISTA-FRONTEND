@@ -8,13 +8,13 @@
                     <div class="user-avatar">
                         <img alt= "no image" [src]= "isImage? '{{}}':'../../../../../assets/undraw_profile.svg'" >
                     </div>
-                    <h5 class="user-name">Yuki Hayashi</h5>
-                    <h6 class="user-email">yuki@Maxwell.com</h6>
+                    <h5 class="user-name">{{details?.fullname}}</h5>
+                    <h6 class="user-email">{{details?.email}}</h6>
                 </div>
                 <div style="padding-left: 75px; padding-bottom: 10px;">
                    
                     <label for="imageInput" class="btn btn-primary">
-                      Choose Image
+                      Update Image
                       <input type="file" id="imageInput" style="display: none" >
                     </label>
                   
@@ -30,32 +30,34 @@
     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
         <div class="card-body">
+            <form [formGroup]="userUpdate" (ngSubmit)="onSubmit(details._id)">
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <h6 class="mb-2 text-primary">Personal Details</h6>
                 </div>
+               
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                        <input type="text" class="form-control" id="fullName" formControlName="fullname" placeholder="Enter full name" value="{{details.fullname}}">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="eMail">Email</label>
-                        <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                        <input type="email" class="form-control" id="eMail" formControlName="email" placeholder="Enter email ID" value="{{details.email}}">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-2">
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                        <input type="text" class="form-control" id="phone" formControlName="mobile" placeholder="Enter phone number" value="{{details.mobile}}">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-2">
                     <div class="form-group">
                         <label for="website">About</label>
-                        <textarea cols="40" rows="2" class="form-control" id="website" placeholder="Website url"></textarea>
+                        <textarea cols="40" rows="2" class="form-control" id="website" formControlName="about" placeholder="about"></textarea>
                     </div>
                 </div>
             </div>
@@ -66,36 +68,37 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="Street">Street</label>
-                        <input type="name" class="form-control" id="Street" placeholder="Enter Street">
+                        <input type="name" class="form-control" id="Street" formControlName="street"  placeholder="Enter Street">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="ciTy">City</label>
-                        <input type="name" class="form-control" id="ciTy" placeholder="Enter City">
+                        <input type="name" class="form-control" id="ciTy" formControlName="city" placeholder="Enter City">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-2">
                     <div class="form-group">
                         <label for="sTate">State</label>
-                        <input type="text" class="form-control" id="sTate" placeholder="Enter State">
+                        <input type="text" class="form-control" id="sTate"  formControlName="state" placeholder="Enter State">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-2">
                     <div class="form-group">
                         <label for="zIp">Pin Code</label>
-                        <input type="text" class="form-control" id="zIp" placeholder="pin Code">
+                        <input type="text" class="form-control" id="zIp" formControlName="pincode" placeholder="pin Code">
                     </div>
                 </div>
             </div>
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
                     <div class="text-right d-flex  gap-2">
-                        <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-                        <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                        <button  id="submit" name="submit" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>
             </div>
+        </form>
         </div>
     </div>
     </div>

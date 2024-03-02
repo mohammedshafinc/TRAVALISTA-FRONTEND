@@ -8,6 +8,7 @@ import { UserComponent } from './modules/user/user.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { PopularDestinationsComponent } from './components/popular-destinations/popular-destinations.component';
+import { AuthGuard } from './guards/authguard.guard';
 
 const routes: Routes = [
   {

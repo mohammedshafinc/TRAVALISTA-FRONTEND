@@ -76,7 +76,7 @@ export class SignupComponent {
 
     this.signupserv.apiCall(formvalues).subscribe({
       next: (data) => {
-        console.log('response from server', data);
+        // console.log('response from server', data);
         this.openDialog();
         // console.log('open dialog called');
       },

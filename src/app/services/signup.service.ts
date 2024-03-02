@@ -25,7 +25,9 @@ export class SignupService {
 
   private usrloginApi = 'http://localhost:5050/userlogin ';
   
-  private getUser = 'http://localhost:5050/getprofile'
+  private getUser = 'http://localhost:5050/getprofile';
+
+  private editUser = 'http://localhost:5050/updateprofile'
 
   
 
@@ -45,6 +47,14 @@ export class SignupService {
 
   getuser():Observable<any>{
     return this.http.get<any>(this.getUser)
+  }
+
+  userupdate(userId:any):Observable<any>{
+    // const userId = localStorage.getItem('userId')
+    // console.log(userId);
+    
+    const updateUser = `${this.editUser}/${userId}`
+    return this.http.post(updateUser,userId)
   }
 
   

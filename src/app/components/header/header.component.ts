@@ -29,11 +29,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     if(this.isLoggedIn()){
 
-      console.log(this.value)
+      // console.log(this.value)
       this.singser.getuser().subscribe({
   
         next:(data)=>{
-          console.log(data);
+          // console.log(data);
           console.log(data.fullname);
           this.value = data.fullname
           

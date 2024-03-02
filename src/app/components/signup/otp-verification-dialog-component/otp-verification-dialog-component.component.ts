@@ -65,7 +65,7 @@ export class OtpVerificationDialogComponentComponent implements OnInit {
 
       this.signserv.veriftOtp(splitOtpvalue).subscribe({
         next: (data) => {
-          console.log('response from verify otp', data);
+          // console.log('response from verify otp', data);
 
 
           this.userData.setUserDetails(data);
