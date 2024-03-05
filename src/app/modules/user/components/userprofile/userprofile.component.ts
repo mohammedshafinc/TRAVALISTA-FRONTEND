@@ -42,7 +42,7 @@ export class UserprofileComponent implements OnInit {
     this.signupservice.getuser().subscribe({
       next: (data) => {
         if(data.expiry){
-          alert('expired')
+          alert('session expired please login')
           console.log(';mflsdjfklkdfklgf');
           this.userdata.isLogout()
           

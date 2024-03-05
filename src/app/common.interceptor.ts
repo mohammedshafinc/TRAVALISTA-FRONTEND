@@ -7,7 +7,7 @@ import { UserDAtaService } from "./services/userData.service";
 
 export class CommonInterceptor implements HttpInterceptor{
 
-    constructor(private userData:UserDAtaService){}
+    constructor(){}
     intercept(req: HttpRequest<any>, 
         next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -15,7 +15,7 @@ export class CommonInterceptor implements HttpInterceptor{
             // add autherisation toke if token available
             const token = localStorage.getItem('token')
             
-            // console.log(token);
+            console.log(token);
             
 
         // clone the request to make modification without affecting the original request

@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+
+
+.buttons {
+    display: flex; /* Maintain flex display for responsiveness */
+    align-items: center;
+    justify-content: center;
+    height: 50px; /* Adjust height as needed */
+    gap: 20px; /* Adjust gap based on content and layout */
+  }
+  
+  .btn1,
+  .btn2 {
+    background: #ffda32;
+    padding: 10px 20px 10px 20px; /* Adjust padding for smaller screens */
+    border-radius: 5px;
+    font-size: 16px; /* Adjust for responsive sizing */
+    border: none;
+  }
+  li a{
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+  }
+  .active{
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .img-profile{
+    height: 2rem;
+    width: 2rem;
+    margin-left: 15px;
+  }
+  
+  .rearrow::after{
+    display: none;
+  }

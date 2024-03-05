@@ -46,6 +46,8 @@ export class GuideloginComponent implements OnInit {
     try {
       this.guideservice.login(this.guidelogin.value).subscribe({
         next:(data)=>{
+          localStorage.setItem('token',data.token)
+          localStorage.getItem('token')
           console.log('data', data);
           this.navigateToGuideHome()
           

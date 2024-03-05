@@ -9,6 +9,10 @@ import { SharedModule } from '../shared/shared.module';
 import { GuidehomeComponent } from './components/guidehome/guidehome.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GuideotpComponent } from './components/guideotp/guideotp.component';
+import { GuidegeaderComponent } from './components/guidegeader/guidegeader.component';
+import { PackagesComponent } from './components/packages/packages.component';
+import { AddpackagesComponent } from './components/addpackages/addpackages.component';
+import { GuideprofileComponent } from './components/guideprofile/guideprofile.component';
 
 
 
@@ -20,7 +24,11 @@ import { GuideotpComponent } from './components/guideotp/guideotp.component';
     GuideloginComponent,
     GuidesignupComponent,
     GuidehomeComponent,
-    GuideotpComponent
+    GuideotpComponent,
+    GuidegeaderComponent,
+    PackagesComponent,
+    AddpackagesComponent,
+    GuideprofileComponent
   ],
   imports: [
     CommonModule,

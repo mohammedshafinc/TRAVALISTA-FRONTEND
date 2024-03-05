@@ -50,9 +50,7 @@ export class SignupService {
   }
 
   userupdate(userId:any):Observable<any>{
-    // const userId = localStorage.getItem('userId')
-    // console.log(userId);
-    
+ 
     const updateUser = `${this.editUser}/${userId}`
     return this.http.post(updateUser,userId)
   }
