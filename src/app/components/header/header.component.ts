@@ -1,8 +1,16 @@
-import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { GuidedataService } from 'src/app/modules/guide/services/guidedata.service';
+import { GuideService } from 'src/app/services/guide.service';
 import { SignupService } from 'src/app/services/signup.service';
 import { UserDAtaService } from 'src/app/services/userData.service';
-
 
 @Component({
   selector: 'app-header',
@@ -13,42 +21,43 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private singser: SignupService,
-    private userData: UserDAtaService
+    private userData: UserDAtaService,
+    private guideservice:GuideService
   ) {}
-  
-  
-  userDetails: any;
-  value:any ;
-  name=''
-  @Input() data:any
-  
- 
-  
 
+  userDetails: any;
+  value: any;
+  name = '';
 
   ngOnInit(): void {
-    if(this.isLoggedIn()){
-
-      // console.log(this.value)
-      this.singser.getuser().subscribe({
   
-        next:(data)=>{
+    // // find user
+    if(this.isLoggedIn()){
+      this.singser.getuser().subscribe({
+        next: (data) => {
+        
           // console.log(data);
           console.log(data.fullname);
-          this.value = data.fullname
+          this.value = data.fullname;
+          console.log(data);
           
+        },
+        error:(error)=>{
+          console.log( 'error in header', error);
           
         }
-      })
+      });
     }
-      
-  }
-  
 
-  userProfile(){
+        // find guid
+        
+    
+    
+  }
+
+  userProfile() {
     console.log('navigated to profile');
     this.router.navigateByUrl('/user/usrprofileupdate');
-    
   }
 
   redirectToRegister() {
@@ -57,25 +66,17 @@ export class HeaderComponent implements OnInit {
   redirectToLogin() {
     this.router.navigateByUrl('/userlogin');
   }
-  redirectoGuideRegister(){
-    this.router.navigate(['guide','guideregister'])
+  redirectoGuideRegister() {
+    this.router.navigate(['guide', 'guideregister']);
   }
 
- 
-  isLoggedIn(){
-    return !! localStorage.getItem('token')
-   
-    
+  isLoggedIn() {
+    return !!localStorage.getItem('token');
   }
-  
-  logout(){
-    localStorage.removeItem('token')
-    this.userDetails = null
-    this.router.navigateByUrl('/userlogin')
-  } 
 
- 
-     
-  
+  logout() {
+    localStorage.clear()
+    this.userDetails = null;
+    this.router.navigateByUrl('/userlogin');
+  }
 }
-

@@ -20,7 +20,8 @@ ngOnInit(): void {
           this.guidedata.isLogout()
         }
        
-        console.log('profile data of guide', data);        
+        console.log('profile data of guide', data);   
+         
       },
       error:(error)=>{
         console.log('error getting profile from server', error);

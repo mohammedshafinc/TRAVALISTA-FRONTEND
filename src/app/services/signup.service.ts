@@ -49,10 +49,20 @@ export class SignupService {
     return this.http.get<any>(this.getUser)
   }
 
-  userupdate(userId:any):Observable<any>{
+  userupdate(data:any, id:any):Observable<any>{
  
-    const updateUser = `${this.editUser}/${userId}`
-    return this.http.post(updateUser,userId)
+    const updateUser = `${this.editUser}/${id}`
+    return this.http.post(updateUser,data)
+  }
+
+  getusertype(){
+   const usertype = localStorage.getItem('type')
+   if(usertype == 'user'){
+    return true
+   } else {
+    return false
+   }
+
   }
 
   

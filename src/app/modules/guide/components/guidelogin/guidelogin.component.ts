@@ -12,6 +12,7 @@ export class GuideloginComponent implements OnInit {
   guidelogin!: FormGroup;
   visible: boolean = true;
   changetype: boolean = true;
+  errmsg = ''
 
   constructor(private fb: FormBuilder, private router: Router, private guideservice:GuideService) {}
   ngOnInit(): void {
@@ -48,12 +49,18 @@ export class GuideloginComponent implements OnInit {
         next:(data)=>{
           localStorage.setItem('token',data.token)
           localStorage.getItem('token')
+          localStorage.setItem('type',data.type)
+          
           console.log('data', data);
+        
+          
           this.navigateToGuideHome()
           
         },
         error:(error)=>{
           console.log('error',error );
+          this.errmsg  = error.error.message;
+          
           
         }
       })

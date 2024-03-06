@@ -66,12 +66,12 @@ export class UserprofileComponent implements OnInit {
     return this.userUpdate.controls;
   }
 
-  onSubmit(_id:any) {
+  onSubmit(id:any) {
 
     
     const formValue = this.userUpdate.value
     console.log('Form Value:', formValue);
-    this.signupservice.userupdate(formValue).subscribe({
+    this.signupservice.userupdate(formValue,id).subscribe({
       next:(data)=>{
         
           console.log('haaaaai');

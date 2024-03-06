@@ -44,11 +44,13 @@ const routes: Routes = [
 
   {
     path: 'user',
+  canActivate:[AuthGuard],
     loadChildren: () =>
       import('./modules/user/user.module').then((m) => m.UserModule),
   },
   {
-    path: 'guide',
+    path: 'guide', 
+    canActivate:[AuthGuard],
     loadChildren: () =>
       import('./modules/guide/guide.module').then((m) => m.GuideModule),
   },

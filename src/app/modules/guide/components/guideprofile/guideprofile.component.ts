@@ -22,7 +22,7 @@ export class GuideprofileComponent implements OnInit {
     guideDetails:any
 
   cancel() {
-    this.router.navigateByUrl('guidelogin');
+    this.router.navigateByUrl('/guide/guidehome');
   }
 
   ngOnInit(): void {
@@ -45,19 +45,26 @@ export class GuideprofileComponent implements OnInit {
           alert("session expired please login")
           this.guidedata.isLogout()
         }else{
+          this.isImage = true
           this.guideDetails = data 
           this.guideUpdate.patchValue(data)
           console.log('data in update', data);
+          
         }
       },
     });
   }
 
-  onSubmit(){
+  onSubmit(id:any){
+    
     const formvalue = this.guideUpdate.value
-    this.guideservice.guideprofileupdate(formvalue).subscribe({
+    // const newformdata = {...formvalue,id}
+    // console.log(newformdata);
+    
+    this.guideservice.guideprofileupdate(formvalue,id).subscribe({
       next:(data)=>{
         console.log('data updated', data);
+
         
       }
     })

@@ -13,12 +13,15 @@ export class GuideService {
   guideVerifyOtp = 'http://localhost:5050/guide/guideotpverify';
   guideprofileApi = 'http://localhost:5050/guide/guideprofile';
   guideprofileUpdateApi = 'http://localhost:5050/guide/guideprofileupdate';
+  guidePackageAdd = 'http://localhost:5050/guide/guideaddpackages';
 
   guidereg(data: any): Observable<any> {
     return this.http.post(this.guideRegApi, data);
   }
 
   otpverify(data: any): Observable<any> {
+    console.log('kinashe');
+    
     return this.http.post(this.guideVerifyOtp, data);
   }
 
@@ -30,8 +33,14 @@ export class GuideService {
     return this.http.get<any>(this.guideprofileApi);
   }
 
-  guideprofileupdate(userId:any):Observable<any>{
-    const guideUpdate = `${this.guideprofileApi}/${userId}`
-    return this.http.patch(guideUpdate,userId)
+  guideprofileupdate(data:any,id:any):Observable<any>{
+    const guideUpdate = `${this.guideprofileUpdateApi}/${id}`
+    return this.http.patch(guideUpdate,data)
   }
+
+  guidepackagedd(data:any):Observable<any> {
+    return this.http.post(this.guidePackageAdd,data)
+  }
+
+
 }

@@ -59,6 +59,8 @@ export class GuideotpComponent implements OnInit {
         next: (data) => {
           console.log('data recieved from server', data);
           this.closeDialog();
+          localStorage.setItem('token', data.token)
+          localStorage.setItem('type',data.type)
           this.navigateToGuideHome()
           console.log('navigated to home');
         },

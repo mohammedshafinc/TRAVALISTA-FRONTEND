@@ -1,1 +1,56 @@
-<p>addpackages works!</p>
+<div class="container">
+    <h2>Add Tourist Package</h2>
+    <form  [formGroup]="addpackage"  (ngSubmit)="onsubmit()" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="packageName">Package Name:</label>
+            <input type="text" id="packageName" name="packagename" formControlName="packageName" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" formControlName="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Amount:</label>
+            <input type="number" id="price" name="price" formControlName="amount" required>
+        </div>
+        <label>Package Inclusions:</label><br>
+        <div class="package-include">
+            <input type="checkbox" id="food" name="inclusions" value="food" formControlName="food">
+            <label for="food">Food</label><br>
+            <input type="checkbox" id="accommodation" name="inclusions" formControlName="accomodation" value="accommodation">
+            <label for="accommodation">Hotel</label><br>
+            <input type="checkbox" id="activities" name="inclusions" formControlName="activities" value="activities" (change)="toggleActivities()">
+            <label for="activities">Activities</label><br>
+           
+            <input type="checkbox" id="freeTravel" name="inclusions" value="freeTravel" formControlName="transpotation">
+            <label for="freeTravel">Transportation</label><br>
+           
+        </div>
+        <div class="form-group" *ngIf="showActivities">
+            <label for="activityCount">Number of Activities:</label>
+            <select id="activityCount" formControlName="activityCount" name="activity">
+                <option *ngFor="let i of activityDay" value="{{i}}">{{i}}</option>
+              
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+
+      
+
+        <div class="form-group">
+            <label for="duration">Duration (Days):</label>
+            <select id="duration" name="duration" formControlName="duration">
+                <option *ngFor="let i of values" value="{{i}}">{{i}}</option>
+               
+           
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" (change)="showimg($event)"  required>
+            <img *ngIf="imgsrc" [src]="imgsrc" alt="" class="img-preview">
+        </div>
+        <button type="submit" [disabled]="!addpackage.valid" >Add Package</button>
+    </form>
+</div>

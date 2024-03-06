@@ -6,7 +6,7 @@
             <div class="account-settings">
                 <div class="user-profile">
                     <div class="user-avatar">
-                        <img alt= "no image" [src]= "isImage? '{{}}':'../../../../../assets/undraw_profile.svg'" >
+                        <img alt= "no image" [src]= "isImage? guideDetails?.files:'../../../../../assets/undraw_profile.svg'" >
                     </div>
                     <!-- <h5 class="user-name">{{details?.fullname}}</h5>
                     <h6 class="user-email">{{details?.email}}</h6> -->
@@ -30,7 +30,7 @@
     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
         <div class="card-body">
-            <form [formGroup]="guideUpdate" (ngSubmit)="onSubmit()">
+            <form [formGroup]="guideUpdate" (ngSubmit)="onSubmit(guideDetails._id)">
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <h6 class="mb-2 text-primary">Personal Details</h6>
