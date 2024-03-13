@@ -30,10 +30,10 @@ export class GuidegeaderComponent implements OnInit {
     this.router.navigateByUrl('/guide/addpackage')
   }
 
-  logout() {
+   logout() {
     localStorage.clear()
     this.userDetails = null;
-    this.router.navigateByUrl('/guide/guidelogin');
+    this.router.navigateByUrl('/guidelogin');
   }
 
   userProfile() {

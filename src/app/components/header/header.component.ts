@@ -67,7 +67,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/userlogin');
   }
   redirectoGuideRegister() {
-    this.router.navigate(['guide', 'guideregister']);
+    this.router.navigateByUrl('/guidelogin');
   }
 
   isLoggedIn() {

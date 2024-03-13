@@ -25,9 +25,9 @@ export class AuthGuard implements CanActivate{
         return true
 
       } else if(this.userdata.isLoggedIn() && this.guideservice.getGuideType()){
-        console.log('guide');
+       
         return true
-        // this.router.navigateByUrl('/guide/guidehome')
+       
 
       } else {
         return false

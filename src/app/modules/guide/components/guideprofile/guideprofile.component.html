@@ -15,7 +15,7 @@
                    
                     <label for="imageInput" class="btn btn-primary">
                       Update Image
-                      <input type="file" id="imageInput" style="display: none" >
+                      <input type="file" id="imageInput" (change)="onfileSelected($event)" style="display: none" required>
                     </label>
                   
                   </div>

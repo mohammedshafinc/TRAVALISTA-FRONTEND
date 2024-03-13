@@ -38,6 +38,8 @@ export class GuideloginComponent implements OnInit {
 
 
   navigateToGuideHome() {
+    console.log('lkkjsfkjh');
+    
     this.router.navigateByUrl('/guide/guidehome');
   }
 

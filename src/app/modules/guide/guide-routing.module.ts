@@ -13,14 +13,7 @@ const routes: Routes = [
     path: '',
     component: GuideComponent,
     children: [
-      {
-        path: 'guideregister',
-        component: GuidesignupComponent,
-      },
-      {
-        path: 'guidelogin',
-        component: GuideloginComponent,
-      },
+   
       {
         path: 'guidehome',
         component: GuidehomeComponent,

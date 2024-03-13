@@ -35,6 +35,8 @@ export class GuideService {
 
   guideprofileupdate(data:any,id:any):Observable<any>{
     const guideUpdate = `${this.guideprofileUpdateApi}/${id}`
+    console.log(data);
+    
     return this.http.patch(guideUpdate,data)
   }
 
