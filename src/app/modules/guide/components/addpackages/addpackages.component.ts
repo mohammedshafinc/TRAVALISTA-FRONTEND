@@ -52,6 +52,7 @@ export class AddpackagesComponent implements OnInit {
     this.formdata.append('food',packageData.food)
     this.formdata.append('accomodation',packageData.accomodation)
     this.formdata.append('activities',packageData.activities)
+    this.formdata.append('transpotation',packageData.transpotation)
     this.formdata.append('activityCount',packageData.activityCount)
     this.formdata.append('duration',packageData.duration)
 

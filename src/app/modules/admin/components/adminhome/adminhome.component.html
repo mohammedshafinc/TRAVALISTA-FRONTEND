@@ -1,66 +1,58 @@
-<div class="dashboard">
+<!-- <div class="dashboard">
   <div class="dashboard-nav">
     <header>
-      <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a
-      ><a href="#" class="brand-logo"
-        ><i class="fas fa-anchor"></i> <span>BRAND</span></a
+      <a class="menu-toggle"><i class="fas fa-bars"></i></a>
+      <a class="brand-logo"
+        ><i class="fas fa-anchor"></i> <span>Travalista</span></a
       >
     </header>
     <nav class="dashboard-nav-list">
-      <a href="#" class="dashboard-nav-item"
-        ><i class="fas fa-home"></i> Home </a
-      ><a href="#" class="dashboard-nav-item active"
-        ><i class="fas fa-tachometer-alt"></i> dashboard </a
-      ><a href="#" class="dashboard-nav-item"
-        ><i class="fas fa-file-upload"></i> Upload
+      <a class="dropdown-head"><i class="fas fa-home"></i> Home </a>
+      <a class="dropdown-head"> <i class="fa-solid fa-hourglass-half"></i> Pending Request </a>
+      <a class="dropdown-head">
+        <i class="fa-solid fa-flag"></i>Banners
       </a>
       <div class="dashboard-nav-dropdown">
-        <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
-          ><i class="fas fa-photo-video"></i> Media
+        <a class="dropdown-head dashboard-nav-dropdown-toggle"
+          ><i class="fas fa-users"></i> Guide
         </a>
         <div class="dashboard-nav-dropdown-menu">
-          <a href="#" class="dashboard-nav-dropdown-item">All</a
-          ><a href="#" class="dashboard-nav-dropdown-item">Recent</a
-          ><a href="#" class="dashboard-nav-dropdown-item">Images</a
-          ><a href="#" class="dashboard-nav-dropdown-item">Video</a>
+          <a class="dashboard-nav-dropdown-item">Guide List </a
+          ><a class="dashboard-nav-dropdown-item">Packages</a
+          ><a class="dashboard-nav-dropdown-item">Block Guide</a
+          ><a class="dashboard-nav-dropdown-item">Video</a>
         </div>
       </div>
-      <div class="dashboard-nav-dropdown">
-        <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
-          ><i class="fas fa-users"></i> Users
-        </a>
-        <div class="dashboard-nav-dropdown-menu">
-          <a href="#" class="dashboard-nav-dropdown-item">All</a
-          ><a href="#" class="dashboard-nav-dropdown-item">Subscribed</a
-          ><a href="#" class="dashboard-nav-dropdown-item">Non-subscribed</a
-          ><a href="#" class="dashboard-nav-dropdown-item">Banned</a
-          ><a href="#" class="dashboard-nav-dropdown-item">New</a>
-        </div>
-      </div>
-      <div class="dashboard-nav-dropdown">
-        <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
-          ><i class="fas fa-money-check-alt"></i> Payments
-        </a>
-        <div class="dashboard-nav-dropdown-menu">
-          <a href="#" class="dashboard-nav-dropdown-item">All</a
-          ><a href="#" class="dashboard-nav-dropdown-item">Recent</a
-          ><a href="#" class="dashboard-nav-dropdown-item"> Projections</a>
-        </div>
-      </div>
-      <a href="#" class="dashboard-nav-item"
-        ><i class="fas fa-cogs"></i> Settings </a
-      ><a href="#" class="dashboard-nav-item"
-        ><i class="fas fa-user"></i> Profile
+
+
+
+
+      <div class="dropdown"> <a class="dropdown-toggle dropdown-head" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-users"></i> Users
       </a>
+    
+      <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item text-dark" >Guide List</a></li>
+        <li><a class="dropdown-item text-dark" >Packages</a></li>
+        <li><a class="dropdown-item text-dark" >Block Guide</a></li>
+        <li><a class="dropdown-item text-dark" >Video</a></li>
+      </ul>
+    </div>
+      <a class="dropdown-head"> <i class="fa-solid fa-ban"></i> Banned </a>
+     
+
+
+    
+     
       <div class="nav-item-divider"></div>
-      <a href="#" class="dashboard-nav-item"
+      <a class="dropdown-head"
         ><i class="fas fa-sign-out-alt"></i> Logout
       </a>
     </nav>
   </div>
   <div class="dashboard-app">
     <header class="dashboard-toolbar">
-      <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
+      <a class="menu-toggle"><i class="fas fa-bars"></i></a>
     </header>
     <div class="dashboard-content">
       <div class="container">
@@ -74,5 +66,125 @@
         </div>
       </div>
     </div>
+  </div>
+</div> -->
+
+<!-- 2nd------------------------------------------------------------------------------------- -->
+
+<div class="wrapper">
+  <aside id="sidebar" [ngClass]="{'expand':isExpand}">
+      <div class="d-flex">
+          <button class="toggle-btn" type="button" (click)="toggleSideBar()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="sidebar-logo">
+              <a >TRAVALISTA</a>
+          </div>
+      </div>
+      <ul class="sidebar-nav">
+          <li class="sidebar-item">
+              <a  class="sidebar-link">
+                <i class="fa-solid fa-house"></i>
+                  <span>Home</span>
+              </a>
+          </li>
+          <li class="sidebar-item">
+              <a  class="sidebar-link">
+                <i class="fa-solid fa-hourglass-half"></i>
+                  <span>Pending Requests</span>
+              </a>
+          </li>
+          <li class="sidebar-item">
+            <a  class="sidebar-link">
+             <i class=" fa-solid fa-flag"></i>
+                <span>Banners</span>
+            </a>
+        </li>
+          <li class="sidebar-item">
+              <a  class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                  data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                  <i class="fas fa-users"></i>
+                  <span>Guide</span>
+              </a>
+              <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                  <li class="sidebar-item">
+                      <a  class="sidebar-link">Guide List</a>
+                  </li>
+                  <li class="sidebar-item">
+                      <a  class="sidebar-link">Packages</a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a  class="sidebar-link">Block Guide</a>
+                </li>
+                <li class="sidebar-item">
+                  <a  class="sidebar-link">Guide Status</a>
+              </li>
+              </ul>
+          </li>
+          <li class="sidebar-item">
+            <a  class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                data-bs-target="#user" aria-expanded="false" aria-controls="auth">
+                <i class="fas fa-users"></i>
+                <span>User</span>
+            </a>
+            <ul id="user" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a  class="sidebar-link">User List</a>
+                </li>
+                <li class="sidebar-item">
+                    <a  class="sidebar-link">Block User</a>
+                </li>
+              
+            </ul>
+        </li>
+          <li class="sidebar-item">
+              <a  class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                  data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                  <i class="fas fa-users"></i>
+                  <span>Multi Level</span>
+              </a>
+              <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                  <li class="sidebar-item">
+                      <a  class="sidebar-link collapsed" data-bs-toggle="collapse"
+                          data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                          Two Links
+                      </a>
+                      <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                          <li class="sidebar-item">
+                              <a  class="sidebar-link">Link 1</a>
+                          </li>
+                          <li class="sidebar-item">
+                              <a  class="sidebar-link">Link 2</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li class="sidebar-item">
+              <a  class="sidebar-link">
+                <i class="fas fa-users"></i>
+                  <span>Notification</span>
+              </a>
+          </li>
+          <li class="sidebar-item">
+              <a  class="sidebar-link">
+                <i class="fas fa-users"></i>
+                  <span>Setting</span>
+              </a>
+          </li>
+      </ul>
+      <div class="sidebar-footer">
+          <a  class="sidebar-link">
+            <i class="fas fa-sign-out-alt"></i> 
+              <span>Logout</span>
+          </a>
+      </div>
+  </aside>
+  <div class="main p-3">
+      <div class="text-center">
+          <h1>
+           Welcome to Admin Page
+          </h1>
+      </div>
   </div>
 </div>

@@ -14,6 +14,7 @@ export class GuideService {
   guideprofileApi = 'http://localhost:5050/guide/guideprofile';
   guideprofileUpdateApi = 'http://localhost:5050/guide/guideprofileupdate';
   guidePackageAdd = 'http://localhost:5050/guide/guideaddpackages';
+  getPackage = 'http://localhost:5050/guide/getpackages'
 
   guidereg(data: any): Observable<any> {
     return this.http.post(this.guideRegApi, data);
@@ -42,6 +43,10 @@ export class GuideService {
 
   guidepackagedd(data:any):Observable<any> {
     return this.http.post(this.guidePackageAdd,data)
+  }
+
+  guideGetPackage():Observable<any> {
+    return this.http.get<any>(this.getPackage)
   }
 
 

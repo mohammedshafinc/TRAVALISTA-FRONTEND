@@ -26,9 +26,7 @@ import { CommonInterceptor } from './common.interceptor';
 import { SharedModule } from './modules/shared/shared.module';
 import { GuideModule } from './modules/guide/guide.module';
 
-
 import { AboutusComponent } from './components/aboutus/aboutus.component';
-import { PopularDestinationsComponent } from './components/popular-destinations/popular-destinations.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { UserRoutingModule } from './modules/user/user-routing.module';
 import { BannerComponent } from './components/banner/banner.component';
@@ -51,13 +49,12 @@ import { BannerComponent } from './components/banner/banner.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    
+
     MatDialogModule,
     FormsModule,
     SharedModule,
     GuideModule,
     UserRoutingModule,
-    
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },

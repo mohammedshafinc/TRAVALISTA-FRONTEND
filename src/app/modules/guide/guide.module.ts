@@ -26,7 +26,7 @@ import { GuideprofileComponent } from './components/guideprofile/guideprofile.co
     GuidehomeComponent,
     GuideotpComponent,
     GuidegeaderComponent,
-    PackagesComponent,
+    // PackagesComponent,
     AddpackagesComponent,
     GuideprofileComponent
   ],
@@ -37,7 +37,11 @@ import { GuideprofileComponent } from './components/guideprofile/guideprofile.co
     RouterModule,
     ReactiveFormsModule,
     FormsModule
+    
   ],
+  exports: [
+  //  PackagesComponent
+  ]
 
 })
 export class GuideModule { }

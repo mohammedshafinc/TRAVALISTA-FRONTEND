@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./adminhome.component.scss']
 })
 export class AdminhomeComponent {
+
+    isExpand:boolean = false
+
+    toggleSideBar(){
+        this.isExpand = !this.isExpand
+    }
   
   
 
