@@ -1,75 +1,4 @@
-<!-- <div class="dashboard">
-  <div class="dashboard-nav">
-    <header>
-      <a class="menu-toggle"><i class="fas fa-bars"></i></a>
-      <a class="brand-logo"
-        ><i class="fas fa-anchor"></i> <span>Travalista</span></a
-      >
-    </header>
-    <nav class="dashboard-nav-list">
-      <a class="dropdown-head"><i class="fas fa-home"></i> Home </a>
-      <a class="dropdown-head"> <i class="fa-solid fa-hourglass-half"></i> Pending Request </a>
-      <a class="dropdown-head">
-        <i class="fa-solid fa-flag"></i>Banners
-      </a>
-      <div class="dashboard-nav-dropdown">
-        <a class="dropdown-head dashboard-nav-dropdown-toggle"
-          ><i class="fas fa-users"></i> Guide
-        </a>
-        <div class="dashboard-nav-dropdown-menu">
-          <a class="dashboard-nav-dropdown-item">Guide List </a
-          ><a class="dashboard-nav-dropdown-item">Packages</a
-          ><a class="dashboard-nav-dropdown-item">Block Guide</a
-          ><a class="dashboard-nav-dropdown-item">Video</a>
-        </div>
-      </div>
 
-
-
-
-      <div class="dropdown"> <a class="dropdown-toggle dropdown-head" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fas fa-users"></i> Users
-      </a>
-    
-      <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
-        <li><a class="dropdown-item text-dark" >Guide List</a></li>
-        <li><a class="dropdown-item text-dark" >Packages</a></li>
-        <li><a class="dropdown-item text-dark" >Block Guide</a></li>
-        <li><a class="dropdown-item text-dark" >Video</a></li>
-      </ul>
-    </div>
-      <a class="dropdown-head"> <i class="fa-solid fa-ban"></i> Banned </a>
-     
-
-
-    
-     
-      <div class="nav-item-divider"></div>
-      <a class="dropdown-head"
-        ><i class="fas fa-sign-out-alt"></i> Logout
-      </a>
-    </nav>
-  </div>
-  <div class="dashboard-app">
-    <header class="dashboard-toolbar">
-      <a class="menu-toggle"><i class="fas fa-bars"></i></a>
-    </header>
-    <div class="dashboard-content">
-      <div class="container">
-        <div class="card">
-          <div class="card-header">
-            <h1>Welcome back Jim</h1>
-          </div>
-          <div class="card-body">
-            <p>Your account type is: Administrator</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- 2nd------------------------------------------------------------------------------------- -->
 
 <div class="wrapper">
   <aside id="sidebar" [ngClass]="{'expand':isExpand}">
@@ -83,15 +12,15 @@
       </div>
       <ul class="sidebar-nav">
           <li class="sidebar-item">
-              <a  class="sidebar-link">
+              <a  class="sidebar-link" routerLink="/admin/adminpage">
                 <i class="fa-solid fa-house"></i>
-                  <span>Home</span>
+                  <span >Home</span>
               </a>
           </li>
           <li class="sidebar-item">
-              <a  class="sidebar-link">
+              <a  class="sidebar-link" routerLink="/admin/pendingrequests">
                 <i class="fa-solid fa-hourglass-half"></i>
-                  <span>Pending Requests</span>
+                  <span >Pending Requests</span>
               </a>
           </li>
           <li class="sidebar-item">
@@ -180,11 +109,11 @@
           </a>
       </div>
   </aside>
+
+  <!-- side contetnts -->
   <div class="main p-3">
       <div class="text-center">
-          <h1>
-           Welcome to Admin Page
-          </h1>
+          <router-outlet></router-outlet>
       </div>
   </div>
 </div>

@@ -47,28 +47,36 @@ export class LoginComponent implements OnInit {
   redirectToHome() {
     this.router.navigateByUrl('/user');
   }
+  redirectTAdminHome(){
+    this.router.navigateByUrl('/admin')
+  }
 
   onSubmit() {
     try {
       this.signser.userLoginApi(this.loginForm.value).subscribe({
         next: (data: any) => {
-          console.log('data send succesfully', data);
-          console.log('user logged succesfully');
+          if (data.type == 'user') {
+            console.log('data send succesfully', data);
+            console.log('user logged succesfully');
 
-          // save the userdata for service
+            // save the userdata for service
 
-          this.userdata.setUserDetails(data);
-          if (data.login == true) {
-            localStorage.setItem('token', data.token);  
-            const one =localStorage.getItem('token')
-            localStorage.setItem('type',data.type)
-            console.log('one',one);
+            this.userdata.setUserDetails(data);
+            if (data.login == true) {
+              localStorage.setItem('token', data.token);
+              const one = localStorage.getItem('token');
+              localStorage.setItem('type', data.type);
+              console.log('one', one);
+
+              this.redirectToHome();
+
+              console.log('navigated to home');
+            }
+          } else if (data.type == 'admin') {
+            console.log('admin logged');
+            this.redirectTAdminHome()
+            console.log('redirectoadminhome');
             
-         
-            
-            this.redirectToHome();
-
-            console.log('navigated to home');
           } else {
             console.log('not true');
           }
