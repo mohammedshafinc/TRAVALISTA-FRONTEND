@@ -10,6 +10,7 @@ import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { PendingrequestsComponent } from './components/pendingrequests/pendingrequests.component';
 import { GuidelistComponent } from './components/guidelist/guidelist.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
+import { PackageslistComponent } from './components/packageslist/packageslist.component';
 
 
 
@@ -22,7 +23,8 @@ import { UserlistComponent } from './components/userlist/userlist.component';
     AdminpageComponent,
     PendingrequestsComponent,
     GuidelistComponent,
-    UserlistComponent
+    UserlistComponent,
+    PackageslistComponent
   ],
   imports: [
     AdminRoutingModule,

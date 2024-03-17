@@ -8,6 +8,8 @@ import { PendingComponent } from './components/pending/pending.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { PendingrequestsComponent } from './components/pendingrequests/pendingrequests.component';
 import { GuidelistComponent } from './components/guidelist/guidelist.component';
+import { PackageslistComponent } from './components/packageslist/packageslist.component';
+import { UserlistComponent } from './components/userlist/userlist.component';
 
 const routes: Routes = [
   {
@@ -33,6 +35,14 @@ const routes: Routes = [
       {
         path:'guidelist',
         component:GuidelistComponent
+      },
+      {
+        path:'packagelist',
+        component:PackageslistComponent
+      },
+      {
+        path:'userlist',
+        component:UserlistComponent
       }
     ],
   },

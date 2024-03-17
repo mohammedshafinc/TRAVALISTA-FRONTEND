@@ -1,0 +1,23 @@
+
+  
+  <div class="container">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let package of packages">
+            <div class="card" style="width: 18rem ;margin-top: 25px;">
+                <img class="card-img-top" style="width: 286px; height: 130px;" [src]="package?.files" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{package?.packageName}}</h5>
+                  <p class="card-text">{{package?.description}}</p>
+                  <p class="card-text">Package Amount :{{package?.amount}}</p>
+                  <h5>Package Includes:</h5>
+                  <li>Accommodation: {{package?.accomodation ? 'Included' : 'Not Included'}}</li>
+                  <li>Food: {{package?.food ? 'Included' : 'Not Included'}}</li>
+                  <li>Activities: {{package?.activities ? 'Included' : 'Not Included'}}</li>
+                  <li>Transportation: {{package?.transpotation ? 'Included' : 'Not Included'}}</li>
+                  <li>Number of activities included: {{package?.activities ? package.activityCount : 'No activities included'}}</li>
+                  <li>Duration of the Package {{package?.duration}}</li>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>

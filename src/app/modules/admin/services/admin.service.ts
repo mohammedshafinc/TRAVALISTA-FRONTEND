@@ -11,13 +11,13 @@ export class AdminService {
   guideStatus = 'http://localhost:5050/admin/getpendingguide';
   adminRespose = 'http://localhost:5050/admin/adminresponse';
   getAllGuide = 'http://localhost:5050/admin/getguides';
+  getAllusers = 'http://localhost:5050/admin/getusers';
 
   guidePendingStatus(): Observable<any> {
     return this.http.get<any>(this.guideStatus);
   }
 
   adminResponseStatus(id: any, status: String): Observable<any> {
-    console.log('from sercie', id);
 
     const statusUpdate = `${this.adminRespose}/${id}`;
     const body = { status };
@@ -27,5 +27,9 @@ export class AdminService {
 
   getGuides():Observable<any> {
     return this.http.get(this.getAllGuide)
+  }
+
+  getUsers():Observable<any> {
+    return this.http.get(this.getAllusers)
   }
 }

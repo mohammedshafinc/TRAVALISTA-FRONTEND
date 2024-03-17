@@ -1,1 +1,57 @@
-<p>guidelist works!</p>
+<section class="container">
+    <!-- Header Bar -->
+    <header>
+      <div class="">
+          <i class="icon fa fa-user-o"> </i>
+        </div>
+      <div class="">
+        <label> Fullname </label>
+      </div>
+  
+      <div class="">
+        <label> email </label>
+      </div>
+  
+      <div class="">
+        <label> Experience</label>
+      </div>
+  
+      <div class="">
+        <label> location </label>
+      </div>
+     
+  
+      
+    </header>
+  
+    <!-- List Items -->
+    <ul class="task-items" *ngFor="let guide of guides">
+      <!-- List Item -->
+      <li class="item">
+          <div class="user">
+              <img
+                src="{{guide.files}}"
+                alt="Image 001"
+                class="owner-img"
+              />
+            </div>
+            <div class="fullname">
+              <label >{{guide.fullname}}</label>
+            </div>
+            <div class="email">
+              <label >{{guide.email}}</label>
+            </div>
+            <div class="expirence">
+              <label >{{guide.exp}}</label>
+            </div>
+            <div class="location">
+              <label >{{guide.location}}</label>
+            </div>
+           
+            
+       
+          </li>
+    </ul>
+  </section>
+  
+  
