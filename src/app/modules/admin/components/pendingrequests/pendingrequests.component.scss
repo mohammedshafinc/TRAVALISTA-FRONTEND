@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+$colorLight: #fafafa;
+$colorDark: #252529;
+$colorLightGrey: #eeeeee;
+$colorGrey: #bdbdbd;
+
+$colorWhite: #fff;
+
+$colorDarkGreen: #2e7d32;
+$colorGreen: #4caf50;
+$colorLightGreen: #4dd0e1;
+
+$color1: #9575cd;
+$color2: #7986cb;
+$color2: #f48fb1;
+$color3: #9575cd;
+$color4: #4fc3f7;
+
+$colorWarning: #ffa000;
+$colorOff: #bf360c;
+
+$layoutWidth: 980px;
+$standardPadding: 20px;
+$layoutBorderRadius: 5px;
+
+$sizeDefault: 1em;
+$sizeLarge: 1.25em;
+$sizeXLarge: 1.5em;
+$sizeXXLarge: 2em;
+
+$col1Width: 240px;
+$col2Width: 145px;
+$col3Width: 190px;
+$col4Width: 150px;
+$col5Width: 170px;
+$col6Width: 30px;
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: $colorLightGrey;
+}
+
+.container {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: $layoutWidth;
+}
+
+.owner-img {
+  width: 40px;
+  height: 40px;
+}
+header {
+  display: flex;
+  align-items: center;
+  font-size: $sizeDefault;
+  font-weight: 600;
+  color: black;
+  padding: $standardPadding;
+  box-sizing: border-box;
+  user-select: none;
+  text-align: center;
+  margin-left: 42px;
+  justify-content: space-between;
+}
+
+.text {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin: $standardPadding 0;
+  padding: $standardPadding;
+  background: $colorWhite;
+  // gap: 10px;
+  justify-content: space-between;
+  border-radius: $layoutBorderRadius;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.user {
+  width: $col6Width;
+  img {
+    border-radius: 50%;
+  }
+}
+.actions{
+    display: flex;
+    gap: 5px;
+}
+
+button {
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  padding: 6px 16px;
+
+  text-align: center;
+}
+.accept {
+  background-color: green;
+}
+.reject {
+  background-color: red;
+}

@@ -61,7 +61,14 @@ export class GuideotpComponent implements OnInit {
           this.closeDialog();
           localStorage.setItem('token', data.token)
           localStorage.setItem('type',data.type)
-          alert('wait for admin approval')
+          if (data.newGuide.isApproved == 'pending'){
+
+            alert('wait for admin approval')
+          }
+          else if (data.newGuide.isApproved == 'approved'){
+            alert('you are approved')
+            this.navigateToGuideHome()
+          }
           console.log('navigated to home');
         },
         error:(err)=>{
