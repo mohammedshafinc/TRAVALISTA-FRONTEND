@@ -11,6 +11,8 @@ import { PendingrequestsComponent } from './components/pendingrequests/pendingre
 import { GuidelistComponent } from './components/guidelist/guidelist.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { PackageslistComponent } from './components/packageslist/packageslist.component';
+import { BlockComponent } from './components/block/block.component';
+import { ShowBlockedGuidesComponent } from './components/show-blocked-guides/show-blocked-guides.component';
 
 
 
@@ -24,7 +26,9 @@ import { PackageslistComponent } from './components/packageslist/packageslist.co
     PendingrequestsComponent,
     GuidelistComponent,
     UserlistComponent,
-    PackageslistComponent
+    PackageslistComponent,
+    BlockComponent,
+    ShowBlockedGuidesComponent
   ],
   imports: [
     AdminRoutingModule,
