@@ -1,0 +1,68 @@
+
+   <section class="container">
+    
+    <header>
+      <div class="">
+          <i class="icon fa fa-user-o"> </i>
+        </div>
+      <div class="">
+        <label> Fullname </label>
+      </div>
+  
+      <div class="">
+        <label> email </label>
+      </div>
+  
+      <div class="">
+        <label> Experience</label>
+      </div>
+  
+      <div class="">
+        <label> location </label>
+      </div>
+      <div class="">
+        <label> Status </label>
+      </div>
+      <div class="">
+          <label> Actions </label>
+        </div>
+  
+      
+    </header>
+  
+    <ul class="task-items" *ngFor="let user of users">
+   
+      <li class="item">
+          <div class="user">
+              <img
+                src="{{user.files}}"
+                alt="Image 001"
+                class="owner-img"
+              />
+            </div>
+            <div class="fullname">
+              <label >{{user.fullname}}</label>
+            </div>
+            <div class="email">
+              <label >{{user.email}}</label>
+            </div>
+            <div class="expirence">
+              <label >{{user.mobile}}</label>
+            </div>
+            <div class="location">
+              <label >{{user.location}}</label>
+            </div>
+            <div class="status">
+              <label >{{user.isApproved}}</label>
+            </div>
+            <div class="actions">
+              <button class="accept" (click)="isBlock(user._id)">Block</button>
+              <button class="reject" (click)="isUnblock(user._id)">Unblock</button>
+  
+            </div>
+            
+       
+          </li>
+    </ul>
+  </section>
+  

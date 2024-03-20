@@ -10,8 +10,10 @@ import { PendingrequestsComponent } from './components/pendingrequests/pendingre
 import { GuidelistComponent } from './components/guidelist/guidelist.component';
 import { PackageslistComponent } from './components/packageslist/packageslist.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
-import { BlockComponent } from './components/block/block.component';
+import { BlockComponent } from './components/block-guide/block.component';
 import { ShowBlockedGuidesComponent } from './components/show-blocked-guides/show-blocked-guides.component';
+import { UserblockComponent } from './components/block-user/userblock.component';
+import { UserBlockedListComponent } from './components/user-blocked-list/user-blocked-list.component';
 
 const routes: Routes = [
   {
@@ -53,6 +55,14 @@ const routes: Routes = [
       {
         path:'showblockedGuides',
         component:ShowBlockedGuidesComponent
+      },
+      {
+        path:'blockuser',
+        component:UserblockComponent
+      },
+      {
+        path:'showblockeduser',
+        component:UserBlockedListComponent
       }
     ],
   },

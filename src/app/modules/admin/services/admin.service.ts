@@ -13,7 +13,9 @@ export class AdminService {
   getAllGuide = 'http://localhost:5050/admin/getguides';
   getAllusers = 'http://localhost:5050/admin/getusers';
   blockGuides = 'http://localhost:5050/admin/blockstatus';
-  getBlockedGuides = 'http://localhost:5050/admin/blocekdguides'
+  getBlockedGuides = 'http://localhost:5050/admin/blocekdguides';
+  getBlockedUsers = 'http://localhost:5050/admin/blocekdusers';
+  blockedUser = 'http://localhost:5050/admin/userblock'
 
   guidePendingStatus(): Observable<any> {
     return this.http.get<any>(this.guideStatus);
@@ -42,5 +44,18 @@ export class AdminService {
   }
   getAllBlockedGuide():Observable<any> {
     return this.http.get(this.getBlockedGuides)
+  }
+  getAllBlockedUser():Observable<any> {
+    return this.http.get(this.getBlockedUsers)
+  }
+  blockUser(id:any, blockstatus:any):Observable<any> {
+
+    const url = `${this.blockedUser}/${id}`
+    console.log(url);
+    
+    const body = { blockstatus}
+    console.log(blockstatus);
+    
+    return this.http.patch(url, body)
   }
 }

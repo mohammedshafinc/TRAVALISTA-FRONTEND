@@ -1,0 +1,56 @@
+<div *ngIf="msg">
+    {{ msg }}
+  </div>
+  
+  <section class="container" *ngIf="blockeduser.length > 0">
+    <!-- Header Bar -->
+    <header>
+      <div class="">
+        <i class="icon fa fa-user-o"> </i>
+      </div>
+      <div class="">
+        <label> Fullname </label>
+      </div>
+  
+      <div class="">
+        <label> email </label>
+      </div>
+  
+      <div class="">
+        <label> Experience</label>
+      </div>
+  
+      <div class="">
+        <label> location </label>
+      </div>
+      <div class="">
+        <label> status </label>
+      </div>
+    </header>
+  
+    <!-- List Items -->
+    <ul class="task-items">
+      <!-- List Item -->
+      <li class="item" *ngFor="let user of blockeduser">
+        <div class="user">
+          <img src="{{ user.files }}" alt="Image 001" class="owner-img" />
+        </div>
+        <div class="fullname">
+          <label>{{ user.fullname }}</label>
+        </div>
+        <div class="email">
+          <label>{{ user.email }}</label>
+        </div>
+        <div class="expirence">
+          <label>{{ user.exp }}</label>
+        </div>
+        <div class="location">
+          <label>{{ user.location }}</label>
+        </div>
+        <div class="status">
+          <label>{{ user.blockStatus }}</label>
+        </div>
+      </li>
+    </ul>
+  </section>
+  

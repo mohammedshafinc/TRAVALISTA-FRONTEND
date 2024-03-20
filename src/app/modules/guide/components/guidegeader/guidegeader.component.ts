@@ -10,13 +10,14 @@ import { GuideService } from 'src/app/services/guide.service';
 export class GuidegeaderComponent implements OnInit {
   guidename: any;
   userDetails: any;
-
+  isImage: boolean = false;
   constructor(private router: Router, private guideserv: GuideService) {}
 
   ngOnInit(): void {
     this.guideserv.guideprofile().subscribe({
       next: (data) => {
         console.log('data in header', data);
+        this.userDetails = data
         this.guidename = data.fullname;
         console.log(this.guidename);
       },
