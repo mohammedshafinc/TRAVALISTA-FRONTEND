@@ -30,7 +30,9 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { UserRoutingModule } from './modules/user/user-routing.module';
 import { BannerComponent } from './components/banner/banner.component';
-import { ShowpackagedetailsComponent } from './components/showpackagedetails/showpackagedetails.component';
+import { ShowpackagedetailsComponent } from './components/show-package-details/showpackagedetails.component';
+import { PopularGuidesComponent } from './components/popular-guides/popular-guides.component';
+import { PopularPackagesComponent } from './components/popular-packages/popular-packages.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { ShowpackagedetailsComponent } from './components/showpackagedetails/sho
     ContactUsComponent,
     BannerComponent,
     ShowpackagedetailsComponent,
+    PopularGuidesComponent,
+    PopularPackagesComponent,
   ],
   imports: [
     AppRoutingModule,

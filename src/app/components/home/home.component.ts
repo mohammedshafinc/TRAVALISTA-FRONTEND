@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserDAtaService } from 'src/app/services/userData.service';
+import { ShowpackagedetailsComponent } from '../show-package-details/showpackagedetails.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,8 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private userData: UserDAtaService,
-    private activatedroute: ActivatedRoute
+    private activatedroute: ActivatedRoute,
+    // private dialog :MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -32,5 +35,7 @@ export class HomeComponent {
   JumpToSection(section:any){
     document.getElementById(section)?.scrollIntoView({behavior:'smooth'})
   }
+
+
   
 }

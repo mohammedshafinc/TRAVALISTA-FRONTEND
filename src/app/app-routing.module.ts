@@ -10,7 +10,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { AuthGuard } from './guards/authguard.guard';
 import { GuidesignupComponent } from './modules/guide/components/guidesignup/guidesignup.component';
 import { GuideloginComponent } from './modules/guide/components/guidelogin/guidelogin.component';
-import { ShowpackagedetailsComponent } from './components/showpackagedetails/showpackagedetails.component';
+import { ShowpackagedetailsComponent } from './components/show-package-details/showpackagedetails.component';
 
 const routes: Routes = [
   {
@@ -49,7 +49,7 @@ const routes: Routes = [
     component: GuideloginComponent,
   },
   {
-    path: 'showpackagedetails',
+    path: 'showpackagedetails/:packageid',
     component: ShowpackagedetailsComponent
   },
 

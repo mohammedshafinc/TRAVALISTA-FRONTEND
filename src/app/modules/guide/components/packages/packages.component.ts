@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GuideService } from 'src/app/services/guide.service';
 
 @Component({
@@ -10,8 +10,9 @@ import { GuideService } from 'src/app/services/guide.service';
 export class PackagesComponent implements OnInit {
   packages: any[] = [];
   guideId!: null;
+  packageId!:null
 
-  constructor(private guideService: GuideService , private route:ActivatedRoute) {}
+  constructor(private guideService: GuideService , private route:ActivatedRoute , private router: Router) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe((data) => {
       this.getPackages(data.get('guideId'));
@@ -27,11 +28,21 @@ export class PackagesComponent implements OnInit {
       next: (data) => {
         console.log(data);
         this.packages = data.packages
+        console.log('id',data.packages);
+        
        
       },
       error: (error) => {
         console.log(error);
       },
     });
+  }
+
+  showPackageDetails(id:any){
+    console.log(id);
+    
+    this.router.navigateByUrl(`/showpackagedetails/${id}`)
+    console.log('move to');
+    
   }
 }
