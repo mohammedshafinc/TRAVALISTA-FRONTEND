@@ -7,10 +7,10 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { UserComponent } from './modules/user/user.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { PopularDestinationsComponent } from './components/popular-destinations/popular-destinations.component';
 import { AuthGuard } from './guards/authguard.guard';
 import { GuidesignupComponent } from './modules/guide/components/guidesignup/guidesignup.component';
 import { GuideloginComponent } from './modules/guide/components/guidelogin/guidelogin.component';
+import { ShowpackagedetailsComponent } from './components/showpackagedetails/showpackagedetails.component';
 
 const routes: Routes = [
   {
@@ -39,10 +39,7 @@ const routes: Routes = [
     path: 'contactus',
     component: ContactUsComponent,
   },
-  {
-    path:'populardestination',
-    component:PopularDestinationsComponent
-  },
+  
   {
     path: 'guideregister',
     component: GuidesignupComponent,
@@ -50,6 +47,10 @@ const routes: Routes = [
   {
     path: 'guidelogin',
     component: GuideloginComponent,
+  },
+  {
+    path: 'showpackagedetails',
+    component: ShowpackagedetailsComponent
   },
 
   {

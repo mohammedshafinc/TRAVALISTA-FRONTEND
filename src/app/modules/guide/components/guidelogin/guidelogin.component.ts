@@ -13,6 +13,7 @@ export class GuideloginComponent implements OnInit {
   visible: boolean = true;
   changetype: boolean = true;
   errmsg = ''
+  guideId:any;
 
   constructor(private fb: FormBuilder, private router: Router, private guideservice:GuideService) {}
   ngOnInit(): void {
@@ -40,7 +41,7 @@ export class GuideloginComponent implements OnInit {
   navigateToGuideHome() {
     console.log('lkkjsfkjh');
     
-    this.router.navigateByUrl('/guide/guidehome');
+    this.router.navigateByUrl(`/guide/guidehome/${this.guideId}`);
   }
 
   onsubmit(){
@@ -49,6 +50,9 @@ export class GuideloginComponent implements OnInit {
     try {
       this.guideservice.login(this.guidelogin.value).subscribe({
         next:(data)=>{
+          console.log(data.guideId);
+          this.guideId = data.guideId
+          
           localStorage.setItem('token',data.token)
           localStorage.getItem('token')
           localStorage.setItem('type',data.type)

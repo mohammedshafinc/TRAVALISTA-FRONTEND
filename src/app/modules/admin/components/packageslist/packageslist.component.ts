@@ -12,7 +12,7 @@ export class PackageslistComponent implements OnInit{
   constructor( private guideService:GuideService){}
   ngOnInit(): void {
       
-    this.guideService.guideGetPackage().subscribe({
+    this.guideService.guideGetPackage(null).subscribe({
       next:(data)=>{
         console.log(data);
         for( const packages of data.packages){

@@ -14,15 +14,13 @@ export class GuideService {
   guideprofileApi = 'http://localhost:5050/guide/guideprofile';
   guideprofileUpdateApi = 'http://localhost:5050/guide/guideprofileupdate';
   guidePackageAdd = 'http://localhost:5050/guide/guideaddpackages';
-  getPackage = 'http://localhost:5050/guide/getpackages'
+  getPackage = 'http://localhost:5050/guide/getpackages';
 
   guidereg(data: any): Observable<any> {
     return this.http.post(this.guideRegApi, data);
   }
 
   otpverify(data: any): Observable<any> {
-    console.log('kinashe');
-    
     return this.http.post(this.guideVerifyOtp, data);
   }
 
@@ -34,20 +32,22 @@ export class GuideService {
     return this.http.get<any>(this.guideprofileApi);
   }
 
-  guideprofileupdate(data:any,id:any):Observable<any>{
-    const guideUpdate = `${this.guideprofileUpdateApi}/${id}`
+  guideprofileupdate(data: any, id: any): Observable<any> {
+    229;
+    const guideUpdate = `${this.guideprofileUpdateApi}/${id}`;
     console.log(data);
+
+    return this.http.patch(guideUpdate, data);
+  }
+
+  guidepackagedd(data: any): Observable<any> {
+    return this.http.post(this.guidePackageAdd, data);
+  }
+
+  guideGetPackage(guideId: any): Observable<any> {
+    console.log(guideId);
     
-    return this.http.patch(guideUpdate,data)
+    const getPackages = `${this.getPackage}/${guideId}`;
+    return this.http.get<any>(getPackages);
   }
-
-  guidepackagedd(data:any):Observable<any> {
-    return this.http.post(this.guidePackageAdd,data)
-  }
-
-  guideGetPackage():Observable<any> {
-    return this.http.get<any>(this.getPackage)
-  }
-
-
 }

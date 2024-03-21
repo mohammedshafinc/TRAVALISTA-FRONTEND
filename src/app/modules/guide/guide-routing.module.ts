@@ -15,7 +15,7 @@ const routes: Routes = [
     children: [
    
       {
-        path: 'guidehome',
+        path: 'guidehome/:guideId',
         component: GuidehomeComponent,
       },
       {

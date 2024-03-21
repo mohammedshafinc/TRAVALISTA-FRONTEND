@@ -1,36 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GuideService } from 'src/app/services/guide.service';
 
 @Component({
   selector: 'app-packages',
   templateUrl: './packages.component.html',
-  styleUrls: ['./packages.component.scss']
+  styleUrls: ['./packages.component.scss'],
 })
-export class PackagesComponent  implements OnInit{
-  packages:any[] = []
+export class PackagesComponent implements OnInit {
+  packages: any[] = [];
+  guideId!: null;
 
-  constructor( private guideService:GuideService){}
+  constructor(private guideService: GuideService , private route:ActivatedRoute) {}
   ngOnInit(): void {
+    this.route.paramMap.subscribe((data) => {
+      this.getPackages(data.get('guideId'));
+      console.log(data.get('guideId'));
       
-    this.guideService.guideGetPackage().subscribe({
-      next:(data)=>{
-        console.log(data);
-        for( const packages of data.packages){
-          this.packages.push(packages);
-          console.log(packages.packageName);
-          console.log(packages.files);
-          
-        }
-        
-        
-        
-      },
-      error:(error)=>{
-        console.log(error);
-        
-      }
     })
-
   }
 
+  getPackages(guideId: String | null = null) {
+    console.log(guideId);
+    
+    this.guideService.guideGetPackage(guideId).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.packages = data.packages
+       
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
 }

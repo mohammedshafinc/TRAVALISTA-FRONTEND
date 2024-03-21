@@ -15,6 +15,7 @@ export class AddpackagesComponent implements OnInit {
   activityDay: any[] = Array.from({ length: 10 }, ( x,i) => i + 1);
   imgsrc!:String
   formdata = new FormData()
+  guideId:any;
 
   constructor(private fb: FormBuilder, private guideservice:GuideService, private router: Router) {}
 
@@ -37,7 +38,7 @@ export class AddpackagesComponent implements OnInit {
   }
 
   redirectToGuideHome(){
-    this.router.navigateByUrl('/guide/guidehome')
+    this.router.navigateByUrl(`/guide/guidehome/${this.guideId}`)
   }
 
   onsubmit() {
@@ -60,7 +61,7 @@ export class AddpackagesComponent implements OnInit {
       next:(data)=>{
         console.log('message from server',data);
         setTimeout(() => {
-          
+         this.guideId = data.guideId
           this.redirectToGuideHome()
         }, 1000);
       },

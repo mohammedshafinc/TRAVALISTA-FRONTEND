@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/services/guide.service';
 import { GuidedataService } from '../../services/guidedata.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-guidehome',
@@ -8,9 +9,14 @@ import { GuidedataService } from '../../services/guidedata.service';
   styleUrls: ['./guidehome.component.scss']
 })
 export class GuidehomeComponent implements OnInit{
-  constructor(private guideserviice : GuideService , private guidedata:GuidedataService){}
+  constructor(private guideserviice : GuideService , private guidedata:GuidedataService , private route: ActivatedRoute){}
+  packages = '';
+  errorMsg = ''
 
 ngOnInit(): void {
+
+
+
   console.log('guidehmome');
   
     this.guideserviice.guideprofile().subscribe({
@@ -27,6 +33,8 @@ ngOnInit(): void {
         console.log('error getting profile from server', error);
       }
     })
+
+   
 }
 
 }

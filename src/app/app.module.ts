@@ -30,6 +30,7 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { UserRoutingModule } from './modules/user/user-routing.module';
 import { BannerComponent } from './components/banner/banner.component';
+import { ShowpackagedetailsComponent } from './components/showpackagedetails/showpackagedetails.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BannerComponent } from './components/banner/banner.component';
     AboutusComponent,
     ContactUsComponent,
     BannerComponent,
+    ShowpackagedetailsComponent,
   ],
   imports: [
     AppRoutingModule,
