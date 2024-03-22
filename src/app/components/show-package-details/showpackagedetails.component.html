@@ -1,1 +1,25 @@
-<p>showpackagedetails works!</p>
+<div class="maincard">
+    <div class="package-card mt-5" >
+        <div class="package-image">
+          <img src="{{packageDetails.files}}" alt="Package Image">
+        </div>
+        <div class="package-details" >
+            <h2>{{ packageDetails.packageName }}</h2>
+          <p>{{ packageDetails.description }}</p>
+          <ul>
+            <li>Duration: {{ packageDetails.duration }} days</li>
+            <li>Amount: {{ packageDetails.amount  }}</li>
+            <li>Accommodation: {{ packageDetails.accomodation ? 'Yes' : 'No' }}</li>
+            <li>Food: {{ packageDetails.food ? 'Yes' : 'No' }}</li>
+            <li>Activities: {{ packageDetails.activities ? 'Yes' : 'No' }}</li>
+            <li>Activity Count: {{ packageDetails.activityCount }}</li>
+            <li>Guide: {{ packageDetails.guideName }}</li>
+          </ul>
+          <div style="display: flex; gap: 5px;">
+            <button class="buy-now-button" (click)="payNow()">Purchase Package</button>
+          <button class="buy-now-button" routerLink="">Back</button>
+          </div>
+        </div>
+      </div>
+</div>
+  
