@@ -16,7 +16,7 @@
             <li>Guide: {{ packageDetails.guideName }}</li>
           </ul>
           <div style="display: flex; gap: 5px;">
-            <button class="buy-now-button" (click)="payNow()">Purchase Package</button>
+            <button class="buy-now-button" (click)="payNow(packageDetails.amount)">Purchase Package</button>
           <button class="buy-now-button" routerLink="">Back</button>
           </div>
         </div>
