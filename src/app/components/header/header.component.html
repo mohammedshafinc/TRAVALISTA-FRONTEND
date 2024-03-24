@@ -105,6 +105,12 @@
                       ><span style="margin-left: 6px" >Profile</span></a
                     >
                   </li>
+                  <li>
+                    <a class="dropdown-item " (click)="userProfile()">
+                      <i class="fa-solid fa-receipt"></i>
+                      <span style="margin-left: 6px" >Booked Packages</span></a
+                    >
+                  </li>
 
                   <li *ngIf="isLoggedIn()">
                     <a class="dropdown-item" (click)="logout()">
