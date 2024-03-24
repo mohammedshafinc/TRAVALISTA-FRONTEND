@@ -1,0 +1,67 @@
+
+<section class="section1">
+  <h1>Booked Details</h1>
+  <button routerLink="" class="backbutton">Go Back</button>
+  
+</section>
+<div *ngIf="msg" class="msg">
+    {{ msg }}
+  </div>
+<section class="container" *ngIf="packages.length > 0">
+  <!-- Header Bar -->
+  <!-- <header> -->
+  <div class="header">
+    <div class="">
+      <i class="fa-solid fa-image"></i>
+    </div>
+    <div class="">
+      <label> package Name </label>
+    </div>
+
+    <div class="">
+      <label> Guide Name </label>
+    </div>
+
+    <div class="">
+      <label> No of Days</label>
+    </div>
+
+    <div class="">
+      <label> Amount </label>
+    </div>
+    <div class="">
+      <label> Payment Status </label>
+    </div>
+  </div>
+  <!-- </header> -->
+
+  <!-- List Items -->
+  <ul class="task-items">
+    <!-- List Item -->
+    <li class="item" *ngFor="let booking of packages">
+      <div class="user">
+        <img src="{{ booking.files }}" alt="Image 001" class="owner-img" />
+      </div>
+      <div class="fullname">
+        <label>{{ booking.packageName }}</label>
+      </div>
+      <div class="email">
+        <label>{{ booking.guideName }}</label>
+      </div>
+      <div class="expirence">
+        <label>{{ booking.duration }} Days</label>
+      </div>
+      <div class="location">
+        <label>{{ booking.amount }}</label>
+      </div>
+      <div class="status">
+        <label>paid</label>
+      </div>
+      <div class="button">
+        <button class="btn btn-secondary mt-3">
+          <i class="fas fa-comments"></i> Chat with Guide
+        </button>
+      </div>
+    </li>
+  </ul>
+</section>

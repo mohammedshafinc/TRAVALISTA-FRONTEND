@@ -73,7 +73,7 @@ export class ShowpackagedetailsComponent implements OnInit {
           handler:(respone:any)=>{
             console.log('hai');
             console.log(respone)
-           this.paymentHandler(respone)
+           this.paymentHandler(respone, this.packageId)
             
           }
         };
@@ -88,10 +88,12 @@ export class ShowpackagedetailsComponent implements OnInit {
   
   }
 
-  paymentHandler(respone:any){
+  paymentHandler(respone:any, packageId:any){
     this.data = respone
     console.log(respone);
-    this.paymantService.paymentSuccess(this.data).subscribe({
+    console.log(packageId);
+    
+    this.paymantService.paymentSuccess(this.data,packageId).subscribe({
       next:(data)=>{
         console.log(data);  
       },

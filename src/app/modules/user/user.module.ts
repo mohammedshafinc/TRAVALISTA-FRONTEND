@@ -7,11 +7,16 @@ import { UserRoutingModule } from './user-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { BookedPackagesComponent } from './components/booked-packages/booked-packages.component';
 
 @NgModule({
-  declarations: [ UserComponent,UserprofileComponent],
-  imports: [CommonModule, SharedModule,UserRoutingModule, FormsModule, ReactiveFormsModule],
+  declarations: [UserComponent, UserprofileComponent, BookedPackagesComponent],
+  imports: [
+    CommonModule,
+    SharedModule,
+    UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class UserModule {}

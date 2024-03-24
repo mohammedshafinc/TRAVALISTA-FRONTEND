@@ -70,6 +70,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/guidelogin');
   }
 
+
+  bookedPackages(){
+    this.router.navigateByUrl('/user/bookedpackages')
+  }
   isLoggedIn() {
     return !!localStorage.getItem('token');
   }

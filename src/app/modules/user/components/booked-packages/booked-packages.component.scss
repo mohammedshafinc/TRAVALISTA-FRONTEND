@@ -1,0 +1,31 @@
+@import '../../../admin/components/user-blocked-list/user-blocked-list.component.scss';
+
+.section1 {
+  margin-top: 34px;
+  margin-left: 95px;
+  display: flex;
+  justify-content: space-around;
+}
+.status{
+  border: 1px solid;
+    width: 60px;
+    height: 33px;
+    text-align: center;
+    background: green;
+    border-radius: 22px;
+    color: white;
+    padding: 2px;
+}
+.header{
+  display: flex;
+  gap: 39px;
+  margin-left: 60px;
+}
+
+.backbutton{
+  background-color: blue;
+}
+.msg {
+  text-align: center;
+  margin-top: 70px;
+}

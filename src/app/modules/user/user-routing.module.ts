@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { UserComponent } from './user.component';
+import { BookedPackagesComponent } from './components/booked-packages/booked-packages.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path:'usrprofileupdate',
         component:UserprofileComponent
+      },
+      {
+        path: 'bookedpackages',
+        component:BookedPackagesComponent
       },
     ]
   }
