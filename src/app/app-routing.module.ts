@@ -60,7 +60,6 @@ const routes: Routes = [
   },
   {
     path: 'guide', 
-    canActivate:[AuthGuard],
     loadChildren: () =>
       import('./modules/guide/guide.module').then((m) => m.GuideModule),
   },

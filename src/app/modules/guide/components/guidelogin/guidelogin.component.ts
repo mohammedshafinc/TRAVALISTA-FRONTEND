@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GuideService } from 'src/app/services/guide.service';
+import { SignupService } from 'src/app/services/signup.service';
 
 @Component({
   selector: 'app-guidelogin',
@@ -12,10 +13,15 @@ export class GuideloginComponent implements OnInit {
   guidelogin!: FormGroup;
   visible: boolean = true;
   changetype: boolean = true;
-  errmsg = ''
-  guideId:any;
+  errmsg = '';
+  guideId: any;
 
-  constructor(private fb: FormBuilder, private router: Router, private guideservice:GuideService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private guideservice: GuideService,
+    private signser: SignupService
+  ) {}
   ngOnInit(): void {
     this.guidelogin = this.fb.group({
       email: ['', Validators.required],
@@ -36,43 +42,41 @@ export class GuideloginComponent implements OnInit {
     return this.guidelogin.controls;
   }
 
-
-
   navigateToGuideHome() {
     console.log('lkkjsfkjh');
-    
+
     this.router.navigateByUrl(`/guide/guidehome/${this.guideId}`);
   }
 
-  onsubmit(){
+  onsubmit() {
     console.log(this.guidelogin.value);
-    
+
     try {
       this.guideservice.login(this.guidelogin.value).subscribe({
-        next:(data)=>{
+        next: (data) => {
+          
+         if(data.guide){
           console.log(data.guideId);
-          this.guideId = data.guideId
-          
-          localStorage.setItem('token',data.token)
-          localStorage.getItem('token')
-          localStorage.setItem('type',data.type)
-          
+          this.guideId = data.guideId;
+
+          localStorage.setItem('token', data.token);
+          this.signser.type = this.signser.tokendecode();
+          localStorage.getItem('token');
+
           console.log('data', data);
-        
+
+          this.navigateToGuideHome();
+          console.log('navigatedtohome');
           
-          this.navigateToGuideHome()
-          
+         }
         },
-        error:(error)=>{
-          console.log('error',error );
-          this.errmsg  = error.error.message;
-          
-          
-        }
-      })
+        error: (error) => {
+          console.log('error', error);
+          this.errmsg = error.error.message;
+        },
+      });
     } catch (error) {
-      console.log('error in login' , error);
-      
+      console.log('error in login', error);
     }
   }
 

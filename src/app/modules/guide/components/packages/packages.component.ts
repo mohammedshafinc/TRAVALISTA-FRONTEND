@@ -39,10 +39,14 @@ export class PackagesComponent implements OnInit {
   }
 
   showPackageDetails(id:any){
+    const authentication = localStorage.getItem('type')
+    console.log(authentication);
+    
     console.log(id);
     
     this.router.navigateByUrl(`/showpackagedetails/${id}`)
     console.log('move to');
     
   }
+ 
 }

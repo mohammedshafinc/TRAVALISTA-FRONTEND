@@ -11,6 +11,7 @@ const headersContent = {
 })
 export class SignupService {
   constructor(private http: HttpClient) {}
+  type: any
 
 
   isAuthenticated:boolean=false
@@ -63,6 +64,17 @@ export class SignupService {
     return false
    }
 
+  }
+
+  tokendecode(){
+    const token = localStorage.getItem('token')
+    if (!token) {
+      return
+    }
+
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace('-','+').replace('_','/');
+    return JSON.parse(window.atob(base64))
   }
 
   

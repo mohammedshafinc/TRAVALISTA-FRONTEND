@@ -55,25 +55,20 @@ export class LoginComponent implements OnInit {
     try {
       this.signser.userLoginApi(this.loginForm.value).subscribe({
         next: (data: any) => {
-          if (data.type == 'user') {
-            console.log('data send succesfully', data);
+          if (data.user) {
+            console.log(data)
+            console.log(data.token)
             console.log('user logged succesfully');
-
             // save the userdata for service
-
             this.userdata.setUserDetails(data);
-            if (data.login == true) {
-              localStorage.setItem('token', data.token);
-              const one = localStorage.getItem('token');
-              localStorage.setItem('type', data.type);
-              console.log('one', one);
+            localStorage.setItem('token',data.token)
+            this.signser.type = this.signser.tokendecode()
+            this.redirectToHome();
 
-              this.redirectToHome();
-
-              console.log('navigated to home');
-            }
-          } else if (data.type == 'admin') {
+           
+          } else if (data.admin) {
             console.log('admin logged');
+            localStorage.setItem('token',data.token)
             this.redirectTAdminHome()
             console.log('redirectoadminhome');
             
