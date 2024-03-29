@@ -11,6 +11,11 @@ import { AuthGuard } from './guards/authguard.guard';
 import { GuidesignupComponent } from './modules/guide/components/guidesignup/guidesignup.component';
 import { GuideloginComponent } from './modules/guide/components/guidelogin/guidelogin.component';
 import { ShowpackagedetailsComponent } from './components/show-package-details/showpackagedetails.component';
+import { userCanActivate } from './guards/userguard.guard';
+import { guideCanActivate } from './guards/guide.guard';
+import { adminCanActivate } from './guards/adminguard.guard';
+import { PopularPackagesComponent } from './components/popular-packages/popular-packages.component';
+import { PackagesComponent } from './modules/guide/components/packages/packages.component';
 
 const routes: Routes = [
   {
@@ -52,19 +57,30 @@ const routes: Routes = [
     path: 'showpackagedetails/:packageid',
     component: ShowpackagedetailsComponent
   },
+  {
+    path: 'popularpackages',
+    component:PopularPackagesComponent
+  },
+  {
+    path:'packagescomponrnt',
+    component:PackagesComponent
+  },
 
   {
     path: 'user',
+    canActivate:[userCanActivate],
     loadChildren: () =>
       import('./modules/user/user.module').then((m) => m.UserModule),
   },
   {
-    path: 'guide', 
+    path: 'guide',
+    canActivate:[guideCanActivate],
     loadChildren: () =>
       import('./modules/guide/guide.module').then((m) => m.GuideModule),
   },
   {
     path:'admin',
+    canActivate:[adminCanActivate],
     loadChildren:()=> import('./modules/admin/admin.module').then((m)=> m.AdminModule)
   },
 

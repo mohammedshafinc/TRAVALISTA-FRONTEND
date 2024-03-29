@@ -10,6 +10,7 @@ import { filter } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent  {
+
   title = 'travalista';
 
   fulldata: any;
@@ -26,6 +27,10 @@ export class AppComponent  {
         this.isAdminRoute = this.router.url.startsWith('/admin'); // Adjust path as needed
       });
   }
+    ngOnInit(){
+      this.signser.type = this.signser.tokendecode()
+    }
+
 
 
 }

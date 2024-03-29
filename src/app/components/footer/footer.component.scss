@@ -1,7 +1,9 @@
 .footer {
-  background: #13253f;
+  background-color: #3b837e;
   color: white;
-
+  
+  filter: brightness(100%) contrast(150%); 
+}
   .links {
     ul {
       list-style-type: none;
@@ -32,18 +34,17 @@
       }
     }
   }
-  .location {
-    i {
-      font-size: 18px;
-    }
-  }
-  .copyright p {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .icons {
-    display: flex;
-    gap: 10px;
-  }
+ 
+
+.location i {
+  font-size: 18px;
+}
+.copyright p {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.icons {
+  display: flex;
+  gap: 10px;
 }
 .icon{
   margin-right: 10px;

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GuideService } from 'src/app/services/guide.service';
 
+
+
 @Component({
   selector: 'app-packages',
   templateUrl: './packages.component.html',

@@ -63,12 +63,17 @@ export class LoginComponent implements OnInit {
             this.userdata.setUserDetails(data);
             localStorage.setItem('token',data.token)
             this.signser.type = this.signser.tokendecode()
+            console.log(this.signser.type);
             this.redirectToHome();
 
            
           } else if (data.admin) {
+            console.log(data.token);
+            
             console.log('admin logged');
             localStorage.setItem('token',data.token)
+            this.signser.type = this.signser.tokendecode()
+            console.log(this.signser.type);
             this.redirectTAdminHome()
             console.log('redirectoadminhome');
             

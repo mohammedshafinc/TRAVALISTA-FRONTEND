@@ -33,6 +33,9 @@ import { BannerComponent } from './components/banner/banner.component';
 import { ShowpackagedetailsComponent } from './components/show-package-details/showpackagedetails.component';
 import { PopularGuidesComponent } from './components/popular-guides/popular-guides.component';
 import { PopularPackagesComponent } from './components/popular-packages/popular-packages.component';
+import { CarouselModule } from 'primeng/carousel';
+
+
 
 @NgModule({
   declarations: [
@@ -61,6 +64,7 @@ import { PopularPackagesComponent } from './components/popular-packages/popular-
     SharedModule,
     GuideModule,
     UserRoutingModule,
+    
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },
