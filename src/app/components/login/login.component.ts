@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   visible: boolean = true;
   changetype: boolean = true;
+  errmsg = '';
 
   constructor(
     private signser: SignupService,
@@ -83,6 +84,7 @@ export class LoginComponent implements OnInit {
         },
         error: (error) => {
           console.log('user logged error', error);
+        this.errmsg = error.error.message
         },
       });
     } catch (err) {

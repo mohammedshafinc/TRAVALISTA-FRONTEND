@@ -135,3 +135,62 @@
     </div>
   </nav>
 </body> -->
+
+<!-- ----------------------------- -->
+<!-- <div class="container-fluid position-relative p-0"> -->
+<nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+  <a  class="navbar-brand p-0">
+      <h1 class=" m-0" style="color: #3b837e;"><i class="fa fa-map-marker-alt me-3"></i>TRAVALISTA</h1>
+      <!-- <img src="img/logo.png" alt="Logo"> -->
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="fa fa-bars"></span>
+  </button>
+  <div class="collapse navbar-collapse head" id="navbarCollapse" >
+      <div class="navbar-nav ms-auto py-0" style="display: flex; justify-content: center; align-items: center;">
+          <a href="index.html" class="nav-item nav-link active">Home</a>
+          <a routerLink="/aboutus" class="nav-item nav-link">About</a>
+          <a href="service.html" class="nav-item nav-link">Services</a>
+          <a href="package.html" class="nav-item nav-link">Packages</a>
+          <a href="package.html" class="nav-item nav-link">Contact Us</a>
+         
+          <a href="contact.html" class="nav-item nav-link">Guide</a>
+          
+         
+      
+      <div class="dropdown-center" *ngIf="isLoggedIn()">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{value}}
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item " (click)="userProfile()">
+              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i
+              ><span style="margin-left: 6px" >Profile</span></a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item " (click)="bookedPackages()">
+              <i class="fa-solid fa-receipt"></i>
+              <span style="margin-left: 6px" >Booked Packages</span></a
+            >
+          </li>
+
+          <li *ngIf="isLoggedIn()">
+            <a class="dropdown-item" (click)="logout()">
+              <i
+                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+              ></i>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+      <div class="d-flex gap-3"  *ngIf="!isLoggedIn()">
+      <a  class="btn btn-primary rounded-pill py-2 px-4" (click)="redirectToRegister()">Register</a>
+      <a  class="btn btn-primary rounded-pill py-2 px-4" (click)="redirectToLogin()">Login</a>
+    </div>
+  </div>
+</nav>
+<!-- </div> -->
