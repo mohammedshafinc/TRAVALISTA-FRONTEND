@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { GuideComponent } from './guide.component';
 import { GuideprofileComponent } from './components/guideprofile/guideprofile.component';
 import { AddpackagesComponent } from './components/addpackages/addpackages.component';
+import { UpdatePackageComponent } from './components/packages/update-package/update-package.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path:'addpackage',
         component:AddpackagesComponent
+      },
+      {
+        path:'updatepackage/:guideid',
+        component:UpdatePackageComponent
       }
     ],
   },

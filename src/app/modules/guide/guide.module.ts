@@ -13,6 +13,7 @@ import { GuidegeaderComponent } from './components/guidegeader/guidegeader.compo
 import { PackagesComponent } from './components/packages/packages.component';
 import { AddpackagesComponent } from './components/addpackages/addpackages.component';
 import { GuideprofileComponent } from './components/guideprofile/guideprofile.component';
+import { UpdatePackageComponent } from './components/packages/update-package/update-package.component';
 
 
 
@@ -28,7 +29,8 @@ import { GuideprofileComponent } from './components/guideprofile/guideprofile.co
     GuidegeaderComponent,
     // PackagesComponent,
     AddpackagesComponent,
-    GuideprofileComponent
+    GuideprofileComponent,
+    UpdatePackageComponent
   ],
   imports: [
     CommonModule,

@@ -50,5 +50,10 @@ export class PackagesComponent implements OnInit {
     console.log('move to');
     
   }
+
+  updatepackage(id:any){
+    this.packageId = id
+    this.router.navigateByUrl(`/guide/updatepackage/${this.packageId}`)
+  }
  
 }
