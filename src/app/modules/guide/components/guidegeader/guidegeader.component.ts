@@ -11,6 +11,7 @@ export class GuidegeaderComponent implements OnInit {
   guidename: any;
   userDetails: any;
   isImage: boolean = false;
+  guideid!:any
   constructor(private router: Router, private guideserv: GuideService) {}
 
   ngOnInit(): void {
@@ -18,6 +19,9 @@ export class GuidegeaderComponent implements OnInit {
       next: (data) => {
         console.log('data in header', data);
         this.userDetails = data
+        this.guideid = data._id
+        console.log(this.guideid);
+        
         this.guidename = data.fullname;
         console.log(this.guidename);
       },
@@ -38,6 +42,6 @@ export class GuidegeaderComponent implements OnInit {
   }
 
   userProfile() {
-    this.router.navigateByUrl('/guide/guideprofileupdate');
+    this.router.navigateByUrl(`/guide/guideprofileupdate/${this.guideid}`);
   }
 }

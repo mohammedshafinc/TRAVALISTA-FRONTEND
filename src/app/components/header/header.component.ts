@@ -35,6 +35,10 @@ export class HeaderComponent implements OnInit {
     if(this.isLoggedIn()){
       this.singser.getuser().subscribe({
         next: (data) => {
+          // if(data.expiry){
+          //   alert('token expired please login')
+          //   this.router.navigateByUrl('/userlogin')
+          // }
         
           // console.log(data);
           console.log(data.fullname);

@@ -20,11 +20,12 @@ export class GuideprofileComponent implements OnInit {
   isImage: boolean = false;
   guideUpdate!: FormGroup;
   formdata = new FormData();
+  guideid:any
 
     guideDetails:any
 
   cancel() {
-    this.router.navigateByUrl('/guide/guidehome');
+    this.router.navigateByUrl(`/guide/guidehome/${this.guideid}`);
   }
 
   ngOnInit(): void {
@@ -49,7 +50,8 @@ export class GuideprofileComponent implements OnInit {
           this.guidedata.isLogout()
         }else{
           this.isImage = true
-          this.guideDetails = data 
+          this.guideDetails = data
+          this.guideid = data._id
           this.guideUpdate.patchValue(data)
           console.log('data in update', data);
           

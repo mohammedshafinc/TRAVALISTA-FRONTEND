@@ -34,6 +34,7 @@ import { ShowpackagedetailsComponent } from './components/show-package-details/s
 import { PopularGuidesComponent } from './components/popular-guides/popular-guides.component';
 import { PopularPackagesComponent } from './components/popular-packages/popular-packages.component';
 import { CarouselModule } from 'primeng/carousel';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 
 
@@ -64,6 +65,7 @@ import { CarouselModule } from 'primeng/carousel';
     SharedModule,
     GuideModule,
     UserRoutingModule,
+    MatSnackBarModule
     
   ],
   providers: [

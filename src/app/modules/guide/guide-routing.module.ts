@@ -19,7 +19,7 @@ const routes: Routes = [
         component: GuidehomeComponent,
       },
       {
-        path:'guideprofileupdate',
+        path:'guideprofileupdate/:guideid',
         component:GuideprofileComponent
       },
       {
