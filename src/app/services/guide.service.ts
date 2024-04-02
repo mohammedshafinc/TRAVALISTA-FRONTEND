@@ -33,7 +33,6 @@ export class GuideService {
   }
 
   guideprofileupdate(data: any, id: any): Observable<any> {
-    229;
     const guideUpdate = `${this.guideprofileUpdateApi}/${id}`;
     console.log(data);
 

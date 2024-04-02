@@ -28,7 +28,7 @@ const routes: Routes = [
         component:AddpackagesComponent
       },
       {
-        path:'updatepackage/:guideid',
+        path:'updatepackage/:packageid',
         component:UpdatePackageComponent
       }
     ],
