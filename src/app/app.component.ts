@@ -16,21 +16,34 @@ export class AppComponent  {
   fulldata: any;
   isAdminRoute = false;
 
+  isloading:boolean = false
   constructor(
     private router: Router,
     private userdata: UserDAtaService,
     private signser: SignupService
-  ) {
+  ) 
+  
+  
+  {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.isAdminRoute = this.router.url.startsWith('/admin'); // Adjust path as needed
       });
   }
+
     ngOnInit(){
       this.signser.type = this.signser.tokendecode()
+
+      this.userdata.loader$.subscribe(value =>{
+        this.isloading = value
+        console.log(value);
+        
+      })
     }
 
 
+
+    
 
 }

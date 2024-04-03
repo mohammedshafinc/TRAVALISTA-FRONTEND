@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GuideService } from 'src/app/services/guide.service';
+import { UserDAtaService } from 'src/app/services/userData.service';
 
 @Component({
   selector: 'app-addpackages',
@@ -17,7 +18,7 @@ export class AddpackagesComponent implements OnInit {
   formdata = new FormData()
   guideId:any;
 
-  constructor(private fb: FormBuilder, private guideservice:GuideService, private router: Router) {}
+  constructor(private fb: FormBuilder, private guideservice:GuideService, private router: Router, private userdata:UserDAtaService) {}
 
   ngOnInit(): void {
     this.addpackage = this.fb.group({
@@ -56,16 +57,19 @@ export class AddpackagesComponent implements OnInit {
     this.formdata.append('transpotation',packageData.transpotation)
     this.formdata.append('activityCount',packageData.activityCount)
     this.formdata.append('duration',packageData.duration)
+    
+    this.userdata.setLoader(true)
 
     this.guideservice.guidepackagedd(this.formdata).subscribe({
       next:(data)=>{
         console.log('message from server',data);
-        setTimeout(() => {
+        this.userdata.setLoader(false)
          this.guideId = data.guideId
           this.redirectToGuideHome()
-        }, 1000);
+        
       },
       error:(error) =>{
+        this.userdata.setLoader(false)
         console.log('error getting data from server', error);
         
       }

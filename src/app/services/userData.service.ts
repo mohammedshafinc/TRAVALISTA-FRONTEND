@@ -18,6 +18,13 @@ export class UserDAtaService {
   //  behaviour subbject 2
   userData3$ = new BehaviorSubject<any>(null);
 
+  loader$ = new BehaviorSubject<any>(false);
+
+
+  setLoader(data:any):void {
+    this.loader$.next(data)
+  }
+
   // methods to update data
 
   setData(data: any): void {

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GuideService } from 'src/app/services/guide.service';
+import { PackageService } from '../../services/package.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { UserDAtaService } from 'src/app/services/userData.service';
 
 @Component({
   selector: 'app-packages',
@@ -9,13 +12,15 @@ import { GuideService } from 'src/app/services/guide.service';
 })
 export class PackagesComponent implements OnInit {
   packages: any[] = [];
-  guideId!: null;
+  guideId= '';
   packageId!: null;
 
   constructor(
     private guideService: GuideService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private packageService:PackageService,
+    private userdata:UserDAtaService
   ) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe((data) => {
@@ -23,6 +28,7 @@ export class PackagesComponent implements OnInit {
       console.log(data.get('guideId'));
     });
   }
+
 
   getPackages(guideId: String | null = null) {
     console.log(guideId);
@@ -52,5 +58,28 @@ export class PackagesComponent implements OnInit {
   updatepackage(id: any) {
     this.packageId = id;
     this.router.navigateByUrl(`/guide/updatepackage/${this.packageId}`);
+  }
+  deletepackage(id: any){
+    // console.log(id);
+    this.userdata.setData(true)
+    this.packageService.deletepackage(id).subscribe({
+      next:(data)=>{
+        this.userdata.setData(false)
+        console.log(data);
+        this.route.paramMap.subscribe((data) => {
+          const guideId = data.get('guideId');
+          this.getPackages(guideId); // Pass guideId to fetch only packages associated with the current guide
+        });
+    
+        
+      },
+      error:(error)=>{
+        this.userdata.setData(false)
+
+        console.log(error);
+        
+      }
+    })
+    
   }
 }

@@ -11,6 +11,7 @@ export class PackageService {
   packageShow = 'http://localhost:5050/admin/showpackages';
   selectedPackage = 'http://localhost:5050/guide/selectedpackage';
   guidepackageupdate = 'http://localhost:5050/guide/guidepackageupdate'
+  deletePackageApi = 'http://localhost:5050/guide/deletepackage'
 
   getPackageshow(id: any): Observable<any> {
     const showPackages = `${this.packageShow}/${id}`;
@@ -28,4 +29,11 @@ export class PackageService {
     const updatePackage = `${this.guidepackageupdate}/${id}`
     return this.http.patch(updatePackage, data)
   }
+
+  deletepackage(id:any):Observable<any>{
+    const deletePackage = `${this.deletePackageApi}/${id}`
+    return this.http.delete(deletePackage)
+  }
+
+
 }

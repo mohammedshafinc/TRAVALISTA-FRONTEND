@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GuideComponent } from './guide.component';
 import { RouterModule } from '@angular/router';
@@ -14,6 +14,8 @@ import { PackagesComponent } from './components/packages/packages.component';
 import { AddpackagesComponent } from './components/addpackages/addpackages.component';
 import { GuideprofileComponent } from './components/guideprofile/guideprofile.component';
 import { UpdatePackageComponent } from './components/packages/update-package/update-package.component';
+// import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 
@@ -38,9 +40,11 @@ import { UpdatePackageComponent } from './components/packages/update-package/upd
     SharedModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    // NgxSpinnerModule
     
   ],
+  
   exports: [
   //  PackagesComponent
   ]

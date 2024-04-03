@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PackageService } from '../../../services/package.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { UserDAtaService } from 'src/app/services/userData.service';
+
+
 
 @Component({
   selector: 'app-update-package',
@@ -13,7 +16,9 @@ export class UpdatePackageComponent implements OnInit {
     private fb: FormBuilder,
     private packageservice: PackageService,
     private activatedroute: ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private userdata :UserDAtaService
+
   ) {}
 
   packageUpdate!: FormGroup;
@@ -26,6 +31,8 @@ export class UpdatePackageComponent implements OnInit {
     this.activatedroute.paramMap.subscribe((data) => {
       this.packageId = data.get('packageid'), 
       console.log(this.packageId);
+    
+      
     });
     
 
@@ -74,6 +81,7 @@ export class UpdatePackageComponent implements OnInit {
   }
 
   updatePackage(id: any) {
+    this.userdata.setLoader(true)
     const formvalue = this.packageUpdate.value;
     // console.log('id',id);
     this.formdata.append('packageName', formvalue.packageName);
@@ -91,6 +99,7 @@ export class UpdatePackageComponent implements OnInit {
 
     next:(data)=>{
       console.log(data)
+      this.userdata.setLoader(false)
       this.navigateToHome()
     },
     error:(error)=>{
