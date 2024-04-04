@@ -88,6 +88,10 @@ export class ShowpackagedetailsComponent implements OnInit {
   
   }
 
+  chat(){
+    
+  }
+
   paymentHandler(respone:any, packageId:any){
     this.data = respone
     console.log(respone);
