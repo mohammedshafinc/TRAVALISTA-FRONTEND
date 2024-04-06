@@ -35,7 +35,7 @@ import { PopularGuidesComponent } from './components/popular-guides/popular-guid
 import { PopularPackagesComponent } from './components/popular-packages/popular-packages.component';
 import { CarouselModule } from 'primeng/carousel';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ChatComponent } from './components/chat/chat.component'
+import { ListAllPackagesComponent } from './components/list-all-packages/list-all-packages.component';
 
 
 
@@ -52,7 +52,8 @@ import { ChatComponent } from './components/chat/chat.component'
     ShowpackagedetailsComponent,
     PopularGuidesComponent,
     PopularPackagesComponent,
-    ChatComponent,
+    ListAllPackagesComponent,
+  
   ],
   imports: [
     AppRoutingModule,

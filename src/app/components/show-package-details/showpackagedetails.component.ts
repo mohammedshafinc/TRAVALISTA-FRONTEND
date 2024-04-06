@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PackageService } from 'src/app/modules/guide/services/package.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { UserDAtaService } from 'src/app/services/userData.service';
@@ -16,12 +16,14 @@ export class ShowpackagedetailsComponent implements OnInit {
   packageDetails: any = {};
   orderId:any
   data:any
+  guideId:any
 
   constructor(
     private actRoute: ActivatedRoute,
     private packageService: PackageService,
     private paymantService:PaymentService,
-    private userdata:UserDAtaService
+    private userdata:UserDAtaService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +39,12 @@ export class ShowpackagedetailsComponent implements OnInit {
             
           }
           this.packageDetails = data;
+          this.guideId = this.packageDetails.guideId
+          console.log(this.guideId);
+          
+          console.log(this.packageDetails);
+          
+          
         },
         error: (error) => {
           console.log(error);
@@ -89,6 +97,8 @@ export class ShowpackagedetailsComponent implements OnInit {
   }
 
   chat(){
+    this.router.navigateByUrl(`/chat/${this.guideId}`)
+    console.log('router');
     
   }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { io } from 'socket.io-client';
+import { ChatService } from 'src/app/services/chat.service';
 import { SignupService } from 'src/app/services/signup.service';
 import { UserDAtaService } from 'src/app/services/userData.service';
 
@@ -14,12 +16,14 @@ export class LoginComponent implements OnInit {
   visible: boolean = true;
   changetype: boolean = true;
   errmsg = '';
+  sendId :any
 
   constructor(
     private signser: SignupService,
     private fb: FormBuilder,
     private router: Router,
-    private userdata: UserDAtaService
+    private userdata: UserDAtaService,
+    private chatService:ChatService
   ) {}
 
   viewPass() {
@@ -64,6 +68,8 @@ export class LoginComponent implements OnInit {
             this.userdata.setUserDetails(data);
             localStorage.setItem('token',data.token)
             this.signser.type = this.signser.tokendecode()
+            this.sendId = this.signser.tokendecode()
+            // this.connectSocket()
             console.log(this.signser.type);
             this.redirectToHome();
 
@@ -90,5 +96,13 @@ export class LoginComponent implements OnInit {
     } catch (err) {
       console.log('error', err);
     }
+  }
+
+  connectSocket(){
+    this.chatService.socket = io('http://localhost:3000', {
+      auth: {
+        userid:`${this.sendId.id}`,
+      }
+    })
   }
 }

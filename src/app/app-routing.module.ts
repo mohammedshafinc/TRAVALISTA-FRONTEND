@@ -17,6 +17,7 @@ import { adminCanActivate } from './guards/adminguard.guard';
 import { PopularPackagesComponent } from './components/popular-packages/popular-packages.component';
 import { PackagesComponent } from './modules/guide/components/packages/packages.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { ListAllPackagesComponent } from './components/list-all-packages/list-all-packages.component';
 
 const routes: Routes = [
   {
@@ -67,8 +68,12 @@ const routes: Routes = [
     component:PackagesComponent
   },
   {
-    path:'chat',
+    path:'chat/:id',
     component:ChatComponent
+  },
+  {
+    path:'allpackages',
+    component:ListAllPackagesComponent
   },
 
   {

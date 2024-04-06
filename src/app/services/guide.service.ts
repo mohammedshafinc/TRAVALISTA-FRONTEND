@@ -49,4 +49,16 @@ export class GuideService {
     const getPackages = `${this.getPackage}/${guideId}`;
     return this.http.get<any>(getPackages);
   }
+
+  SingleGuide(guideid:any):Observable<any> {
+    console.log(guideid);
+    
+    return this.http.get(`http://localhost:5050/guide/singleguide/${guideid}`)
+  }
+
+  singleUser(userId:any):Observable<any> {
+    console.log('haaai');
+    
+    return this.http.get(`http://localhost:5050/guide/singleuser/${userId}`)
+  }
 }

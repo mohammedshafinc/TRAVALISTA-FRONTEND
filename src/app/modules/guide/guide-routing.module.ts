@@ -8,6 +8,7 @@ import { GuideComponent } from './guide.component';
 import { GuideprofileComponent } from './components/guideprofile/guideprofile.component';
 import { AddpackagesComponent } from './components/addpackages/addpackages.component';
 import { UpdatePackageComponent } from './components/packages/update-package/update-package.component';
+import { ChatComponent } from 'src/app/components/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path:'updatepackage/:packageid',
         component:UpdatePackageComponent
+      },
+      {
+        path:'guidechat',
+        component:ChatComponent
       }
     ],
   },

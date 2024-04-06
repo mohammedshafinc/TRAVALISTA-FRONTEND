@@ -61,10 +61,10 @@ export class PackagesComponent implements OnInit {
   }
   deletepackage(id: any){
     // console.log(id);
-    this.userdata.setData(true)
+    this.userdata.setLoader(true)
     this.packageService.deletepackage(id).subscribe({
       next:(data)=>{
-        this.userdata.setData(false)
+        this.userdata.setLoader(false)
         console.log(data);
         this.route.paramMap.subscribe((data) => {
           const guideId = data.get('guideId');

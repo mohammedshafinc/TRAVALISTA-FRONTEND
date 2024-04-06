@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { GuidedataService } from 'src/app/modules/guide/services/guidedata.service';
+import { ChatService } from 'src/app/services/chat.service';
 import { GuideService } from 'src/app/services/guide.service';
 import { SignupService } from 'src/app/services/signup.service';
 import { UserDAtaService } from 'src/app/services/userData.service';
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private singser: SignupService,
     private userData: UserDAtaService,
-    private guideservice:GuideService
+    private guideservice:GuideService,
+    private chatservice:ChatService
   ) {}
 
   userDetails: any;
@@ -85,6 +87,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.clear()
     this.userDetails = null;
+    this.chatservice.socket.disconnect()
     this.router.navigateByUrl('/userlogin');
   }
 }

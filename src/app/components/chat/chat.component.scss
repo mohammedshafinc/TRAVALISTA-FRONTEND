@@ -7,11 +7,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #eceff1;
 }
 .chat-body {
     width: 80%;
     height: 75%;
-    background-color: rgb(224, 224, 224);
+    // background-color: rgb(224, 224, 224);
+    background-color: white;
+    display: flex;
 }
 .left {
     width: 37%;
@@ -22,7 +25,7 @@
 .top {
     width: 100%;
     position: relative;
-    background-color: red;
+    // background-color: red;
     height: 96px;
     padding: 29px;
 }
@@ -48,4 +51,122 @@ input {
     background-color: #eceff1;
     border-radius: 21px;
     outline: none;
+}
+
+.people {
+    margin-left: -1px;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    width: calc(100% + 2px);
+}
+.person {
+    position: relative;
+    width: 100%;
+    padding: 12px 10% 16px;
+    cursor: pointer;
+}
+.person::after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    left: 50%;
+    // display: block;
+    width: 80%;
+    height: 1px;
+    background-color: #e6e6e6;
+    transform: translate(-50%, 0);
+}
+img{
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.name {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    color: black;
+}
+.time {
+    // font-size: 14px;
+    // margin-left: 77px;
+    // color: #999;
+    font-size: 14px;
+    position: absolute;
+    top: 16px;
+    right: 10%;
+    padding: 0 0 5px 5px;
+}
+
+// right side
+
+
+.right {
+    width: 62%;
+    height: 100%;
+    // background-color: red;
+   
+}
+.right-top {
+    width: 100%;
+    height: 47px;
+    padding: 15px 29px;
+    background-color: #eceff1;
+}
+span{
+    font-size: 15px;
+    color: #999;
+}
+.right-name{
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+
+.chat {
+    position: relative;
+    display: none;
+    overflow: hidden;
+    padding:  0 35px 92px;
+    background-color: #eceff1;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: #eceff1;
+    height: calc(100% - 48px);
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.write {
+    position: absolute;
+    bottom: 110px;
+    // left: 30px;
+    // right: 10px;
+    margin-left: 50px;
+    height: 42px;
+    padding-left: 8px;
+    border: 1px solid #e6e6e6;
+    background-color: #eceff1;
+    width: 600px;
+    border-radius: 5px;
+    input {
+        font-size: 16px;
+        float: left;
+        width: 347px;
+        height: 40px;
+        padding: 0 10px;
+
+        outline: none;
+    }
+}
+
+.msg {
+    position: absolute;
+    bottom: 123px;
+    right: 216px;
+    width: 30px;
+    height: 29px;
 }

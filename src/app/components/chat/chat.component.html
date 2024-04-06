@@ -8,6 +8,36 @@
                 <a href="" class="search"></a>
 
             </div>
+            <ul class="people">
+                <li class="person">
+                <img src="{{recieverImg}}" alt="no img">
+                <span class="name">{{recievername}}</span>
+                <span class="time">10:00</span>
+            </li>
+
+            </ul>
+
+
+            
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <span >To:  <span class="right-name">{{recievername}}</span></span>
+            </div>
+            <div class="chat">
+                
+            </div>
+            <div class="write">
+                <input type="text" [(ngModel)]="message" (keyup.enter)="send()">
+                 
+            </div>
+
+            <div *ngFor="let message of recievedMsg">
+                <p>{{message.message}}</p>
+            </div>
+            <div class="msg">
+                <button class="btn btn-primary" (click)="send()" type="button">chat</button>
+            </div>
 
         </div>
         <div>

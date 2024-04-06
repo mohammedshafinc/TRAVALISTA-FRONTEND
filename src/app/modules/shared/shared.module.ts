@@ -7,6 +7,7 @@ import { HomeComponent } from 'src/app/components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { GuideModule } from '../guide/guide.module';
 import { PackagesComponent } from '../guide/components/packages/packages.component';
+import { ChatComponent } from 'src/app/components/chat/chat.component';
 
 
 
@@ -16,9 +17,10 @@ import { PackagesComponent } from '../guide/components/packages/packages.compone
     FooterComponent,
     HomeComponent,
     PackagesComponent,
+    ChatComponent
   ],
   imports: [FormsModule, CommonModule, RouterModule],
 
-  exports: [HeaderComponent, FooterComponent, HomeComponent, PackagesComponent],
+  exports: [HeaderComponent, FooterComponent, HomeComponent, PackagesComponent, ChatComponent],
 })
 export class SharedModule {}
