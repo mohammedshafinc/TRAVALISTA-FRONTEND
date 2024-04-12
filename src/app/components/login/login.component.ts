@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private userdata: UserDAtaService,
     private chatService:ChatService
+
   ) {}
 
   viewPass() {
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.userdata.setLoader(true)
     try {
       this.signser.userLoginApi(this.loginForm.value).subscribe({
         next: (data: any) => {
@@ -71,6 +73,8 @@ export class LoginComponent implements OnInit {
             this.sendId = this.signser.tokendecode()
             // this.connectSocket()
             console.log(this.signser.type);
+    this.userdata.setLoader(false)
+
             this.redirectToHome();
 
            

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GuideService } from 'src/app/services/guide.service';
 import { SignupService } from 'src/app/services/signup.service';
+import { UserDAtaService } from 'src/app/services/userData.service';
 
 @Component({
   selector: 'app-guidelogin',
@@ -20,7 +21,8 @@ export class GuideloginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private guideservice: GuideService,
-    private signser: SignupService
+    private signser: SignupService,
+    private userdata:UserDAtaService
   ) {}
   ngOnInit(): void {
     this.guidelogin = this.fb.group({
@@ -50,11 +52,12 @@ export class GuideloginComponent implements OnInit {
 
   onsubmit() {
     console.log(this.guidelogin.value);
+    this.userdata.setLoader(true)
 
     try {
       this.guideservice.login(this.guidelogin.value).subscribe({
         next: (data) => {
-          
+          this.userdata.setLoader(false)
          if(data.guide){
           console.log(data.guideId);
           this.guideId = data.guideId;
@@ -71,6 +74,7 @@ export class GuideloginComponent implements OnInit {
          }
         },
         error: (error) => {
+          this.userdata.setLoader(false)
           console.log('error', error);
           this.errmsg = error.error.message;
         },

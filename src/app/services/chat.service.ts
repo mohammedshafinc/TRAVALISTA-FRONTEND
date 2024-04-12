@@ -38,7 +38,7 @@ ngOnInit(): void {
     }
 
     getPreviousMessage(userid:any):Observable<any> {
-        return this.http.get(`http://localhost:3000`)
+        return this.http.get(`http://localhost:5050/getpreviousmsg/${userid}`)
     }
 
     // disconnect(){

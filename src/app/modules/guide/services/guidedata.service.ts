@@ -9,7 +9,7 @@ export class GuidedataService {
 
   isLogout() {
     localStorage.clear();
-    this.router.navigateByUrl('/guide/guidelogin');
+    this.router.navigateByUrl('/guidelogin');
   }
   getGuideType() {
     const guideType = localStorage.getItem('type');
