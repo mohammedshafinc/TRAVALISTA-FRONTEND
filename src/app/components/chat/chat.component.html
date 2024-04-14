@@ -9,12 +9,23 @@
 
             </div>
             <ul class="people">
+            <ng-container  *ngIf="id.type === 'user'">
                 <li class="person">
-                <img src="{{recieverImg}}" alt="no img">
-                <span class="name">{{recievername}}</span>
-                <span class="time">10:00</span>
-            </li>
-
+                    <img src="{{recieverImg}}" alt="no img">
+                    <span class="name">{{recievername}}</span>
+                    <span class="time">10:00</span>
+                </li>
+                
+            </ng-container>
+        </ul>
+        <ul class="people">
+              <ng-container  *ngIf="id.type === 'guide'">
+                <li class="person" *ngFor="let msg of recievedMsg">
+                    <!-- <img src="{{recieverImg}}" alt="no img"> -->
+                    <span class="name">{{msg.sender}}</span>
+                    <span class="time">10:00</span>
+                </li>
+              </ng-container>
             </ul>
 
 

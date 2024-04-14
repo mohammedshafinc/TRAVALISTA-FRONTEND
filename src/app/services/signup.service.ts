@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {loginData} from '../model/userlogin'
+import { environment } from 'src/environments/environment';
 const headersContent = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
@@ -20,15 +21,15 @@ export class SignupService {
     this.isAuthenticated = true
   }
 
-  private Api = 'http://localhost:5050/usersignup';
+  private Api =  `${environment.userapi}/usersignup` ;
 
-  private otpApi = 'http://localhost:5050/verifyotp';
+  private otpApi =  `${environment.userapi}/verifyotp` ;
 
-  private usrloginApi = 'http://localhost:5050/userlogin ';
+  private usrloginApi =  `${environment.userapi}/userlogin`  ;
   
-  private getUser = 'http://localhost:5050/getprofile';
+  private getUser = ` ${environment.userapi}/getprofile `;
 
-  private editUser = 'http://localhost:5050/updateprofile'
+  private editUser = `${environment.userapi}/updateprofile` 
 
   
 

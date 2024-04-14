@@ -4,6 +4,7 @@ import { io, Socket } from 'socket.io-client';
 import { ChatService } from 'src/app/services/chat.service';
 import { GuideService } from 'src/app/services/guide.service';
 import { SignupService } from 'src/app/services/signup.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-chat',
@@ -54,9 +55,10 @@ export class ChatComponent {
           console.log(error);
         },
       });
+      this.getProfile();
     }
     this.recievedMessage();
-    this.getProfile();
+    
    
   }
 
@@ -146,7 +148,7 @@ export class ChatComponent {
     }
   }
   connectSocket() {
-    this.chatservice.socket = io('http://localhost:3000', {
+    this.chatservice.socket = io(environment.chat, {
       auth: {
         userid: `${this.id.id}`,
       },

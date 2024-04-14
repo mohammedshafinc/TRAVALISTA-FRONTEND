@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Socket } from "socket.io-client";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn:'root'
@@ -38,7 +39,7 @@ ngOnInit(): void {
     }
 
     getPreviousMessage(userid:any):Observable<any> {
-        return this.http.get(`http://localhost:5050/getpreviousmsg/${userid}`)
+        return this.http.get(`${environment.userapi}/getpreviousmsg/${userid}`)
     }
 
     // disconnect(){
