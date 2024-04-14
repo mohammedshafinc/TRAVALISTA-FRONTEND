@@ -6,6 +6,7 @@ import { GuideService } from 'src/app/services/guide.service';
 import { SignupService } from 'src/app/services/signup.service';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',

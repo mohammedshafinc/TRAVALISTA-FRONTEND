@@ -2,8 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Socket } from "socket.io-client";
-import { environment } from "src/environments/environment";
-
+import { environment } from 'src/environments/environment';
 @Injectable({
     providedIn:'root'
 })
