@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn:'root'
@@ -9,10 +10,10 @@ export class PaymentService {
 
     constructor( private http:HttpClient){}
 
-    createOrderApi = 'http://localhost:5050/createorder'
-    paymentSuccessApi = 'http://localhost:5050/paymentsuccess'
-    bookedpackageApi = 'http://localhost:5050/bookedpackages'
-
+    createOrderApi = `${environment.userapi}/createorder`
+    paymentSuccessApi = `${environment.userapi}/paymentsuccess`
+    bookedpackageApi = `${environment.userapi}/bookedpackages
+`
 
     createOrder(amount:Number):Observable<any>{
         console.log(amount);

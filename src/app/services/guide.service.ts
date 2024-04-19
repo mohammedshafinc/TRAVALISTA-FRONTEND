@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, retry } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,13 +9,13 @@ import { Observable, retry } from 'rxjs';
 export class GuideService {
   constructor(private http: HttpClient) {}
 
-  guidelogin = 'http://localhost:5050/guide/guidelogin';
-  guideRegApi = 'http://localhost:5050/guide/guideregister';
-  guideVerifyOtp = 'http://localhost:5050/guide/guideotpverify';
-  guideprofileApi = 'http://localhost:5050/guide/guideprofile';
-  guideprofileUpdateApi = 'http://localhost:5050/guide/guideprofileupdate';
-  guidePackageAdd = 'http://localhost:5050/guide/guideaddpackages';
-  getPackage = 'http://localhost:5050/guide/getpackages';
+  guidelogin = `${environment.userapi}/guide/guidelogin`;
+  guideRegApi = `${environment.userapi}/guide/guideregister`;
+  guideVerifyOtp = `${environment.userapi}/guide/guideotpverify`;
+  guideprofileApi = `${environment.userapi}/guide/guideprofile`;
+  guideprofileUpdateApi =` ${environment.userapi}/guide/guideprofileupdate`;
+  guidePackageAdd = `${environment.userapi}/guide/guideaddpackages`;
+  getPackage =` ${environment.userapi}/guide/getpackages`;
 
   guidereg(data: any): Observable<any> {
     return this.http.post(this.guideRegApi, data);
@@ -53,12 +54,12 @@ export class GuideService {
   SingleGuide(guideid:any):Observable<any> {
     console.log(guideid);
     
-    return this.http.get(`http://localhost:5050/guide/singleguide/${guideid}`)
+    return this.http.get(`${environment.userapi}/guide/singleguide/${guideid}`)
   }
 
   singleUser(userId:any):Observable<any> {
     console.log('haaai');
     
-    return this.http.get(`http://localhost:5050/guide/singleuser/${userId}`)
+    return this.http.get(`${environment.userapi}/guide/singleuser/${userId}`)
   }
 }
