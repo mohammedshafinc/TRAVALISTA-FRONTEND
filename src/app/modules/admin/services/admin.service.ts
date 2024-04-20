@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -8,14 +9,14 @@ import { Observable } from 'rxjs';
 export class AdminService {
   constructor(private http: HttpClient) {}
 
-  guideStatus = 'http://localhost:5050/admin/getpendingguide';
-  adminRespose = 'http://localhost:5050/admin/adminresponse';
-  getAllGuide = 'http://localhost:5050/admin/getguides';
-  getAllusers = 'http://localhost:5050/admin/getusers';
-  blockGuides = 'http://localhost:5050/admin/blockstatus';
-  getBlockedGuides = 'http://localhost:5050/admin/blocekdguides';
-  getBlockedUsers = 'http://localhost:5050/admin/blocekdusers';
-  blockedUser = 'http://localhost:5050/admin/userblock'
+  guideStatus = `http://${environment.userapi}/admin/getpendingguide`;
+  adminRespose = `http://${environment.userapi}/admin/adminresponse`;
+  getAllGuide = `http://${environment.userapi}/admin/getguides`;
+  getAllusers = `http://${environment.userapi}/admin/getusers`;
+  blockGuides = `http://${environment.userapi}/admin/blockstatus`;
+  getBlockedGuides = `http://${environment.userapi}/admin/blocekdguides`;
+  getBlockedUsers = `http://${environment.userapi}/admin/blocekdusers`;
+  blockedUser = `http://${environment.userapi}/admin/userblock`
 
   guidePendingStatus(): Observable<any> {
     return this.http.get<any>(this.guideStatus);

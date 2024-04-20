@@ -4,7 +4,7 @@ import { io, Socket } from 'socket.io-client';
 import { ChatService } from 'src/app/services/chat.service';
 import { GuideService } from 'src/app/services/guide.service';
 import { SignupService } from 'src/app/services/signup.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Component({

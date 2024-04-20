@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {loginData} from '../model/userlogin'
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 const headersContent = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
