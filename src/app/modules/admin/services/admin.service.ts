@@ -8,15 +8,14 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AdminService {
   constructor(private http: HttpClient) {}
-
-  guideStatus = `http://${environment.userapi}/admin/getpendingguide`;
-  adminRespose = `http://${environment.userapi}/admin/adminresponse`;
-  getAllGuide = `http://${environment.userapi}/admin/getguides`;
-  getAllusers = `http://${environment.userapi}/admin/getusers`;
-  blockGuides = `http://${environment.userapi}/admin/blockstatus`;
-  getBlockedGuides = `http://${environment.userapi}/admin/blocekdguides`;
-  getBlockedUsers = `http://${environment.userapi}/admin/blocekdusers`;
-  blockedUser = `http://${environment.userapi}/admin/userblock`
+  guideStatus = `${environment.userapi}/admin/getpendingguide`;
+  adminRespose = `${environment.userapi}/admin/adminresponse`;
+  getAllGuide = `${environment.userapi}/admin/getguides`;
+  getAllusers = `${environment.userapi}/admin/getusers`;
+  blockGuides = `${environment.userapi}/admin/blockstatus`;
+  getBlockedGuides = `${environment.userapi}/admin/blocekdguides`;
+  getBlockedUsers = `${environment.userapi}/admin/blocekdusers`;
+  blockedUser = `${environment.userapi}/admin/userblock`
 
   guidePendingStatus(): Observable<any> {
     return this.http.get<any>(this.guideStatus);

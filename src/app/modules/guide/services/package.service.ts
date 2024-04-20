@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +9,10 @@ import { Observable } from 'rxjs';
 export class PackageService {
   constructor(private http: HttpClient) {}
 
-  packageShow = 'http://localhost:5050/admin/showpackages';
-  selectedPackage = 'http://localhost:5050/guide/selectedpackage';
-  guidepackageupdate = 'http://localhost:5050/guide/guidepackageupdate'
-  deletePackageApi = 'http://localhost:5050/guide/deletepackage'
+  packageShow = `${environment.userapi}/admin/showpackages`;
+  selectedPackage = `${environment.userapi}/guide/selectedpackage`;
+  guidepackageupdate = `${environment.userapi}/guide/guidepackageupdate`
+  deletePackageApi = `${environment.userapi}/guide/deletepackage`
 
   getPackageshow(id: any): Observable<any> {
     const showPackages = `${this.packageShow}/${id}`;
